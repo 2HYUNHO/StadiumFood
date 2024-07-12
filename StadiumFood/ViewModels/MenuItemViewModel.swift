@@ -6,27 +6,30 @@
 //
 
 import SwiftUI
-import Firebase
 import FirebaseFirestore
-import FirebaseFirestoreSwift
 
 class MenuItemViewModel: ObservableObject {
     @Published var menuItems: [MenuItemModel] = []
-    private var db = Firestore.firestore()
     
-    init(stadiumId: String, restaurantId: String) {
-        fetchMenuItems(stadiumId: stadiumId, restaurantId: restaurantId)
-    }
-    
-    func fetchMenuItems(stadiumId: String, restaurantId: String) {
-        db.collection("stadiums").document(stadiumId).collection("restaurants").document(restaurantId).collection("menuItems").getDocuments { (querySnapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                self.menuItems = querySnapshot?.documents.compactMap { (queryDocumentSnapshot) -> MenuItemModel? in
-                    return try? queryDocumentSnapshot.data(as: MenuItemModel.self)
-                } ?? []
+    // 메뉴정보 가져오기
+    func fetchMenuItems(stadiumId: String, floorId: String, restaurantId: String) {
+        Firestore.firestore().collection("stadiums").document(stadiumId)
+            .collection(floorId).document(restaurantId)
+            .collection("menuItem")
+            .getDocuments { snapshot, error in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    self.menuItems = snapshot?.documents.compactMap { document -> MenuItemModel? in
+                        let data = document.data()
+                        let id = document.documentID
+                        let name = data["name"] as? String ?? ""
+                        let price = data["price"] as? Int ?? 0
+                        let menuImageURL = data["menuImageURL"] as? String ?? ""
+                     
+                        return MenuItemModel(id: id, name: name, price: price, menuImageURL: menuImageURL)
+                    } ?? []
+                }
             }
-        }
     }
 }

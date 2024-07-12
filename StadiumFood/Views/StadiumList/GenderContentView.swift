@@ -12,9 +12,7 @@ struct GenderContentView: View {
     let gender: Gender
     
     var body: some View {
-        Text("\(sportsCategory.rawValue) \(gender.rawValue) Food View")
-            .font(.largeTitle)
-            .padding()
+        Text("출시예정")
     }
 }
 

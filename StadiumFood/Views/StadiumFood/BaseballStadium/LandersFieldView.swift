@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct LandersFieldView: View {
+    @Namespace private var animation
+    @State private var selectedFloor: FloorCategoryModel.FloorCategory = .firstFloor
+    
     var body: some View {
-        VStack {
-            Text("랜더스필드")
-                .font(.title)
-        }
-        .padding()
+        StadiumView(selectedFloor: selectedFloor,
+                    animation: animation,
+                    stadiumId: "LandersField",
+                    stadiumName: "인천 SSG랜더스필드",
+                    floorIds: ["1층": "1F", "2층": "2F", "3층": "3F"],
+                    sportsCategory: .baseball)
     }
-}
-
-#Preview {
-    LandersFieldView()
 }

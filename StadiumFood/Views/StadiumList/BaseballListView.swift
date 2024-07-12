@@ -10,14 +10,11 @@ import Kingfisher
 
 struct BaseballListView: View {
     @ObservedObject var viewModel: StadiumViewModel
-    
-    init(viewModel: StadiumViewModel) {
-        self.viewModel = viewModel
-    }
+    @EnvironmentObject var favoritesViewModel: FavoritesViewModel
     
     var body: some View {
         List(viewModel.stadiums) { stadium in
-            NavigationLink(destination: viewModel.destinationViewForStadium(stadium)) {
+            NavigationLink(destination: viewModel.destinationViewForStadium(stadium, favoritesViewModel: favoritesViewModel)) {
                 VStack(alignment: .leading) {
                     HStack {
                         KFImage(URL(string: stadium.imageURL))

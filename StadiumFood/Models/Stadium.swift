@@ -17,4 +17,5 @@ struct StadiumModel: Identifiable, Codable {
     let destinationView: String
     let order: Int
     let restaurants: [RestaurantModel]
+    let floors: [String]
 }

@@ -29,34 +29,30 @@ class StadiumViewModel: ObservableObject {
                     let teams = data["teams"] as? [String] ?? []
                     let destinationView = data["destinationView"] as? String ?? ""
                     let imageURL = data["imageURL"] as? String ?? ""
-                    return StadiumModel(id: id, name: name, imageURL: imageURL, teams: teams, destinationView: destinationView, order: 0, restaurants: [])
+                    let floors = data["floors"] as? [String] ?? []
+                    return StadiumModel(id: id, name: name, imageURL: imageURL, teams: teams, destinationView: destinationView, order: 0, restaurants: [], floors: floors)
                 }
             }
         }
     }
     
     // 구장 뷰 이동 로직
-    func destinationViewForStadium(_ stadium: StadiumModel) -> some View {
-        switch stadium.destinationView {
-        case "JamsilView":
-            return AnyView(JamsilView())
-        case "GochuckView":
-            return AnyView(GochuckView())
-        case "WizParkView":
-            return AnyView(WizParkView())
-        case "LandersFieldView":
-            return AnyView(LandersFieldView())
-        case "EaglesParkView":
-            return AnyView(EaglesParkView())
-        case "LionsParkView":
-            return AnyView(LionsParkView())
-        case "ChampionsParkView":
-            return AnyView(ChampionsParkView())
-        case "NCParkView":
-            return AnyView(NCParkView())
-        case "SajicView":
-            return AnyView(SajicView())
-        default:
+    func destinationViewForStadium(_ stadium: StadiumModel, favoritesViewModel: FavoritesViewModel) -> AnyView {
+            let viewDictionary: [String: AnyView] = [
+                "JamsilView": AnyView(JamsilView().environmentObject(favoritesViewModel)),
+                "GochuckView": AnyView(GochuckView().environmentObject(favoritesViewModel)),
+                "WizParkView": AnyView(WizParkView().environmentObject(favoritesViewModel)),
+                "LandersFieldView": AnyView(LandersFieldView().environmentObject(favoritesViewModel)),
+                "EaglesParkView": AnyView(EaglesParkView().environmentObject(favoritesViewModel)),
+                "LionsParkView": AnyView(LionsParkView().environmentObject(favoritesViewModel)),
+                "ChampionsParkView": AnyView(ChampionsParkView().environmentObject(favoritesViewModel)),
+                "NCParkView": AnyView(NCParkView().environmentObject(favoritesViewModel)),
+                "SajicView": AnyView(SajicView().environmentObject(favoritesViewModel))
+            ]
+        
+        if let view = viewDictionary[stadium.destinationView] {
+            return view
+        } else {
             return AnyView(Text("기본적으로 표시할 뷰입니다."))
         }
     }

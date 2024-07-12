@@ -10,6 +10,7 @@ import SwiftUI
 struct CategoryView: View {
     @State private var selectedCategory: SportsCategory = .baseball
     @Namespace private var animation
+    @StateObject var stadiumViewModel = StadiumViewModel()
     
     var body: some View {
         NavigationView {
@@ -26,9 +27,17 @@ struct CategoryView: View {
         }
     }
     
-    private func contentView(for sportsCategory: SportsCategory) -> some View {
-        let stadiumViewModel = StadiumViewModel() // 임의의 값으로 StadiumViewModel 생성
-        return CategoryContentView(stadiumViewModel: stadiumViewModel, sportsCategory: sportsCategory)
-            .transition(.opacity) // 콘텐츠 전환 애니메이션 추가 (선택적)
-    }
+    @ViewBuilder
+        private func contentView(for sportsCategory: SportsCategory) -> some View {
+            switch sportsCategory {
+            case .baseball:
+                BaseballListView(viewModel: stadiumViewModel)
+            case .basketball:
+                GenderCategoryView(sportsCategory: sportsCategory)
+            case .soccer:
+                SoccerListView()
+            case .volleyball:
+                GenderCategoryView(sportsCategory: sportsCategory)
+            }
+        }
 }

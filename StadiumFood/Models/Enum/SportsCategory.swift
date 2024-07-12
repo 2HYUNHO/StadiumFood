@@ -17,13 +17,13 @@ enum SportsCategory: String, CaseIterable {
     var imageName: String {
         switch self {
         case .baseball:
-            return "Baseball"
+            return "⚾️"
         case .soccer:
-            return "Soccer"
+            return "⚽️"
         case .basketball:
-            return "Basketball"
+            return "🏀"
         case .volleyball:
-            return "Volleyball"
+            return "🏐"
         }
     }
 }

@@ -12,7 +12,3 @@ struct HomeView: View {
         CategoryView()
     }
 }
-
-#Preview {
-    HomeView()
-}

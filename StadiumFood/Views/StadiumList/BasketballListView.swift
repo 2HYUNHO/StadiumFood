@@ -9,6 +9,6 @@ import SwiftUI
 
 struct BasketballListView: View {
     var body: some View {
-        Text("농구")
+        Text("출시예정")
     }
 }
