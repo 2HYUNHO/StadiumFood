@@ -13,5 +13,11 @@ struct MenuItemModel: Identifiable, Codable  {
     var id: String?
     let name: String                    // 음식이름
     let price: Int                      // 음식가격
-    let menuImageURL: String            // 음식사진
+    let subMenu: [String]
+    let order: Int
+    
+    
+    
+    
+//    let menuImageURL: String            // 음식사진
 }

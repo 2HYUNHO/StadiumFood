@@ -67,6 +67,11 @@
 		9193A6012BFE4C2C000B5B9A /* GenderCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A6002BFE4C2C000B5B9A /* GenderCategoryView.swift */; };
 		9193A6032BFE4D50000B5B9A /* GenderContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A6022BFE4D50000B5B9A /* GenderContentView.swift */; };
 		9193A6062C006812000B5B9A /* JamsilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A6052C006812000B5B9A /* JamsilView.swift */; };
+		91B2AA0B2C41288D00829C78 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B2AA0A2C41288D00829C78 /* Bundle.swift */; };
+		91B2AA0D2C43904E00829C78 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B2AA0C2C43904E00829C78 /* Notice.swift */; };
+		91B2AA0F2C43908000829C78 /* NoticesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B2AA0E2C43908000829C78 /* NoticesViewModel.swift */; };
+		91B2AA112C43937300829C78 /* NoticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B2AA102C43937300829C78 /* NoticeListView.swift */; };
+		91B2AA142C4393F000829C78 /* NoticeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B2AA132C4393F000829C78 /* NoticeDetailView.swift */; };
 		91E851132BFE3474004DE2AD /* StadiumFoodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E851122BFE3474004DE2AD /* StadiumFoodApp.swift */; };
 		91E851152BFE3474004DE2AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E851142BFE3474004DE2AD /* ContentView.swift */; };
 		91E851172BFE3474004DE2AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91E851162BFE3474004DE2AD /* Assets.xcassets */; };
@@ -115,6 +120,12 @@
 		9193A6002BFE4C2C000B5B9A /* GenderCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCategoryView.swift; sourceTree = "<group>"; };
 		9193A6022BFE4D50000B5B9A /* GenderContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderContentView.swift; sourceTree = "<group>"; };
 		9193A6052C006812000B5B9A /* JamsilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamsilView.swift; sourceTree = "<group>"; };
+		91B2AA0A2C41288D00829C78 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		91B2AA0C2C43904E00829C78 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		91B2AA0E2C43908000829C78 /* NoticesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesViewModel.swift; sourceTree = "<group>"; };
+		91B2AA102C43937300829C78 /* NoticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeListView.swift; sourceTree = "<group>"; };
+		91B2AA132C4393F000829C78 /* NoticeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailView.swift; sourceTree = "<group>"; };
+		91B2AA152C43C8E000829C78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		91E8510F2BFE3474004DE2AD /* StadiumFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StadiumFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E851122BFE3474004DE2AD /* StadiumFoodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiumFoodApp.swift; sourceTree = "<group>"; };
 		91E851142BFE3474004DE2AD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -176,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				914655932C37C6C50005B2D5 /* SwipeBackExtension.swift */,
+				91B2AA0A2C41288D00829C78 /* Bundle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -209,10 +221,10 @@
 		914DC11F2C00700C00F3D3F6 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				9139A9F52C11B27600883DAF /* Favorite */,
-				91E851242BFE34C9004DE2AD /* HomeView.swift */,
-				9193A5FC2BFE46C1000B5B9A /* SettingsView.swift */,
 				9193A5F82BFE4676000B5B9A /* TabBarView.swift */,
+				91E851242BFE34C9004DE2AD /* HomeView.swift */,
+				9139A9F52C11B27600883DAF /* Favorite */,
+				915E30D32C4120DB005DCAB1 /* Settings */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -234,6 +246,15 @@
 			path = BaseballStadium;
 			sourceTree = "<group>";
 		};
+		915E30D32C4120DB005DCAB1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9193A5FC2BFE46C1000B5B9A /* SettingsView.swift */,
+				91B2AA122C43939B00829C78 /* Notice */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		91772D5F2C0497B7003EFCC7 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +271,15 @@
 				914655852C2D35150005B2D5 /* MenuItem */,
 			);
 			path = StadiumFood;
+			sourceTree = "<group>";
+		};
+		91B2AA122C43939B00829C78 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				91B2AA102C43937300829C78 /* NoticeListView.swift */,
+				91B2AA132C4393F000829C78 /* NoticeDetailView.swift */,
+			);
+			path = Notice;
 			sourceTree = "<group>";
 		};
 		91E851062BFE3474004DE2AD = {
@@ -272,6 +302,7 @@
 		91E851112BFE3474004DE2AD /* StadiumFood */ = {
 			isa = PBXGroup;
 			children = (
+				91B2AA152C43C8E000829C78 /* Info.plist */,
 				91772D5F2C0497B7003EFCC7 /* Utility */,
 				91E851202BFE3483004DE2AD /* Models */,
 				91E851222BFE3494004DE2AD /* ViewModels */,
@@ -299,6 +330,7 @@
 				91E8512C2BFE364E004DE2AD /* Stadium.swift */,
 				91E8512E2BFE366C004DE2AD /* Restaurant.swift */,
 				91E851302BFE367E004DE2AD /* MenuItem.swift */,
+				91B2AA0C2C43904E00829C78 /* Notice.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -321,6 +353,7 @@
 				91772D682C08B470003EFCC7 /* RestaurantViewModel.swift */,
 				914655892C2D4B9E0005B2D5 /* MenuItemViewModel.swift */,
 				91178DB32C1039A500C18EFF /* FavoritesViewModel.swift */,
+				91B2AA0E2C43908000829C78 /* NoticesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -329,8 +362,8 @@
 			isa = PBXGroup;
 			children = (
 				9146558B2C2D4EF50005B2D5 /* StadiumEnum.swift */,
-				91E851282BFE35D9004DE2AD /* SportsCategory.swift */,
 				9139A9F82C22CCFA00883DAF /* FloorCategory.swift */,
+				91E851282BFE35D9004DE2AD /* SportsCategory.swift */,
 				9193A5FE2BFE4BF2000B5B9A /* Gender.swift */,
 			);
 			path = Enum;
@@ -485,20 +518,24 @@
 				91772D1A2C01B139003EFCC7 /* MenuInfoView.swift in Sources */,
 				914DC1302C007A3600F3D3F6 /* NCParkView.swift in Sources */,
 				91E8512F2BFE366C004DE2AD /* Restaurant.swift in Sources */,
+				91B2AA142C4393F000829C78 /* NoticeDetailView.swift in Sources */,
 				91178DB42C1039A500C18EFF /* FavoritesViewModel.swift in Sources */,
 				914DC1282C0079EF00F3D3F6 /* LandersFieldView.swift in Sources */,
 				91772D692C08B470003EFCC7 /* RestaurantViewModel.swift in Sources */,
+				91B2AA0D2C43904E00829C78 /* Notice.swift in Sources */,
 				91E8513F2BFE3E7F004DE2AD /* SoccerListView.swift in Sources */,
 				91E851292BFE35D9004DE2AD /* SportsCategory.swift in Sources */,
 				91E851312BFE367E004DE2AD /* MenuItem.swift in Sources */,
 				91E851412BFE3E89004DE2AD /* VolleyballListView.swift in Sources */,
 				9193A6062C006812000B5B9A /* JamsilView.swift in Sources */,
 				9193A5F92BFE4676000B5B9A /* TabBarView.swift in Sources */,
+				91B2AA0B2C41288D00829C78 /* Bundle.swift in Sources */,
 				91E851332BFE3770004DE2AD /* CategoryView.swift in Sources */,
 				9193A6012BFE4C2C000B5B9A /* GenderCategoryView.swift in Sources */,
 				914DC12A2C007A0900F3D3F6 /* EaglesParkView.swift in Sources */,
 				914DC1322C007A3F00F3D3F6 /* SajicView.swift in Sources */,
 				914DC1362C01A7F700F3D3F6 /* FloorCategoryView.swift in Sources */,
+				91B2AA0F2C43908000829C78 /* NoticesViewModel.swift in Sources */,
 				914DC1262C0079DE00F3D3F6 /* WizParkView.swift in Sources */,
 				91E8513D2BFE3E37004DE2AD /* BasketballListView.swift in Sources */,
 				9193A5FB2BFE46B9000B5B9A /* FavoritesView.swift in Sources */,
@@ -508,6 +545,7 @@
 				914DC13E2C01AB7500F3D3F6 /* BaseballListView.swift in Sources */,
 				91E851132BFE3474004DE2AD /* StadiumFoodApp.swift in Sources */,
 				9139A9F72C11B28E00883DAF /* FavoriteListView.swift in Sources */,
+				91B2AA112C43937300829C78 /* NoticeListView.swift in Sources */,
 				9146558A2C2D4B9E0005B2D5 /* MenuItemViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,15 +677,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_ASSET_PATHS = "\"StadiumFood/Preview Content\"";
 				DEVELOPMENT_TEAM = 3RPK5DBMDK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StadiumFood/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "구장먹거리";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -655,9 +695,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hh.StadiumFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -669,15 +710,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_ASSET_PATHS = "\"StadiumFood/Preview Content\"";
 				DEVELOPMENT_TEAM = 3RPK5DBMDK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StadiumFood/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "구장먹거리";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -685,9 +728,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hh.StadiumFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

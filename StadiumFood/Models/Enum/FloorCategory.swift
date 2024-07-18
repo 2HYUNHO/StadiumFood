@@ -7,6 +7,7 @@
 
 import Foundation
 
+// 층을 나타내는 열거형
 struct FloorCategoryModel {
     
     // 야구장을 구분하는 enum
@@ -16,6 +17,7 @@ struct FloorCategoryModel {
         case wizPark = "수원 KT위즈파크"
         case landersField = "인천 SSG랜더스필드"
         case championsField = "광주 기아챔피언스필드"
+        case ncPark = "창원 NC파크"
         
         var floors: [FloorCategory] {
             switch self {
@@ -24,8 +26,10 @@ struct FloorCategoryModel {
             case .gocheok:
                 return [.gocheokInfieldSecondFloor, .gocheokInfieldFourthFloor, .gocheokOutfieldThirdFloor, .gocheokOutfieldFourthFloor]
             case .wizPark:
-                return [.firstFloor, .wizParkTopOfSecondFloor, .thirdFloor]
+                return [.firstFloor, .wizParkTopOfSecondFloor, .wizParkBottomOfSecondFloor]
             case .landersField:
+                return [.firstFloor, .secondFloor, .thirdFloor]
+            case .ncPark:
                 return [.firstFloor, .secondFloor, .thirdFloor]
             case .championsField:
                 return [.firstFloor, .secondFloor, .thirdFloor, .fourthFloor, .fifthFloor]
@@ -53,6 +57,7 @@ struct FloorCategoryModel {
         
         // 수원 KTWiz파크의 층
         case wizParkTopOfSecondFloor = "2층 상단"
+        case wizParkBottomOfSecondFloor = "2층 하단"
         
         var stadium: Stadium {
             switch self {
@@ -62,7 +67,7 @@ struct FloorCategoryModel {
                 return .gocheok
             case .thirdFloor, .fourthFloor, .fifthFloor:
                 return .championsField
-            case .wizParkTopOfSecondFloor:
+            case .wizParkTopOfSecondFloor, .wizParkBottomOfSecondFloor:
                 return .wizPark
             }
         }
@@ -71,5 +76,3 @@ struct FloorCategoryModel {
         }
     }
 }
-
-

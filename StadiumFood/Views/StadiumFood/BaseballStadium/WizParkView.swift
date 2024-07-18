@@ -16,7 +16,7 @@ struct WizParkView: View {
                     animation: animation,
                     stadiumId: "KTwiz",
                     stadiumName: "수원 KT위즈파크",
-                    floorIds: ["1층": "1F", "2층 상단": "2F TOP", "3층": "3F"],
+                    floorIds: ["1층": "1F", "2층 상단": "2F TOP", "2층 하단": "2F BOTTOM"],
                     sportsCategory: .baseball)
     }
 }

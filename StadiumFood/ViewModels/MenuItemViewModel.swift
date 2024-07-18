@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 import FirebaseFirestore
 
 class MenuItemViewModel: ObservableObject {
@@ -25,10 +26,14 @@ class MenuItemViewModel: ObservableObject {
                         let id = document.documentID
                         let name = data["name"] as? String ?? ""
                         let price = data["price"] as? Int ?? 0
-                        let menuImageURL = data["menuImageURL"] as? String ?? ""
-                     
-                        return MenuItemModel(id: id, name: name, price: price, menuImageURL: menuImageURL)
+                        let subMenu = data["subMenu"] as? [String] ?? []
+                        let order = data["order"] as? Int ?? Int.max
+                        
+                        return MenuItemModel(id: id, name: name, price: price, subMenu: subMenu, order: order)
                     } ?? []
+                    
+                    // order 값을 기준으로 정렬
+                    self.menuItems.sort { $0.order < $1.order }
                 }
             }
     }

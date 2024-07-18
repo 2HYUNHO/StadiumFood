@@ -130,6 +130,8 @@ struct StadiumView: View {
             return .wizPark
         case "LandersField":
             return .landersField
+        case "NCPark":
+            return .ncPark
         default:
             return .jamsil
         }

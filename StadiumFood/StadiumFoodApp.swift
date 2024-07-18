@@ -12,6 +12,8 @@ import Firebase
 struct StadiumFoodApp: App {
     init() {
         FirebaseApp.configure()
+   
+        Thread.sleep(forTimeInterval: 0.5)
     }
     
     var body: some Scene {
