@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct SajicView: View {
+    @Namespace private var animation
+    @State private var selectedFloor: FloorCategoryModel.FloorCategory = .firstFloor
+    private let stadium = StadiumEnum.sajic
+    
     var body: some View {
-        VStack {
-            Text("사직구장")
-                .font(.title)
-        }
-        .padding()
+        StadiumView(selectedFloor: selectedFloor,
+                    animation: animation,
+                    stadiumId: stadium.id,
+                    stadiumName: stadium.name,
+                    floorIds: stadium.floors,
+                    sportsCategory: .baseball)
     }
-}
-
-#Preview {
-    SajicView()
 }

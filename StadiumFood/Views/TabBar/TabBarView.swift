@@ -10,9 +10,10 @@ import SwiftUI
 struct TabBarView: View {
     @StateObject var viewModel = StadiumViewModel()
     @StateObject var favoritesViewModel = FavoritesViewModel()
+    @State private var selectedTab = 0 // 현재 선택된 탭의 인덱스
     
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             // 홈화면
             HomeView()
                 .tabItem {

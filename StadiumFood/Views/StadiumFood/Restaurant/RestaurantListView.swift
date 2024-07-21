@@ -16,7 +16,7 @@ struct RestaurantListView: View {
         HStack(spacing: 15) {
             KFImage(URL(string: restaurant.restaurantImageUrl ?? ""))
                 .placeholder {
-                    Image(systemName: "photo")
+                    Image("NoImage")
                         .resizable()
                 }
                 .resizable()

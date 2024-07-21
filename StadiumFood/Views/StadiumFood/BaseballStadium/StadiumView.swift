@@ -25,7 +25,7 @@ struct StadiumView: View {
         NavigationView {
             VStack(alignment: .leading) {
                 // 층 분류
-                FloorCategoryView(selectedCategory: $selectedFloor, animation: animation, stadium: getStadiumEnum(stadiumId))
+                FloorCategoryView(selectedCategory: $selectedFloor, animation: animation, stadium: getStadium(from: stadiumId))
                 
                 // 위치 필터
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -57,7 +57,7 @@ struct StadiumView: View {
                 
                 // 가게 리스트
                 TabView(selection: $selectedFloor) {
-                    ForEach(getStadiumEnum(stadiumId).floors, id: \.self) { floorCategory in
+                    ForEach(getStadium(from: stadiumId).floors, id: \.self) { floorCategory in
                         VStack {
                             if restaurantViewModel.restaurants.isEmpty {
                                 Text("메뉴 정보가 없습니다.")
@@ -122,18 +122,30 @@ struct StadiumView: View {
         }
     }
     
-    private func getStadiumEnum(_ stadiumId: String) -> FloorCategoryModel.Stadium {
-        switch stadiumId {
-        case "Jamsil":
+    private func getStadium(from stadiumId: String) -> FloorCategoryModel.Stadium {
+        guard let stadiumEnum = StadiumEnum(rawValue: stadiumId) else {
+            return .jamsil // 기본값을 설정
+        }
+        
+        switch stadiumEnum {
+        case .jamsil:
             return .jamsil
-        case "KTwiz":
+        case .gochuck:
+            return .gochuck
+        case .wizPark:
             return .wizPark
-        case "LandersField":
+        case .landersField:
             return .landersField
-        case "NCPark":
+        case .eaglesPark:
+            return .eaglesPark
+        case .lionsPark:
+            return .lionsPark
+        case .championsField:
+            return .championsField
+        case .ncPark:
             return .ncPark
-        default:
-            return .jamsil
+        case .sajic:
+            return .sajic
         }
     }
 }

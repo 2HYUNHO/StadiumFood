@@ -10,13 +10,14 @@ import SwiftUI
 struct JamsilView: View {
     @Namespace private var animation
     @State private var selectedFloor: FloorCategoryModel.FloorCategory = .firstFloor
+    private let stadium = StadiumEnum.jamsil
     
     var body: some View {
         StadiumView(selectedFloor: selectedFloor,
                     animation: animation,
-                    stadiumId: "Jamsil",
-                    stadiumName: "서울 잠실야구장",
-                    floorIds: ["1층": "1F", "2층": "2F", "3/4층": "3F"],
+                    stadiumId: stadium.id,
+                    stadiumName: stadium.name,
+                    floorIds: stadium.floors,
                     sportsCategory: .baseball)
     }
 }

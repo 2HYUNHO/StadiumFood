@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct EaglesParkView: View {
+    @Namespace private var animation
+    @State private var selectedFloor: FloorCategoryModel.FloorCategory = .firstBase
+    private let stadium = StadiumEnum.eaglesPark
+    
     var body: some View {
-        VStack {
-            Text("이글스파크")
-                .font(.title)
-        }
-        .padding()
+        StadiumView(selectedFloor: selectedFloor,
+                    animation: animation,
+                    stadiumId: stadium.id,
+                    stadiumName: stadium.name,
+                    floorIds: stadium.floors,
+                    sportsCategory: .baseball)
     }
-}
-
-#Preview {
-    EaglesParkView()
 }

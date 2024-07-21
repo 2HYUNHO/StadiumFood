@@ -9,14 +9,15 @@ import SwiftUI
 
 struct WizParkView: View {
     @Namespace private var animation
-    @State private var selectedFloor: FloorCategoryModel.FloorCategory = .firstFloor
+    @State private var selectedFloor: FloorCategoryModel.FloorCategory = .wizParkTopOfSecondFloor
+    private let stadium = StadiumEnum.wizPark
     
     var body: some View {
         StadiumView(selectedFloor: selectedFloor,
                     animation: animation,
-                    stadiumId: "KTwiz",
-                    stadiumName: "수원 KT위즈파크",
-                    floorIds: ["1층": "1F", "2층 상단": "2F TOP", "2층 하단": "2F BOTTOM"],
+                    stadiumId: stadium.id,
+                    stadiumName: stadium.name,
+                    floorIds: stadium.floors,
                     sportsCategory: .baseball)
     }
 }
