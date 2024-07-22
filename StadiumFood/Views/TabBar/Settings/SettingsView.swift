@@ -1,10 +1,17 @@
+//
+//  SettingsView.swift
+//  StadiumFood
+//
+//  Created by 이현호 on 7/14/24.
+//
+
 import SwiftUI
+import Firebase
+import FirebaseMessaging
+import UserNotifications
 
 struct SettingsView: View {
-    @State private var isDarkMode = false
-    @State private var isPushNotificationEnabled = true
-    @State private var isEmailNotificationEnabled = false
-    @State private var isSMSNotificationEnabled = false
+    @State private var isPushNotificationEnabled: Bool = UserDefaults.standard.bool(forKey: "isPushNotificationEnabled")
     
     private let latestVersion = "1.0.0" // 최신 버전 정보
     
@@ -40,6 +47,18 @@ struct SettingsView: View {
                             Label("알림기능", systemImage: "bell")
                                 .padding(.bottom, 12)
                         }
+                        .onChange(of: isPushNotificationEnabled) { newValue in
+                            UserDefaults.standard.set(newValue, forKey: "isPushNotificationEnabled")
+                            
+                            if newValue {
+                                subscribeToAlertsTopic()
+                            } else {
+                                unsubscribeFromAlertsTopic()
+                            }
+                        }
+                        .onAppear {
+                            restoreNotificationSettings()
+                        }
                         
                         // 앱 공유하기
                         ShareLink(item: URL(string: "https://www.example.com")!) {
@@ -74,6 +93,38 @@ struct SettingsView: View {
                         .foregroundStyle(.gray)
                         .padding()
                 }
+            }
+        }
+    }
+    
+    private func restoreNotificationSettings() {
+        // UserDefaults에서 알림 상태 읽기
+        isPushNotificationEnabled = UserDefaults.standard.bool(forKey: "isPushNotificationEnabled")
+        
+        // 알림 기능 상태에 따라 FCM 주제 구독/해제
+        if isPushNotificationEnabled {
+            subscribeToAlertsTopic()
+        } else {
+            unsubscribeFromAlertsTopic()
+        }
+    }
+    
+    private func subscribeToAlertsTopic() {
+        Messaging.messaging().subscribe(toTopic: "Alerts") { error in
+            if let error = error {
+                print("FCM 구독 실패: \(error.localizedDescription)")
+            } else {
+                print("FCM 구독 성공")
+            }
+        }
+    }
+    
+    private func unsubscribeFromAlertsTopic() {
+        Messaging.messaging().unsubscribe(fromTopic: "Alerts") { error in
+            if let error = error {
+                print("FCM 구독 해제 실패: \(error.localizedDescription)")
+            } else {
+                print("FCM 구독 해제 성공")
             }
         }
     }

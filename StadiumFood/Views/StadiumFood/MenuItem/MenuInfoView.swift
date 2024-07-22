@@ -55,7 +55,7 @@ struct MenuInfoView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
-                        .foregroundColor(.accentColor)
+                        .foregroundStyle(Color(.label))
                 }
             }
         }
