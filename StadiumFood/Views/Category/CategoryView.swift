@@ -22,7 +22,7 @@ struct CategoryView: View {
                             .tag(sportsCategory)
                     }
                 }
-                .tabViewStyle(PageTabViewStyle())
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             }
         }
     }

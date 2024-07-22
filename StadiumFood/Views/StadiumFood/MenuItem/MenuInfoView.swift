@@ -25,8 +25,16 @@ struct MenuInfoView: View {
             // 메뉴 리스트 표시
             if menuItemViewModel.menuItems.isEmpty {
                 Text("메뉴 정보가 없습니다.")
-                    .foregroundColor(.gray)
+                    .foregroundStyle(.gray)
                     .padding()
+            } else if restaurant.foodCategory == "편의점" {
+                Spacer()
+                
+                Text("편의점은 메뉴를 제공하지 않습니다.")
+                    .foregroundStyle(.gray)
+                    .font(.system(size: 18))
+                    .padding()
+                
             } else {
                 ScrollView {
                     VStack(spacing: 15) {

@@ -24,6 +24,7 @@ struct SettingsView: View {
                         // 공지사항 및 버전 정보
                         NavigationLink(destination: NoticeListView()) {
                             Label("공지사항", systemImage: "megaphone")
+                                .padding(.bottom, 12)
                         }
                         
                         HStack {
@@ -32,27 +33,31 @@ struct SettingsView: View {
                             Text("v\(Bundle.main.appVersion ?? "Unknown") \(versionStatus)")
                                 .foregroundStyle(.gray)
                         }
+                        .padding(.bottom, 12)
                         
                         // 알림 설정
                         Toggle(isOn: $isPushNotificationEnabled) {
                             Label("알림기능", systemImage: "bell")
+                                .padding(.bottom, 12)
                         }
                         
                         // 앱 공유하기
                         ShareLink(item: URL(string: "https://www.example.com")!) {
                             Label("앱 공유하기", systemImage: "square.and.arrow.up")
+                                .padding(.bottom, 12)
                         }
                         
                         // 약관 및 정책
                         NavigationLink(destination: Text("서비스 이용약관")) {
                             Label("서비스 이용약관", systemImage: "doc.text")
+                                .padding(.bottom, 12)
                         }
                         
                         NavigationLink(destination: Text("개인정보처리방침")) {
                             Label("개인정보처리방침", systemImage: "lock.shield")
+                                .padding(.bottom, 12)
                         }
                     }
-                    .padding(.vertical, 5)
                     .listRowSeparator(.hidden, edges: .bottom)
                 }
                 .listStyle(.plain)
