@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 import FirebaseMessaging
+import UserNotifications
 
 @main
 struct StadiumFoodApp: App {
@@ -21,67 +22,69 @@ struct StadiumFoodApp: App {
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    
-    // 앱이 켜졌을 때
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
-        // Firebase 초기화
+        // 파이어베이스 설정
         FirebaseApp.configure()
         
-        // 원격 알림 등록
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().delegate = self
-            
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { granted, error in
-                if let error = error {
-                    print("알림 권한 요청 실패: \(error.localizedDescription)")
-                }
-                print("알림 권한 승인: \(granted)")
-            }
-        } else {
-            let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-        }
+        // 앱 실행 시 사용자에게 알림 허용 권한을 받음
+        UNUserNotificationCenter.current().delegate = self
         
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: { granted, error in
+                if granted {
+                    print("알림 권한이 허용되었습니다.")
+                } else {
+                    print("알림 권한이 거부되었습니다.")
+                }
+            }
+        )
+        
+        // 원격 알림 등록
         application.registerForRemoteNotifications()
         
-        // Cloud Messaging delegate 설정
+        // 파이어베이스 Meesaging 설정
         Messaging.messaging().delegate = self
         
         return true
     }
 }
 
-// Cloud Messaging Delegate
-extension AppDelegate: MessagingDelegate {
+extension AppDelegate: UNUserNotificationCenterDelegate {
     
-    // FCM 등록 토큰을 받았을 때
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("FCM 토큰을 받았습니다: \(String(describing: fcmToken))")
-        // FCM 토큰을 사용하여 서버에서 사용자에게 메시지를 보낼 수 있습니다.
+    // 백그라운드에서 푸시 알림을 탭했을 때 실행
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("APNS token: \(deviceToken)")
+        Messaging.messaging().apnsToken = deviceToken
+    }
+    
+    // Foreground(앱 켜진 상태)에서도 알림 오는 설정
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        if !SettingsViewModel.shared.isPushNotificationEnabled {
+            completionHandler([])
+        } else {
+            completionHandler([.list, .banner])
+        }
     }
 }
 
-// User Notifications Delegate
-@available(iOS 10, *)
-extension AppDelegate: UNUserNotificationCenterDelegate {
-  
-    // 앱이 포그라운드에 있을 때 알림이 수신될 때
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
-        print("알림 수신: \(userInfo)")
-        completionHandler([.banner, .badge, .sound])
-    }
-
-    // 사용자 알림을 탭했을 때
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
-        print("알림 탭: \(userInfo)")
-        completionHandler()
+extension AppDelegate: MessagingDelegate {
+    
+    // 파이어베이스 MessagingDelegate 설정
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("Firebase registration token: \(String(describing: fcmToken))")
+        
+        let dataDict: [String: String] = ["token": fcmToken ?? ""]
+        NotificationCenter.default.post(
+            name: Notification.Name("FCMToken"),
+            object: nil,
+            userInfo: dataDict
+        )
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
 }
