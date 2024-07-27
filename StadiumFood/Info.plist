@@ -6,6 +6,8 @@
 	<array>
 		<string>com.hh.StadiumFood</string>
 	</array>
+	<key>LatestVersion</key>
+	<string>1.0.0</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>UIBackgroundModes</key>

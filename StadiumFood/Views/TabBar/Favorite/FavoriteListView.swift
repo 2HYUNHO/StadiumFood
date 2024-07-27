@@ -46,7 +46,7 @@ struct FavoriteListView: View {
             .onMove { source, destinateion in
                 favoritesViewModel.moveFavoriteStadium(from: source, to: destinateion, category: category.rawValue)
             }
-            .listRowSeparator(.hidden)
+//            .listRowSeparator(.hidden)
             
             // 즐겨찾기 한 구장이 없을 때
             if stadiumNames.isEmpty {

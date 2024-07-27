@@ -22,6 +22,15 @@ class SettingsViewModel: ObservableObject {
     
     private var notificationCenter = UNUserNotificationCenter.current()
     
+    // 최신 버전 정보를 Info.plist에서 읽어오는 프로퍼티
+    var latestVersion: String {
+        if let latestVersion = Bundle.main.object(forInfoDictionaryKey: "LatestVersion") as? String {
+            return latestVersion
+        } else {
+            return "Unknown"
+        }
+    }
+    
     private init() {
         self.isPushNotificationEnabled = UserDefaults.standard.bool(forKey: "isPushNotificationEnabled")
         checkNotificationAuthorizationStatus()

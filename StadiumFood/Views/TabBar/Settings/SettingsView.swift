@@ -9,14 +9,14 @@ import SwiftUI
 
 struct SettingsView: View {
     @StateObject private var viewModel = SettingsViewModel.shared
-    
-    private let latestVersion = "1.0.0" // 최신 버전 정보
-    
+    @State private var showToast = false
+    @State private var toastMessage = ""
+
     private var versionStatus: String {
-        if Bundle.main.appVersion == latestVersion {
-            return "(최신)"
+        if let currentVersion = Bundle.main.appVersion {
+            return currentVersion == viewModel.latestVersion ? "(최신)" : "(업데이트 필요"
         } else {
-            return "(업데이트 필요)"
+            return "(버전 확인 불가)"
         }
     }
     
@@ -34,7 +34,7 @@ struct SettingsView: View {
                         HStack {
                             Label("버전정보", systemImage: "info.circle")
                             Spacer()
-                            Text("v\(Bundle.main.appVersion ?? "Unknown") \(versionStatus)")
+                            Text("v \(Bundle.main.appVersion ?? "Unknown") \(versionStatus)")
                                 .foregroundStyle(.gray)
                         }
                         .padding(.bottom, 12)
@@ -69,10 +69,21 @@ struct SettingsView: View {
                 
                 Spacer()
                 
-                Button {
+                // Toast 메시지 뷰
+                ToastView(message: toastMessage, isShowing: $showToast)
+                
+                // 문의 및 제보 버튼
+                Button(action: {
                     UIPasteboard.general.string = "StadiumFood@email.com"
-                } label: {
-                    Label("문의 및 제보 StadiumFood\("@")email.com", systemImage: "doc.on.doc")
+                    toastMessage = "클립보드에 복사되었습니다."
+                    showToast = true
+                    
+                    // 1초 후에 Toast 메시지 숨기기
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        showToast = false
+                    }
+                }) {
+                    Label("문의 및 제보 gujangfood\("@")gmail.com", systemImage: "doc.on.doc")
                         .labelStyle(.titleAndIcon)
                         .font(.subheadline)
                         .foregroundStyle(.gray)

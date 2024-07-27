@@ -36,7 +36,7 @@ enum StadiumEnum: String, CaseIterable {
         case .landersField:
             return "인천 SSG랜더스필드"
         case .eaglesPark:
-            return "대전 한화이글스파크"
+            return "대전 한화생명이글스파크"
         case .lionsPark:
             return "대구 삼성라이온즈파크"
         case .championsField:
@@ -52,7 +52,7 @@ enum StadiumEnum: String, CaseIterable {
     var floors: [String: String] {
         switch self {
         case .jamsil:
-            return ["1층": "1F", "2층": "2F", "3층": "3F"]
+            return ["1층": "1F", "2층": "2F", "3층": "3F", "4층" : "4F"]
         case .gochuck:
             return ["2층": "2F", "3층": "3F", "4층": "4F"]
         case .wizPark:

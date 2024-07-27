@@ -25,7 +25,7 @@ struct FloorCategoryModel {
         var floors: [FloorCategory] {
             switch self {
             case .jamsil:
-                return [.firstFloor, .secondFloor, .thirdFloor]
+                return [.firstFloor, .secondFloor, .thirdFloor, .fourthFloor]
             case .gochuck:
                 return [.secondFloor, .thirdFloor, .fourthFloor]
             case .wizPark:
