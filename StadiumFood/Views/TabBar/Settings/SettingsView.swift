@@ -11,6 +11,7 @@ struct SettingsView: View {
     @StateObject private var viewModel = SettingsViewModel.shared
     @State private var showToast = false
     @State private var toastMessage = ""
+    let myEmail = "gujangfood" + "@"  + "gmail.com"
 
     private var versionStatus: String {
         if let currentVersion = Bundle.main.appVersion {
@@ -74,7 +75,7 @@ struct SettingsView: View {
                 
                 // 문의 및 제보 버튼
                 Button(action: {
-                    UIPasteboard.general.string = "StadiumFood@email.com"
+                    UIPasteboard.general.string = "gujangfood@email.com"
                     toastMessage = "클립보드에 복사되었습니다."
                     showToast = true
                     
@@ -83,7 +84,7 @@ struct SettingsView: View {
                         showToast = false
                     }
                 }) {
-                    Label("문의 및 제보 gujangfood\("@")gmail.com", systemImage: "doc.on.doc")
+                    Label("문의 및 제보 \(myEmail)" , systemImage: "doc.on.doc")
                         .labelStyle(.titleAndIcon)
                         .font(.subheadline)
                         .foregroundStyle(.gray)

@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 import FirebaseMessaging
 import UserNotifications
+import GoogleMobileAds
 
 @main
 struct StadiumFoodApp: App {
@@ -24,9 +25,11 @@ struct StadiumFoodApp: App {
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
         // 파이어베이스 설정
         FirebaseApp.configure()
+        
+        // Google Ad 초기화
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         // 앱 실행 시 사용자에게 알림 허용 권한을 받음
         UNUserNotificationCenter.current().delegate = self
@@ -88,3 +91,4 @@ extension AppDelegate: MessagingDelegate {
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
 }
+

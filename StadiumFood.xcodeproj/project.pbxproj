@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		91178DB42C1039A500C18EFF /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91178DB32C1039A500C18EFF /* FavoritesViewModel.swift */; };
 		9139A9F72C11B28E00883DAF /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9139A9F62C11B28E00883DAF /* FavoriteListView.swift */; };
 		9139A9F92C22CCFA00883DAF /* FloorCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9139A9F82C22CCFA00883DAF /* FloorCategory.swift */; };
+		913E36B92C5616B200B715F2 /* GADBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E36B82C5616B200B715F2 /* GADBanner.swift */; };
 		914655842C25799B0005B2D5 /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914655832C25799B0005B2D5 /* RestaurantListView.swift */; };
 		914655872C2D35310005B2D5 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914655862C2D35310005B2D5 /* MenuItemView.swift */; };
 		9146558A2C2D4B9E0005B2D5 /* MenuItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914655892C2D4B9E0005B2D5 /* MenuItemViewModel.swift */; };
@@ -66,6 +67,11 @@
 		9193A6012BFE4C2C000B5B9A /* GenderCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A6002BFE4C2C000B5B9A /* GenderCategoryView.swift */; };
 		9193A6032BFE4D50000B5B9A /* GenderContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A6022BFE4D50000B5B9A /* GenderContentView.swift */; };
 		9193A6062C006812000B5B9A /* JamsilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A6052C006812000B5B9A /* JamsilView.swift */; };
+		919451542C5690BD00CD739A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 919451532C5690BD00CD739A /* FirebaseAnalytics */; };
+		919451562C5690BD00CD739A /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 919451552C5690BD00CD739A /* FirebaseAnalyticsOnDeviceConversion */; };
+		919451582C5690BD00CD739A /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 919451572C5690BD00CD739A /* FirebaseAnalyticsSwift */; };
+		9194515A2C5690BD00CD739A /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 919451592C5690BD00CD739A /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		9194515C2C5690BD00CD739A /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 9194515B2C5690BD00CD739A /* FirebaseAppCheck */; };
 		91AC6A632C4EB14F00BF8613 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 91AC6A622C4EB14F00BF8613 /* FirebaseAnalytics */; };
 		91AC6A652C4EB14F00BF8613 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 91AC6A642C4EB14F00BF8613 /* FirebaseAnalyticsOnDeviceConversion */; };
 		91AC6A672C4EB14F00BF8613 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 91AC6A662C4EB14F00BF8613 /* FirebaseAnalyticsSwift */; };
@@ -79,6 +85,7 @@
 		91B2AA0F2C43908000829C78 /* NoticesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B2AA0E2C43908000829C78 /* NoticesViewModel.swift */; };
 		91B2AA112C43937300829C78 /* NoticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B2AA102C43937300829C78 /* NoticeListView.swift */; };
 		91B2AA142C4393F000829C78 /* NoticeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B2AA132C4393F000829C78 /* NoticeDetailView.swift */; };
+		91CB4A882C569C8A001E86AA /* Pods_StadiumFood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A04535868205E530DF9E54 /* Pods_StadiumFood.framework */; };
 		91E851132BFE3474004DE2AD /* StadiumFoodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E851122BFE3474004DE2AD /* StadiumFoodApp.swift */; };
 		91E851152BFE3474004DE2AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E851142BFE3474004DE2AD /* ContentView.swift */; };
 		91E851172BFE3474004DE2AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91E851162BFE3474004DE2AD /* Assets.xcassets */; };
@@ -93,12 +100,15 @@
 		91E8513D2BFE3E37004DE2AD /* BasketballListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8513C2BFE3E37004DE2AD /* BasketballListView.swift */; };
 		91E8513F2BFE3E7F004DE2AD /* SoccerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8513E2BFE3E7F004DE2AD /* SoccerListView.swift */; };
 		91E851412BFE3E89004DE2AD /* VolleyballListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E851402BFE3E89004DE2AD /* VolleyballListView.swift */; };
+		91F4DDE12C56B5770002B534 /* GADFull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DDE02C56B5770002B534 /* GADFull.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31A04535868205E530DF9E54 /* Pods_StadiumFood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StadiumFood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91178DB32C1039A500C18EFF /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		9139A9F62C11B28E00883DAF /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		9139A9F82C22CCFA00883DAF /* FloorCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorCategory.swift; sourceTree = "<group>"; };
+		913E36B82C5616B200B715F2 /* GADBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADBanner.swift; sourceTree = "<group>"; };
 		914655832C25799B0005B2D5 /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
 		914655862C2D35310005B2D5 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		914655892C2D4B9E0005B2D5 /* MenuItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemViewModel.swift; sourceTree = "<group>"; };
@@ -116,9 +126,16 @@
 		914DC13D2C01AB7500F3D3F6 /* BaseballListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseballListView.swift; sourceTree = "<group>"; };
 		915E30CD2C3E7762005DCAB1 /* FloorsCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorsCategoryView.swift; sourceTree = "<group>"; };
 		915E30CF2C3E7EDF005DCAB1 /* StadiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiumView.swift; sourceTree = "<group>"; };
+		9170B4522C56258C00F98757 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		9170B4542C56258C00F98757 /* GoogleMobileAdsPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMobileAdsPlaceholder.swift; sourceTree = "<group>"; };
+		9170B4552C56258C00F98757 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		9170B4582C56258C00F98757 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; path = GoogleMobileAds.xcframework; sourceTree = "<group>"; };
 		91772D192C01B139003EFCC7 /* MenuInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInfoView.swift; sourceTree = "<group>"; };
 		91772D5D2C048B4D003EFCC7 /* StadiumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiumViewModel.swift; sourceTree = "<group>"; };
 		91772D682C08B470003EFCC7 /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
+		9190FCF62C5697B400C88FA0 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		9190FCF82C5697BB00C88FA0 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		9190FCFA2C5697FE00C88FA0 /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		9193A5F82BFE4676000B5B9A /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		9193A5FA2BFE46B9000B5B9A /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		9193A5FC2BFE46C1000B5B9A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -126,6 +143,7 @@
 		9193A6002BFE4C2C000B5B9A /* GenderCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCategoryView.swift; sourceTree = "<group>"; };
 		9193A6022BFE4D50000B5B9A /* GenderContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderContentView.swift; sourceTree = "<group>"; };
 		9193A6052C006812000B5B9A /* JamsilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamsilView.swift; sourceTree = "<group>"; };
+		9194514F2C5686FA00CD739A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		91AC6A5D2C4EA91200BF8613 /* StadiumFood.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StadiumFood.entitlements; sourceTree = "<group>"; };
 		91AC6A6C2C5299E200BF8613 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91AC6A6E2C529FE900BF8613 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -136,6 +154,15 @@
 		91B2AA102C43937300829C78 /* NoticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeListView.swift; sourceTree = "<group>"; };
 		91B2AA132C4393F000829C78 /* NoticeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailView.swift; sourceTree = "<group>"; };
 		91B2AA152C43C8E000829C78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		91BE2FB32C56345700CCE341 /* GoogleMobileAdsResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = GoogleMobileAdsResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		91BE2FB72C56347D00CCE341 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		91BE2FB82C56347D00CCE341 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		91BE2FBB2C56347D00CCE341 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; path = GoogleMobileAds.xcframework; sourceTree = "<group>"; };
+		91BE2FBD2C56348B00CCE341 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		91BE2FBE2C56348B00CCE341 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		91BE2FC12C56348B00CCE341 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; path = GoogleMobileAds.xcframework; sourceTree = "<group>"; };
+		91CB4A8B2C569D86001E86AA /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework/GoogleMobileAds.xcframework/ios-arm64/GoogleMobileAds.framework"; sourceTree = "<group>"; };
+		91E3444B2C56913B00D221A5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		91E8510F2BFE3474004DE2AD /* StadiumFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StadiumFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E851122BFE3474004DE2AD /* StadiumFoodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiumFoodApp.swift; sourceTree = "<group>"; };
 		91E851142BFE3474004DE2AD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +178,9 @@
 		91E8513C2BFE3E37004DE2AD /* BasketballListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketballListView.swift; sourceTree = "<group>"; };
 		91E8513E2BFE3E7F004DE2AD /* SoccerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoccerListView.swift; sourceTree = "<group>"; };
 		91E851402BFE3E89004DE2AD /* VolleyballListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolleyballListView.swift; sourceTree = "<group>"; };
+		91F4DDE02C56B5770002B534 /* GADFull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADFull.swift; sourceTree = "<group>"; };
+		AE38D6B2F61020869B48B322 /* Pods-StadiumFood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StadiumFood.debug.xcconfig"; path = "Target Support Files/Pods-StadiumFood/Pods-StadiumFood.debug.xcconfig"; sourceTree = "<group>"; };
+		D6D1F652E327300C86DDF27A /* Pods-StadiumFood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StadiumFood.release.xcconfig"; path = "Target Support Files/Pods-StadiumFood/Pods-StadiumFood.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,10 +196,13 @@
 				91772D1F2C047C3B003EFCC7 /* FirebaseAnalytics in Frameworks */,
 				91AC6A652C4EB14F00BF8613 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				91772D212C047C3B003EFCC7 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				9194515C2C5690BD00CD739A /* FirebaseAppCheck in Frameworks */,
 				91772D472C047C3B003EFCC7 /* FirebaseMLModelDownloader in Frameworks */,
 				91772D3B2C047C3B003EFCC7 /* FirebaseFirestoreSwift in Frameworks */,
 				91AC6A632C4EB14F00BF8613 /* FirebaseAnalytics in Frameworks */,
 				91178DA92C08C95400C18EFF /* Kingfisher in Frameworks */,
+				919451582C5690BD00CD739A /* FirebaseAnalyticsSwift in Frameworks */,
+				9194515A2C5690BD00CD739A /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				91772D272C047C3B003EFCC7 /* FirebaseAppCheck in Frameworks */,
 				91AC6A672C4EB14F00BF8613 /* FirebaseAnalyticsSwift in Frameworks */,
 				91772D252C047C3B003EFCC7 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
@@ -180,13 +213,16 @@
 				91772D412C047C3B003EFCC7 /* FirebaseInAppMessaging-Beta in Frameworks */,
 				91772D332C047C3B003EFCC7 /* FirebaseDatabaseSwift in Frameworks */,
 				91772D3D2C047C3B003EFCC7 /* FirebaseFunctions in Frameworks */,
+				919451562C5690BD00CD739A /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				91772D532C047C3B003EFCC7 /* FirebaseStorageCombine-Community in Frameworks */,
 				91772D4D2C047C3B003EFCC7 /* FirebaseRemoteConfig in Frameworks */,
 				91772D292C047C3B003EFCC7 /* FirebaseAppDistribution-Beta in Frameworks */,
 				91772D2D2C047C3B003EFCC7 /* FirebaseAuthCombine-Community in Frameworks */,
+				919451542C5690BD00CD739A /* FirebaseAnalytics in Frameworks */,
 				91772D4B2C047C3B003EFCC7 /* FirebasePerformance in Frameworks */,
 				91772D432C047C3B003EFCC7 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				91772D512C047C3B003EFCC7 /* FirebaseStorage in Frameworks */,
+				91CB4A882C569C8A001E86AA /* Pods_StadiumFood.framework in Frameworks */,
 				91772D352C047C3B003EFCC7 /* FirebaseDynamicLinks in Frameworks */,
 				91772D552C047C3B003EFCC7 /* FirebaseVertexAI-Preview in Frameworks */,
 				91772D392C047C3B003EFCC7 /* FirebaseFirestoreCombine-Community in Frameworks */,
@@ -198,6 +234,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181A473624779F8ADE5E954D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE38D6B2F61020869B48B322 /* Pods-StadiumFood.debug.xcconfig */,
+				D6D1F652E327300C86DDF27A /* Pods-StadiumFood.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		48D56E63764FB0D187F5AAC4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91CB4A8B2C569D86001E86AA /* GoogleMobileAds.framework */,
+				9190FCFA2C5697FE00C88FA0 /* CoreAudioKit.framework */,
+				9190FCF82C5697BB00C88FA0 /* EventKitUI.framework */,
+				9190FCF62C5697B400C88FA0 /* EventKit.framework */,
+				91E3444B2C56913B00D221A5 /* libz.tbd */,
+				9194514F2C5686FA00CD739A /* Foundation.framework */,
+				91BE2FB62C56347D00CCE341 /* Google-Mobile-Ads-SDK */,
+				91BE2FBC2C56348B00CCE341 /* Google-Mobile-Ads-SDK */,
+				91BE2FB32C56345700CCE341 /* GoogleMobileAdsResources.bundle */,
+				9170B4512C56258C00F98757 /* Google-Mobile-Ads-SDK */,
+				31A04535868205E530DF9E54 /* Pods_StadiumFood.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		91178DB02C1034B900C18EFF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,9 +329,44 @@
 			children = (
 				9193A5FC2BFE46C1000B5B9A /* SettingsView.swift */,
 				91B2AA122C43939B00829C78 /* Notice */,
-				91AC6A702C52BB5E00BF8613 /* ToastView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		9170B4512C56258C00F98757 /* Google-Mobile-Ads-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				9170B4522C56258C00F98757 /* LICENSE */,
+				9170B4532C56258C00F98757 /* Sources */,
+				9170B4552C56258C00F98757 /* README.txt */,
+				9170B4562C56258C00F98757 /* Frameworks */,
+			);
+			name = "Google-Mobile-Ads-SDK";
+			path = "Pods/Google-Mobile-Ads-SDK";
+			sourceTree = "<group>";
+		};
+		9170B4532C56258C00F98757 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9170B4542C56258C00F98757 /* GoogleMobileAdsPlaceholder.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		9170B4562C56258C00F98757 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9170B4572C56258C00F98757 /* GoogleMobileAdsFramework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		9170B4572C56258C00F98757 /* GoogleMobileAdsFramework */ = {
+			isa = PBXGroup;
+			children = (
+				9170B4582C56258C00F98757 /* GoogleMobileAds.xcframework */,
+			);
+			path = GoogleMobileAdsFramework;
 			sourceTree = "<group>";
 		};
 		91772D5F2C0497B7003EFCC7 /* Utility */ = {
@@ -298,12 +396,68 @@
 			path = Notice;
 			sourceTree = "<group>";
 		};
+		91BE2FB62C56347D00CCE341 /* Google-Mobile-Ads-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				91BE2FB72C56347D00CCE341 /* LICENSE */,
+				91BE2FB82C56347D00CCE341 /* README.txt */,
+				91BE2FB92C56347D00CCE341 /* Frameworks */,
+			);
+			name = "Google-Mobile-Ads-SDK";
+			path = "Pods/Google-Mobile-Ads-SDK";
+			sourceTree = "<group>";
+		};
+		91BE2FB92C56347D00CCE341 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91BE2FBA2C56347D00CCE341 /* GoogleMobileAdsFramework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		91BE2FBA2C56347D00CCE341 /* GoogleMobileAdsFramework */ = {
+			isa = PBXGroup;
+			children = (
+				91BE2FBB2C56347D00CCE341 /* GoogleMobileAds.xcframework */,
+			);
+			path = GoogleMobileAdsFramework;
+			sourceTree = "<group>";
+		};
+		91BE2FBC2C56348B00CCE341 /* Google-Mobile-Ads-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				91BE2FBD2C56348B00CCE341 /* LICENSE */,
+				91BE2FBE2C56348B00CCE341 /* README.txt */,
+				91BE2FBF2C56348B00CCE341 /* Frameworks */,
+			);
+			name = "Google-Mobile-Ads-SDK";
+			path = "Pods/Google-Mobile-Ads-SDK";
+			sourceTree = "<group>";
+		};
+		91BE2FBF2C56348B00CCE341 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91BE2FC02C56348B00CCE341 /* GoogleMobileAdsFramework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		91BE2FC02C56348B00CCE341 /* GoogleMobileAdsFramework */ = {
+			isa = PBXGroup;
+			children = (
+				91BE2FC12C56348B00CCE341 /* GoogleMobileAds.xcframework */,
+			);
+			path = GoogleMobileAdsFramework;
+			sourceTree = "<group>";
+		};
 		91E851062BFE3474004DE2AD = {
 			isa = PBXGroup;
 			children = (
 				91AC6A6C2C5299E200BF8613 /* GoogleService-Info.plist */,
 				91E851112BFE3474004DE2AD /* StadiumFood */,
 				91E851102BFE3474004DE2AD /* Products */,
+				181A473624779F8ADE5E954D /* Pods */,
+				48D56E63764FB0D187F5AAC4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -359,6 +513,9 @@
 				91E851392BFE3E14004DE2AD /* StadiumList */,
 				9193A6042C0067EB000B5B9A /* StadiumFood */,
 				914DC11F2C00700C00F3D3F6 /* TabBar */,
+				913E36B82C5616B200B715F2 /* GADBanner.swift */,
+				91F4DDE02C56B5770002B534 /* GADFull.swift */,
+				91AC6A702C52BB5E00BF8613 /* ToastView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -418,9 +575,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91E8511D2BFE3474004DE2AD /* Build configuration list for PBXNativeTarget "StadiumFood" */;
 			buildPhases = (
+				4BCEEC9D79C7BA8C38956CFF /* [CP] Check Pods Manifest.lock */,
 				91E8510B2BFE3474004DE2AD /* Sources */,
 				91E8510C2BFE3474004DE2AD /* Frameworks */,
 				91E8510D2BFE3474004DE2AD /* Resources */,
+				4E48557D7E109070C0216903 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -462,6 +621,11 @@
 				91AC6A662C4EB14F00BF8613 /* FirebaseAnalyticsSwift */,
 				91AC6A682C4EB14F00BF8613 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				91AC6A6A2C4EB14F00BF8613 /* FirebaseAppCheck */,
+				919451532C5690BD00CD739A /* FirebaseAnalytics */,
+				919451552C5690BD00CD739A /* FirebaseAnalyticsOnDeviceConversion */,
+				919451572C5690BD00CD739A /* FirebaseAnalyticsSwift */,
+				919451592C5690BD00CD739A /* FirebaseAnalyticsWithoutAdIdSupport */,
+				9194515B2C5690BD00CD739A /* FirebaseAppCheck */,
 			);
 			productName = StadiumFood;
 			productReference = 91E8510F2BFE3474004DE2AD /* StadiumFood.app */;
@@ -518,6 +682,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4BCEEC9D79C7BA8C38956CFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StadiumFood-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E48557D7E109070C0216903 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StadiumFood/Pods-StadiumFood-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StadiumFood/Pods-StadiumFood-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StadiumFood/Pods-StadiumFood-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		91E8510B2BFE3474004DE2AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -526,7 +732,9 @@
 				915E30CE2C3E7762005DCAB1 /* FloorsCategoryView.swift in Sources */,
 				91AC6A712C52BB5E00BF8613 /* ToastView.swift in Sources */,
 				91E851252BFE34C9004DE2AD /* HomeView.swift in Sources */,
+				91F4DDE12C56B5770002B534 /* GADFull.swift in Sources */,
 				915E30D02C3E7EDF005DCAB1 /* StadiumView.swift in Sources */,
+				913E36B92C5616B200B715F2 /* GADBanner.swift in Sources */,
 				914DC12E2C007A2900F3D3F6 /* ChampionsParkView.swift in Sources */,
 				91E8512D2BFE364E004DE2AD /* Stadium.swift in Sources */,
 				914655942C37C6C50005B2D5 /* SwipeBackExtension.swift in Sources */,
@@ -583,6 +791,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -646,6 +855,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -691,6 +901,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
@@ -699,6 +910,7 @@
 		};
 		91E8511E2BFE3474004DE2AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE38D6B2F61020869B48B322 /* Pods-StadiumFood.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -709,6 +921,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"StadiumFood/Preview Content\"";
 				DEVELOPMENT_TEAM = 3RPK5DBMDK;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				EXCLUDED_ARCHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework/GoogleMobileAds.xcframework/ios-arm64",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StadiumFood/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "구장먹거리";
@@ -717,11 +935,72 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}\"",
+					/usr/lib/swift,
+				);
+				MACH_O_TYPE = mh_execute;
 				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"Google_Mobile_Ads_SDK\"",
+					"-framework",
+					"\"JavaScriptCore\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Network\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UserMessagingPlatform\"",
+					"-framework",
+					"\"WebKit\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hh.StadiumFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -733,6 +1012,7 @@
 		};
 		91E8511F2BFE3474004DE2AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6D1F652E327300C86DDF27A /* Pods-StadiumFood.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -743,6 +1023,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"StadiumFood/Preview Content\"";
 				DEVELOPMENT_TEAM = 3RPK5DBMDK;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				EXCLUDED_ARCHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework/GoogleMobileAds.xcframework/ios-arm64",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StadiumFood/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "구장먹거리";
@@ -751,11 +1037,72 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}\"",
+					/usr/lib/swift,
+				);
+				MACH_O_TYPE = mh_execute;
 				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"Google_Mobile_Ads_SDK\"",
+					"-framework",
+					"\"JavaScriptCore\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Network\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UserMessagingPlatform\"",
+					"-framework",
+					"\"WebKit\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hh.StadiumFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -952,6 +1299,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 91772D1D2C047C3B003EFCC7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseVertexAI-Preview";
+		};
+		919451532C5690BD00CD739A /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91772D1D2C047C3B003EFCC7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		919451552C5690BD00CD739A /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91772D1D2C047C3B003EFCC7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		919451572C5690BD00CD739A /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91772D1D2C047C3B003EFCC7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		919451592C5690BD00CD739A /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91772D1D2C047C3B003EFCC7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		9194515B2C5690BD00CD739A /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91772D1D2C047C3B003EFCC7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
 		};
 		91AC6A622C4EB14F00BF8613 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

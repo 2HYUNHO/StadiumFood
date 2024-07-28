@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 struct CategoryView: View {
     @State private var selectedCategory: SportsCategory = .baseball
@@ -16,6 +17,7 @@ struct CategoryView: View {
         NavigationView {
             VStack {
                 CategoryPickerView(selectedCategory: $selectedCategory, animation: animation)
+                
                 TabView(selection: $selectedCategory) {
                     ForEach(SportsCategory.allCases, id: \.self) { sportsCategory in
                         contentView(for: sportsCategory)
@@ -23,21 +25,23 @@ struct CategoryView: View {
                     }
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                
+                admob() // 광고
             }
         }
     }
     
     @ViewBuilder
-        private func contentView(for sportsCategory: SportsCategory) -> some View {
-            switch sportsCategory {
-            case .baseball:
-                BaseballListView(viewModel: stadiumViewModel)
-            case .basketball:
-                GenderCategoryView(sportsCategory: sportsCategory)
-            case .soccer:
-                SoccerListView()
-            case .volleyball:
-                GenderCategoryView(sportsCategory: sportsCategory)
-            }
+    private func contentView(for sportsCategory: SportsCategory) -> some View {
+        switch sportsCategory {
+        case .baseball:
+            BaseballListView(viewModel: stadiumViewModel)
+        case .basketball:
+            GenderCategoryView(sportsCategory: sportsCategory)
+        case .soccer:
+            SoccerListView()
+        case .volleyball:
+            GenderCategoryView(sportsCategory: sportsCategory)
         }
+    }
 }
