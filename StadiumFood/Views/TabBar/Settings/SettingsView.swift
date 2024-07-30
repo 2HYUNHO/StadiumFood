@@ -53,12 +53,12 @@ struct SettingsView: View {
                         }
                         
                         // 약관 및 정책
-                        NavigationLink(destination: Text("서비스 이용약관")) {
+                        NavigationLink(destination: TermsOfServiceView()) {
                             Label("서비스 이용약관", systemImage: "doc.text")
                                 .padding(.bottom, 12)
                         }
                         
-                        NavigationLink(destination: Text("개인정보처리방침")) {
+                        NavigationLink(destination: PrivacyPolicyView()) {
                             Label("개인정보처리방침", systemImage: "lock.shield")
                                 .padding(.bottom, 12)
                         }

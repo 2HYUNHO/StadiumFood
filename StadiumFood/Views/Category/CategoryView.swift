@@ -26,7 +26,9 @@ struct CategoryView: View {
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 
-                admob() // 광고
+                // 광고
+                GADBanner()
+                    .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
             }
         }
     }

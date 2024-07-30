@@ -39,17 +39,17 @@ class StadiumViewModel: ObservableObject {
     
     // 구장 뷰 이동 로직
     func destinationViewForStadium(_ stadium: StadiumModel, favoritesViewModel: FavoritesViewModel) -> AnyView {
-            let viewDictionary: [String: AnyView] = [
-                "JamsilView": AnyView(JamsilView().environmentObject(favoritesViewModel)),
-                "GochuckView": AnyView(GochuckView().environmentObject(favoritesViewModel)),
-                "WizParkView": AnyView(WizParkView().environmentObject(favoritesViewModel)),
-                "LandersFieldView": AnyView(LandersFieldView().environmentObject(favoritesViewModel)),
-                "EaglesParkView": AnyView(EaglesParkView().environmentObject(favoritesViewModel)),
-                "LionsParkView": AnyView(LionsParkView().environmentObject(favoritesViewModel)),
-                "ChampionsParkView": AnyView(ChampionsParkView().environmentObject(favoritesViewModel)),
-                "NCParkView": AnyView(NCParkView().environmentObject(favoritesViewModel)),
-                "SajicView": AnyView(SajicView().environmentObject(favoritesViewModel))
-            ]
+        let viewDictionary: [String: AnyView] = [
+            "JamsilView": AnyView(JamsilView().environmentObject(favoritesViewModel)),
+            "GochuckView": AnyView(GochuckView().environmentObject(favoritesViewModel)),
+            "WizParkView": AnyView(WizParkView().environmentObject(favoritesViewModel)),
+            "LandersFieldView": AnyView(LandersFieldView().environmentObject(favoritesViewModel)),
+            "EaglesParkView": AnyView(EaglesParkView().environmentObject(favoritesViewModel)),
+            "LionsParkView": AnyView(LionsParkView().environmentObject(favoritesViewModel)),
+            "ChampionsParkView": AnyView(ChampionsParkView().environmentObject(favoritesViewModel)),
+            "NCParkView": AnyView(NCParkView().environmentObject(favoritesViewModel)),
+            "SajicView": AnyView(SajicView().environmentObject(favoritesViewModel))
+        ]
         
         if let view = viewDictionary[stadium.destinationView] {
             return view

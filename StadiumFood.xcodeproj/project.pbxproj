@@ -101,6 +101,9 @@
 		91E8513F2BFE3E7F004DE2AD /* SoccerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8513E2BFE3E7F004DE2AD /* SoccerListView.swift */; };
 		91E851412BFE3E89004DE2AD /* VolleyballListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E851402BFE3E89004DE2AD /* VolleyballListView.swift */; };
 		91F4DDE12C56B5770002B534 /* GADFull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DDE02C56B5770002B534 /* GADFull.swift */; };
+		91F4DDE32C59455B0002B534 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DDE22C59455B0002B534 /* PrivacyPolicyView.swift */; };
+		91F4DDE52C5945700002B534 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DDE42C5945700002B534 /* TermsOfServiceView.swift */; };
+		91F4DDE82C59463B0002B534 /* PolicyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DDE72C59463B0002B534 /* PolicyWebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,6 +182,9 @@
 		91E8513E2BFE3E7F004DE2AD /* SoccerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoccerListView.swift; sourceTree = "<group>"; };
 		91E851402BFE3E89004DE2AD /* VolleyballListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolleyballListView.swift; sourceTree = "<group>"; };
 		91F4DDE02C56B5770002B534 /* GADFull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADFull.swift; sourceTree = "<group>"; };
+		91F4DDE22C59455B0002B534 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		91F4DDE42C5945700002B534 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceView.swift; sourceTree = "<group>"; };
+		91F4DDE72C59463B0002B534 /* PolicyWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyWebView.swift; sourceTree = "<group>"; };
 		AE38D6B2F61020869B48B322 /* Pods-StadiumFood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StadiumFood.debug.xcconfig"; path = "Target Support Files/Pods-StadiumFood/Pods-StadiumFood.debug.xcconfig"; sourceTree = "<group>"; };
 		D6D1F652E327300C86DDF27A /* Pods-StadiumFood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StadiumFood.release.xcconfig"; path = "Target Support Files/Pods-StadiumFood/Pods-StadiumFood.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -329,6 +335,7 @@
 			children = (
 				9193A5FC2BFE46C1000B5B9A /* SettingsView.swift */,
 				91B2AA122C43939B00829C78 /* Notice */,
+				91F4DDE62C5945CB0002B534 /* Policies */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -568,6 +575,16 @@
 			path = StadiumList;
 			sourceTree = "<group>";
 		};
+		91F4DDE62C5945CB0002B534 /* Policies */ = {
+			isa = PBXGroup;
+			children = (
+				91F4DDE42C5945700002B534 /* TermsOfServiceView.swift */,
+				91F4DDE22C59455B0002B534 /* PrivacyPolicyView.swift */,
+				91F4DDE72C59463B0002B534 /* PolicyWebView.swift */,
+			);
+			path = Policies;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -752,6 +769,7 @@
 				91E8512F2BFE366C004DE2AD /* Restaurant.swift in Sources */,
 				91B2AA142C4393F000829C78 /* NoticeDetailView.swift in Sources */,
 				91178DB42C1039A500C18EFF /* FavoritesViewModel.swift in Sources */,
+				91F4DDE82C59463B0002B534 /* PolicyWebView.swift in Sources */,
 				914DC1282C0079EF00F3D3F6 /* LandersFieldView.swift in Sources */,
 				91772D692C08B470003EFCC7 /* RestaurantViewModel.swift in Sources */,
 				91B2AA0D2C43904E00829C78 /* Notice.swift in Sources */,
@@ -764,11 +782,13 @@
 				91B2AA0B2C41288D00829C78 /* Bundle.swift in Sources */,
 				91E851332BFE3770004DE2AD /* CategoryView.swift in Sources */,
 				9193A6012BFE4C2C000B5B9A /* GenderCategoryView.swift in Sources */,
+				91F4DDE32C59455B0002B534 /* PrivacyPolicyView.swift in Sources */,
 				914DC12A2C007A0900F3D3F6 /* EaglesParkView.swift in Sources */,
 				914DC1322C007A3F00F3D3F6 /* SajicView.swift in Sources */,
 				914DC1362C01A7F700F3D3F6 /* FloorCategoryView.swift in Sources */,
 				91B2AA0F2C43908000829C78 /* NoticesViewModel.swift in Sources */,
 				914DC1262C0079DE00F3D3F6 /* WizParkView.swift in Sources */,
+				91F4DDE52C5945700002B534 /* TermsOfServiceView.swift in Sources */,
 				91E8513D2BFE3E37004DE2AD /* BasketballListView.swift in Sources */,
 				9193A5FB2BFE46B9000B5B9A /* FavoritesView.swift in Sources */,
 				91E851352BFE3BAA004DE2AD /* CategoryPickerView.swift in Sources */,

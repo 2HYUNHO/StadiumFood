@@ -1,46 +1,74 @@
-////
-////  GADFull.swift
-////  StadiumFood
-////
-////  Created by 이현호 on 7/29/24.
-////
 //
-//import UIKit
-//import GoogleMobileAds //구글애드몹 라이브러리 임포트
+//  GADFull.swift
+//  StadiumFood
 //
-//// 구글에서 제공하는 테스트용 광고단위 ID
-//let interstitialID = "ca-app-pub-3940256099942544/4411468910"
+//  Created by 이현호 on 7/29/24.
 //
-//// 전면광고 객체의 Delegate설정을 위해 GADInterstitialDelegate 상속
-//class ViewController: UIViewController, GADInterstitialDelegate {
-//       var interestitial : GADInterstitial! // 전면 광고 객체 생성
-//   
-//    override func viewDidLoad() {
-//        DispatchQueue.main.async { // view생성시 함수를 통해 전면광고 호출
-//            self.interestitial = self.createAndLoadInterstitial()
-//        }
-//      // qos로 전면광고 객체를 먼저 불러온 이후에 전면 광고 노출 조건 확인
-//      if checkAdsPopup() == true {
-//          self.interestitial.present(fromRootViewController: self)
-//      }
-//    }
-//    
-//    func checkAdsPopup() -> Bool {
-//        // 광고 노출 여부 판단을 위한 코드
-//    }
-//    
-//    // 전면광고를 로드하여 반환하는 함수
-//    func createAndLoadInterstitial() -> GADInterstitial {
-//      let interstitial =
-//          GADInterstitial(adUnitID: interstitialID )
-//      interstitial.delegate = self
-//      interstitial.load(GADRequest())
-//      return interstitial
-//    }
-//    
-//    // 전면광고를 닫았을때(즉 광고가 끝나는 시점을 트래킹하는 함수) 끝나는 시점을 기준으로 신규 전면광고 생성
-//    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-//        print("play interestitial is finished")
-//        self.interestitial = createAndLoadInterstitial()
-//    }
-//}
+
+import Foundation
+import GoogleMobileAds
+
+class GADFull: NSObject, GADFullScreenContentDelegate, ObservableObject {
+    
+    @Published var interstitialAdLoaded: Bool = false
+    var interstitialAd: GADInterstitialAd?
+    var onAdDismissed: (() -> Void)?
+    
+    override init() {
+        super.init()
+        loadInterstitialAd()
+    }
+    
+    // 전면 광고를 로드하는 함수
+    func loadInterstitialAd() {
+        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: GADRequest()) { [weak self] ad, error in
+            guard let self = self else { return }
+            if let error = error {
+                // 광고 로드 실패 시 에러 메시지를 출력합니다.
+                print("전면 광고 로드 실패: \(error.localizedDescription)")
+                self.interstitialAdLoaded = false
+                return
+            }
+            print("전면 광고 로드 성공")
+            self.interstitialAdLoaded = true
+            self.interstitialAd = ad
+            self.interstitialAd?.fullScreenContentDelegate = self
+        }
+    }
+    
+    // 전면 광고를 표시하는 함수
+   func displayInterstitialAd(onDismiss: @escaping () -> Void) {
+       guard let root = UIApplication.shared.windows.first?.rootViewController else {
+           print("오류: 루트 뷰 컨트롤러를 찾을 수 없음")
+           return
+       }
+       if let ad = interstitialAd {
+           // 광고가 준비된 경우 광고를 표시
+           ad.present(fromRootViewController: root)
+           self.interstitialAdLoaded = false
+           self.onAdDismissed = onDismiss
+       } else {
+           print("오류: 전면 광고가 준비되지 않음")
+           self.loadInterstitialAd()
+       }
+   }
+    
+    // 전면 광고 표시 실패 알림
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("전면 광고 표시 실패: \(error.localizedDescription)")
+        self.loadInterstitialAd()
+    }
+    
+    // 전면 광고가 표시될 때 알림
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("전면 광고가 표시됩니다")
+        self.interstitialAdLoaded = false
+    }
+    
+    // 전면 광고가 닫혔을 때 알림
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("전면 광고가 닫혔습니다")
+        self.loadInterstitialAd()
+        self.onAdDismissed?() // 광고가 닫힌 후 클로저 호출
+    }
+}

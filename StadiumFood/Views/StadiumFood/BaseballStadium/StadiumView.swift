@@ -91,7 +91,8 @@ struct StadiumView: View {
                     Button {
                         dismiss()
                     } label: {
-                        Image(systemName: "chevron.left")
+                        Image(systemName: "chevron.backward")
+                            .font(.system(size: 16))
                             .foregroundStyle(Color(.label))
                     }
                 }

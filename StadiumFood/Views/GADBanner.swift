@@ -34,8 +34,3 @@ struct GADBanner: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
 }
 
-@ViewBuilder
-func admob() -> some View {
-    GADBanner()
-        .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
-}
