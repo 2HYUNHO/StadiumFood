@@ -17,7 +17,6 @@ struct LandersFieldView: View {
                     animation: animation,
                     stadiumId: stadium.id,
                     stadiumName: stadium.name,
-                    floorIds: stadium.floors,
-                    sportsCategory: .baseball)
+                    floorIds: stadium.floors)
     }
 }

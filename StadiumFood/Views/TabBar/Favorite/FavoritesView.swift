@@ -11,29 +11,19 @@ struct FavoritesView: View {
     @ObservedObject var viewModel: StadiumViewModel
     @EnvironmentObject var favoritesViewModel: FavoritesViewModel
     
-    @State private var selectedCategory: SportsCategory = .baseball
     @State private var isEditing: Bool = false
     @Namespace private var animation
     
     var body: some View {
         NavigationView {
             VStack {
-                CategoryPickerView(selectedCategory: $selectedCategory, animation: animation)
-                
-                TabView(selection: $selectedCategory) {
-                    ForEach(SportsCategory.allCases, id: \.self) { category in
-                        if let stadiums = favoritesViewModel.favoriteStadiums[category.rawValue], !stadiums.isEmpty {
-                            FavoriteListView(viewModel: viewModel, category: category, stadiumNames: stadiums, isEditing: $isEditing)
-                                .tag(category)
-                        } else {
-                            Text("즐겨찾기된 구장이 없습니다.")
-                                .foregroundColor(.gray)
-                                .padding(8)
-                                .tag(category)
-                        }
-                    }
+                if !favoritesViewModel.favoriteStadiums.isEmpty {
+                    FavoriteListView(viewModel: viewModel, stadiumNames: favoritesViewModel.favoriteStadiums, isEditing: $isEditing)
+                } else {
+                    Text("즐겨찾기된 구장이 없습니다.")
+                        .foregroundColor(.gray)
+                        .padding(8)
                 }
-                .tabViewStyle(PageTabViewStyle())
             }
             .navigationBarTitle("즐겨찾기", displayMode: .inline)
             .onAppear {

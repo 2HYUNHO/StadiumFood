@@ -12,7 +12,6 @@ struct FavoriteListView: View {
     @ObservedObject var viewModel: StadiumViewModel
     @EnvironmentObject var favoritesViewModel: FavoritesViewModel
     
-    let category: SportsCategory
     let stadiumNames: [String]
     @Binding var isEditing: Bool
     
@@ -41,12 +40,11 @@ struct FavoriteListView: View {
                 }
             }
             .onDelete { offsets in
-                favoritesViewModel.removeFavoriteStadium(at: offsets, category: category.rawValue)
+                favoritesViewModel.removeFavoriteStadium(at: offsets)
             }
-            .onMove { source, destinateion in
-                favoritesViewModel.moveFavoriteStadium(from: source, to: destinateion, category: category.rawValue)
+            .onMove { source, destination in
+                favoritesViewModel.moveFavoriteStadium(from: source, to: destination)
             }
-//            .listRowSeparator(.hidden)
             
             // 즐겨찾기 한 구장이 없을 때
             if stadiumNames.isEmpty {

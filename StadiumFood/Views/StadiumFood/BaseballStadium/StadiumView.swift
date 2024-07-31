@@ -19,8 +19,7 @@ struct StadiumView: View {
     let stadiumId: String
     let stadiumName: String
     let floorIds: [String: String]
-    let sportsCategory: SportsCategory
-    
+ 
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
@@ -101,9 +100,9 @@ struct StadiumView: View {
                     Button {
                         isFavorite.toggle()
                         if isFavorite {
-                            favoritesViewModel.addFavoriteStadium(stadiumName, category: sportsCategory.rawValue)
+                            favoritesViewModel.addFavoriteStadium(stadiumName)
                         } else {
-                            favoritesViewModel.removeFavoriteStadium(stadiumName, category: sportsCategory.rawValue)
+                            favoritesViewModel.removeFavoriteStadium(stadiumName)
                         }
                     } label: {
                         Image(systemName: isFavorite ? "star.fill" : "star")
@@ -115,11 +114,11 @@ struct StadiumView: View {
         .navigationBarBackButtonHidden()
         .onAppear {
             // 즐겨찾기 상태 초기화
-            isFavorite = favoritesViewModel.favoriteStadiums[sportsCategory.rawValue]?.contains(stadiumName) ?? false
+            isFavorite = favoritesViewModel.favoriteStadiums.contains(stadiumName)
         }
         .onReceive(favoritesViewModel.$favoriteStadiums) { _ in
             // 즐겨찾기 상태가 변경되면 버튼 상태 업데이트
-            isFavorite = favoritesViewModel.favoriteStadiums[sportsCategory.rawValue]?.contains(stadiumName) ?? false
+            isFavorite = favoritesViewModel.favoriteStadiums.contains(stadiumName)
         }
     }
     

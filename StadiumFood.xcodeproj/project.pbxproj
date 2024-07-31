@@ -64,7 +64,6 @@
 		9193A5FB2BFE46B9000B5B9A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A5FA2BFE46B9000B5B9A /* FavoritesView.swift */; };
 		9193A5FD2BFE46C1000B5B9A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A5FC2BFE46C1000B5B9A /* SettingsView.swift */; };
 		9193A5FF2BFE4BF2000B5B9A /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A5FE2BFE4BF2000B5B9A /* Gender.swift */; };
-		9193A6012BFE4C2C000B5B9A /* GenderCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A6002BFE4C2C000B5B9A /* GenderCategoryView.swift */; };
 		9193A6032BFE4D50000B5B9A /* GenderContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A6022BFE4D50000B5B9A /* GenderContentView.swift */; };
 		9193A6062C006812000B5B9A /* JamsilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A6052C006812000B5B9A /* JamsilView.swift */; };
 		919451542C5690BD00CD739A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 919451532C5690BD00CD739A /* FirebaseAnalytics */; };
@@ -95,8 +94,6 @@
 		91E8512D2BFE364E004DE2AD /* Stadium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8512C2BFE364E004DE2AD /* Stadium.swift */; };
 		91E8512F2BFE366C004DE2AD /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8512E2BFE366C004DE2AD /* Restaurant.swift */; };
 		91E851312BFE367E004DE2AD /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E851302BFE367E004DE2AD /* MenuItem.swift */; };
-		91E851332BFE3770004DE2AD /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E851322BFE3770004DE2AD /* CategoryView.swift */; };
-		91E851352BFE3BAA004DE2AD /* CategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E851342BFE3BA9004DE2AD /* CategoryPickerView.swift */; };
 		91E8513D2BFE3E37004DE2AD /* BasketballListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8513C2BFE3E37004DE2AD /* BasketballListView.swift */; };
 		91E8513F2BFE3E7F004DE2AD /* SoccerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8513E2BFE3E7F004DE2AD /* SoccerListView.swift */; };
 		91E851412BFE3E89004DE2AD /* VolleyballListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E851402BFE3E89004DE2AD /* VolleyballListView.swift */; };
@@ -143,7 +140,6 @@
 		9193A5FA2BFE46B9000B5B9A /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		9193A5FC2BFE46C1000B5B9A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9193A5FE2BFE4BF2000B5B9A /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
-		9193A6002BFE4C2C000B5B9A /* GenderCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCategoryView.swift; sourceTree = "<group>"; };
 		9193A6022BFE4D50000B5B9A /* GenderContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderContentView.swift; sourceTree = "<group>"; };
 		9193A6052C006812000B5B9A /* JamsilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamsilView.swift; sourceTree = "<group>"; };
 		9194514F2C5686FA00CD739A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -176,8 +172,6 @@
 		91E8512C2BFE364E004DE2AD /* Stadium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stadium.swift; sourceTree = "<group>"; };
 		91E8512E2BFE366C004DE2AD /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		91E851302BFE367E004DE2AD /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
-		91E851322BFE3770004DE2AD /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
-		91E851342BFE3BA9004DE2AD /* CategoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerView.swift; sourceTree = "<group>"; };
 		91E8513C2BFE3E37004DE2AD /* BasketballListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketballListView.swift; sourceTree = "<group>"; };
 		91E8513E2BFE3E7F004DE2AD /* SoccerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoccerListView.swift; sourceTree = "<group>"; };
 		91E851402BFE3E89004DE2AD /* VolleyballListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolleyballListView.swift; sourceTree = "<group>"; };
@@ -554,9 +548,6 @@
 		91E851382BFE3BCD004DE2AD /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				91E851322BFE3770004DE2AD /* CategoryView.swift */,
-				91E851342BFE3BA9004DE2AD /* CategoryPickerView.swift */,
-				9193A6002BFE4C2C000B5B9A /* GenderCategoryView.swift */,
 				914DC1352C01A7F700F3D3F6 /* FloorCategoryView.swift */,
 				915E30CD2C3E7762005DCAB1 /* FloorsCategoryView.swift */,
 			);
@@ -780,8 +771,6 @@
 				9193A6062C006812000B5B9A /* JamsilView.swift in Sources */,
 				9193A5F92BFE4676000B5B9A /* TabBarView.swift in Sources */,
 				91B2AA0B2C41288D00829C78 /* Bundle.swift in Sources */,
-				91E851332BFE3770004DE2AD /* CategoryView.swift in Sources */,
-				9193A6012BFE4C2C000B5B9A /* GenderCategoryView.swift in Sources */,
 				91F4DDE32C59455B0002B534 /* PrivacyPolicyView.swift in Sources */,
 				914DC12A2C007A0900F3D3F6 /* EaglesParkView.swift in Sources */,
 				914DC1322C007A3F00F3D3F6 /* SajicView.swift in Sources */,
@@ -791,7 +780,6 @@
 				91F4DDE52C5945700002B534 /* TermsOfServiceView.swift in Sources */,
 				91E8513D2BFE3E37004DE2AD /* BasketballListView.swift in Sources */,
 				9193A5FB2BFE46B9000B5B9A /* FavoritesView.swift in Sources */,
-				91E851352BFE3BAA004DE2AD /* CategoryPickerView.swift in Sources */,
 				9193A6032BFE4D50000B5B9A /* GenderContentView.swift in Sources */,
 				9193A5FF2BFE4BF2000B5B9A /* Gender.swift in Sources */,
 				914DC13E2C01AB7500F3D3F6 /* BaseballListView.swift in Sources */,

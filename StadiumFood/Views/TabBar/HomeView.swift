@@ -6,9 +6,22 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 struct HomeView: View {
+    @StateObject var stadiumViewModel = StadiumViewModel()
+    
     var body: some View {
-        CategoryView()
+        NavigationView {
+            VStack {
+                BaseballListView(viewModel: stadiumViewModel)
+                
+                // 광고
+                GADBanner()
+                    .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
+            }
+            .navigationTitle("구장먹거리")
+            .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }

@@ -25,7 +25,7 @@ struct MenuInfoView: View {
             // 메뉴 리스트 표시
             if restaurant.foodCategory == "편의점" {
                 Spacer()
-                
+                 
                 Text("편의점은 메뉴를 제공하지 않습니다.")
                     .foregroundStyle(.gray)
                     .font(.system(size: 18))
@@ -38,7 +38,25 @@ struct MenuInfoView: View {
                 
             } else {
                 ScrollView {
-                    VStack(spacing: 15) {
+                    VStack(alignment: .leading, spacing: 15) {
+                        if restaurant.name == "스타벅스" {
+                            HStack {
+                                Image(systemName: "megaphone.fill")
+                                    .font(.system(size: 16))
+                                    .foregroundStyle(Color(uiColor: .darkGray))
+                                
+                                Text("상세메뉴는 스타벅스 홈페이지를 참고해주세요.")
+                                    .font(.system(size: 16))
+                                    .cornerRadius(10)
+                                    .foregroundStyle(Color(uiColor: .darkGray))
+                            }
+                            .padding()
+                            .background(Color(.secondarySystemBackground))
+                            .cornerRadius(10)
+                            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
+                            .padding(.vertical, 5)
+                        }
+                        
                         ForEach(menuItemViewModel.menuItems) { menuItem in
                             MenuItemView(menuItem: menuItem)
                         }
