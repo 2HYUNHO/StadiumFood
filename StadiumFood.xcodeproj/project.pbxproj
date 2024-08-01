@@ -64,7 +64,6 @@
 		9193A5FB2BFE46B9000B5B9A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A5FA2BFE46B9000B5B9A /* FavoritesView.swift */; };
 		9193A5FD2BFE46C1000B5B9A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A5FC2BFE46C1000B5B9A /* SettingsView.swift */; };
 		9193A5FF2BFE4BF2000B5B9A /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A5FE2BFE4BF2000B5B9A /* Gender.swift */; };
-		9193A6032BFE4D50000B5B9A /* GenderContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A6022BFE4D50000B5B9A /* GenderContentView.swift */; };
 		9193A6062C006812000B5B9A /* JamsilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193A6052C006812000B5B9A /* JamsilView.swift */; };
 		919451542C5690BD00CD739A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 919451532C5690BD00CD739A /* FirebaseAnalytics */; };
 		919451562C5690BD00CD739A /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 919451552C5690BD00CD739A /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -94,13 +93,12 @@
 		91E8512D2BFE364E004DE2AD /* Stadium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8512C2BFE364E004DE2AD /* Stadium.swift */; };
 		91E8512F2BFE366C004DE2AD /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8512E2BFE366C004DE2AD /* Restaurant.swift */; };
 		91E851312BFE367E004DE2AD /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E851302BFE367E004DE2AD /* MenuItem.swift */; };
-		91E8513D2BFE3E37004DE2AD /* BasketballListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8513C2BFE3E37004DE2AD /* BasketballListView.swift */; };
-		91E8513F2BFE3E7F004DE2AD /* SoccerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8513E2BFE3E7F004DE2AD /* SoccerListView.swift */; };
-		91E851412BFE3E89004DE2AD /* VolleyballListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E851402BFE3E89004DE2AD /* VolleyballListView.swift */; };
 		91F4DDE12C56B5770002B534 /* GADFull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DDE02C56B5770002B534 /* GADFull.swift */; };
 		91F4DDE32C59455B0002B534 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DDE22C59455B0002B534 /* PrivacyPolicyView.swift */; };
 		91F4DDE52C5945700002B534 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DDE42C5945700002B534 /* TermsOfServiceView.swift */; };
 		91F4DDE82C59463B0002B534 /* PolicyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DDE72C59463B0002B534 /* PolicyWebView.swift */; };
+		91F5F21E2C5BDB070042C97B /* HomeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F21D2C5BDB070042C97B /* HomeCategoryView.swift */; };
+		91F5F2202C5BDC190042C97B /* HomeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F21F2C5BDC190042C97B /* HomeCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,7 +138,6 @@
 		9193A5FA2BFE46B9000B5B9A /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		9193A5FC2BFE46C1000B5B9A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9193A5FE2BFE4BF2000B5B9A /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
-		9193A6022BFE4D50000B5B9A /* GenderContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderContentView.swift; sourceTree = "<group>"; };
 		9193A6052C006812000B5B9A /* JamsilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamsilView.swift; sourceTree = "<group>"; };
 		9194514F2C5686FA00CD739A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		91AC6A5D2C4EA91200BF8613 /* StadiumFood.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StadiumFood.entitlements; sourceTree = "<group>"; };
@@ -172,13 +169,12 @@
 		91E8512C2BFE364E004DE2AD /* Stadium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stadium.swift; sourceTree = "<group>"; };
 		91E8512E2BFE366C004DE2AD /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		91E851302BFE367E004DE2AD /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
-		91E8513C2BFE3E37004DE2AD /* BasketballListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketballListView.swift; sourceTree = "<group>"; };
-		91E8513E2BFE3E7F004DE2AD /* SoccerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoccerListView.swift; sourceTree = "<group>"; };
-		91E851402BFE3E89004DE2AD /* VolleyballListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolleyballListView.swift; sourceTree = "<group>"; };
 		91F4DDE02C56B5770002B534 /* GADFull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADFull.swift; sourceTree = "<group>"; };
 		91F4DDE22C59455B0002B534 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		91F4DDE42C5945700002B534 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceView.swift; sourceTree = "<group>"; };
 		91F4DDE72C59463B0002B534 /* PolicyWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyWebView.swift; sourceTree = "<group>"; };
+		91F5F21D2C5BDB070042C97B /* HomeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryView.swift; sourceTree = "<group>"; };
+		91F5F21F2C5BDC190042C97B /* HomeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategory.swift; sourceTree = "<group>"; };
 		AE38D6B2F61020869B48B322 /* Pods-StadiumFood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StadiumFood.debug.xcconfig"; path = "Target Support Files/Pods-StadiumFood/Pods-StadiumFood.debug.xcconfig"; sourceTree = "<group>"; };
 		D6D1F652E327300C86DDF27A /* Pods-StadiumFood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StadiumFood.release.xcconfig"; path = "Target Support Files/Pods-StadiumFood/Pods-StadiumFood.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -538,6 +534,7 @@
 			isa = PBXGroup;
 			children = (
 				9146558B2C2D4EF50005B2D5 /* StadiumEnum.swift */,
+				91F5F21F2C5BDC190042C97B /* HomeCategory.swift */,
 				9139A9F82C22CCFA00883DAF /* FloorCategory.swift */,
 				91E851282BFE35D9004DE2AD /* SportsCategory.swift */,
 				9193A5FE2BFE4BF2000B5B9A /* Gender.swift */,
@@ -548,6 +545,7 @@
 		91E851382BFE3BCD004DE2AD /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				91F5F21D2C5BDB070042C97B /* HomeCategoryView.swift */,
 				914DC1352C01A7F700F3D3F6 /* FloorCategoryView.swift */,
 				915E30CD2C3E7762005DCAB1 /* FloorsCategoryView.swift */,
 			);
@@ -558,10 +556,6 @@
 			isa = PBXGroup;
 			children = (
 				914DC13D2C01AB7500F3D3F6 /* BaseballListView.swift */,
-				91E8513E2BFE3E7F004DE2AD /* SoccerListView.swift */,
-				91E8513C2BFE3E37004DE2AD /* BasketballListView.swift */,
-				91E851402BFE3E89004DE2AD /* VolleyballListView.swift */,
-				9193A6022BFE4D50000B5B9A /* GenderContentView.swift */,
 			);
 			path = StadiumList;
 			sourceTree = "<group>";
@@ -757,6 +751,7 @@
 				914DC1242C00797400F3D3F6 /* GochuckView.swift in Sources */,
 				91772D1A2C01B139003EFCC7 /* MenuInfoView.swift in Sources */,
 				914DC1302C007A3600F3D3F6 /* NCParkView.swift in Sources */,
+				91F5F21E2C5BDB070042C97B /* HomeCategoryView.swift in Sources */,
 				91E8512F2BFE366C004DE2AD /* Restaurant.swift in Sources */,
 				91B2AA142C4393F000829C78 /* NoticeDetailView.swift in Sources */,
 				91178DB42C1039A500C18EFF /* FavoritesViewModel.swift in Sources */,
@@ -764,10 +759,8 @@
 				914DC1282C0079EF00F3D3F6 /* LandersFieldView.swift in Sources */,
 				91772D692C08B470003EFCC7 /* RestaurantViewModel.swift in Sources */,
 				91B2AA0D2C43904E00829C78 /* Notice.swift in Sources */,
-				91E8513F2BFE3E7F004DE2AD /* SoccerListView.swift in Sources */,
 				91E851292BFE35D9004DE2AD /* SportsCategory.swift in Sources */,
 				91E851312BFE367E004DE2AD /* MenuItem.swift in Sources */,
-				91E851412BFE3E89004DE2AD /* VolleyballListView.swift in Sources */,
 				9193A6062C006812000B5B9A /* JamsilView.swift in Sources */,
 				9193A5F92BFE4676000B5B9A /* TabBarView.swift in Sources */,
 				91B2AA0B2C41288D00829C78 /* Bundle.swift in Sources */,
@@ -778,15 +771,14 @@
 				91B2AA0F2C43908000829C78 /* NoticesViewModel.swift in Sources */,
 				914DC1262C0079DE00F3D3F6 /* WizParkView.swift in Sources */,
 				91F4DDE52C5945700002B534 /* TermsOfServiceView.swift in Sources */,
-				91E8513D2BFE3E37004DE2AD /* BasketballListView.swift in Sources */,
 				9193A5FB2BFE46B9000B5B9A /* FavoritesView.swift in Sources */,
-				9193A6032BFE4D50000B5B9A /* GenderContentView.swift in Sources */,
 				9193A5FF2BFE4BF2000B5B9A /* Gender.swift in Sources */,
 				914DC13E2C01AB7500F3D3F6 /* BaseballListView.swift in Sources */,
 				91E851132BFE3474004DE2AD /* StadiumFoodApp.swift in Sources */,
 				9139A9F72C11B28E00883DAF /* FavoriteListView.swift in Sources */,
 				91B2AA112C43937300829C78 /* NoticeListView.swift in Sources */,
 				9146558A2C2D4B9E0005B2D5 /* MenuItemViewModel.swift in Sources */,
+				91F5F2202C5BDC190042C97B /* HomeCategory.swift in Sources */,
 				91AC6A6F2C529FE900BF8613 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

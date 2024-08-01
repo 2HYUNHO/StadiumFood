@@ -13,13 +13,12 @@ struct StadiumView: View {
     @EnvironmentObject var favoritesViewModel: FavoritesViewModel
     
     @State var selectedFloor: FloorCategoryModel.FloorCategory
-    @State private var isFavorite = false
     @State private var selectedFilter: String? = "전체"
     var animation: Namespace.ID
     let stadiumId: String
     let stadiumName: String
     let floorIds: [String: String]
- 
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
@@ -98,28 +97,19 @@ struct StadiumView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        isFavorite.toggle()
-                        if isFavorite {
-                            favoritesViewModel.addFavoriteStadium(stadiumName)
-                        } else {
+                        if favoritesViewModel.favoriteStadiums.contains(stadiumName) {
                             favoritesViewModel.removeFavoriteStadium(stadiumName)
+                        } else {
+                            favoritesViewModel.addFavoriteStadium(stadiumName)
                         }
                     } label: {
-                        Image(systemName: isFavorite ? "star.fill" : "star")
-                            .foregroundStyle(isFavorite ? .yellow : .gray)
+                        Image(systemName: favoritesViewModel.favoriteStadiums.contains(stadiumName) ? "star.fill" : "star")
+                            .foregroundStyle(favoritesViewModel.favoriteStadiums.contains(stadiumName) ? .yellow : .gray)
                     }
                 }
             }
         }
         .navigationBarBackButtonHidden()
-        .onAppear {
-            // 즐겨찾기 상태 초기화
-            isFavorite = favoritesViewModel.favoriteStadiums.contains(stadiumName)
-        }
-        .onReceive(favoritesViewModel.$favoriteStadiums) { _ in
-            // 즐겨찾기 상태가 변경되면 버튼 상태 업데이트
-            isFavorite = favoritesViewModel.favoriteStadiums.contains(stadiumName)
-        }
     }
     
     private func getStadium(from stadiumId: String) -> FloorCategoryModel.Stadium {

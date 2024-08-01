@@ -26,7 +26,7 @@ struct TabBarView: View {
                 FavoritesView(viewModel: viewModel)
                     .environmentObject(favoritesViewModel)
                     .tabItem {
-                        Image(systemName: "star.fill")
+                        Image(systemName: "calendar")
                     }
                     .tag(1)
                 
