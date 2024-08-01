@@ -1,4 +1,6 @@
 
 .DS_Store
-
+.GoogleserVice-Info.plist
 StadiumFood.xcodeproj/project.xcworkspace/xcuserdata/jmyeong.xcuserdatad/UserInterfaceState.xcuserstate
+
+GoogleService-Info.plist
