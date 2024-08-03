@@ -10,5 +10,5 @@ import Foundation
 // 스포츠 종목
 enum HomeCategory: String, CaseIterable {
     case all = "전체"
-    case favoriteStadium = "즐겨찾는구장"
+    case favoriteStadium = "선호구장"
 }

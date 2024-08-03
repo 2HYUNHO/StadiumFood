@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @StateObject var viewModel = StadiumViewModel()
+    @StateObject var scheduleViewModel = ScheduleViewModel()
     @StateObject var favoritesViewModel = FavoritesViewModel()
+    @StateObject var calendarViewModel = CalendarViewModel()
     @State private var selectedTab = 0 // 현재 선택된 탭의 인덱스
     
     var body: some View {
@@ -22,9 +23,8 @@ struct TabBarView: View {
                     }
                     .tag(0)
                 
-                // 즐겨찾기화면
-                FavoritesView(viewModel: viewModel)
-                    .environmentObject(favoritesViewModel)
+                // 일정화면
+                ScheduleView(calendarViewModel: calendarViewModel, scheduleViewModel: scheduleViewModel)
                     .tabItem {
                         Image(systemName: "calendar")
                     }

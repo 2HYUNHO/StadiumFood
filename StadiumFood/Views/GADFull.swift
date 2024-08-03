@@ -40,7 +40,8 @@ class GADFull: NSObject, GADFullScreenContentDelegate, ObservableObject {
     
     // 전면 광고를 표시하는 함수
     func displayInterstitialAd(onDismiss: @escaping () -> Void) {
-        guard let root = UIApplication.shared.windows.first?.rootViewController else {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let root = windowScene.windows.first?.rootViewController else {
             print("오류: 루트 뷰 컨트롤러를 찾을 수 없음")
             return
         }

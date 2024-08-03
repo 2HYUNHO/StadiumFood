@@ -99,6 +99,16 @@
 		91F4DDE82C59463B0002B534 /* PolicyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DDE72C59463B0002B534 /* PolicyWebView.swift */; };
 		91F5F21E2C5BDB070042C97B /* HomeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F21D2C5BDB070042C97B /* HomeCategoryView.swift */; };
 		91F5F2202C5BDC190042C97B /* HomeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F21F2C5BDC190042C97B /* HomeCategory.swift */; };
+		91F5F2232C5E320B0042C97B /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2222C5E320B0042C97B /* ScheduleView.swift */; };
+		91F5F2252C5E35630042C97B /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2242C5E35630042C97B /* Calendar.swift */; };
+		91F5F2272C5E362E0042C97B /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2262C5E362E0042C97B /* ScheduleViewModel.swift */; };
+		91F5F2292C5E3A800042C97B /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2282C5E3A800042C97B /* DatePickerView.swift */; };
+		91F5F22C2C5E3C2A0042C97B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F22B2C5E3C2A0042C97B /* CalendarView.swift */; };
+		91F5F2302C5E44820042C97B /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F22F2C5E44820042C97B /* CalendarViewModel.swift */; };
+		91F5F2322C5E44B00042C97B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2312C5E44B00042C97B /* Date.swift */; };
+		91F5F2342C5E502B0042C97B /* CalendarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2332C5E502B0042C97B /* CalendarListView.swift */; };
+		91F5F2362C5E5F150042C97B /* ScheduleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2352C5E5F150042C97B /* ScheduleListView.swift */; };
+		91F5F2382C5E64160042C97B /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2372C5E64160042C97B /* Schedule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +185,16 @@
 		91F4DDE72C59463B0002B534 /* PolicyWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyWebView.swift; sourceTree = "<group>"; };
 		91F5F21D2C5BDB070042C97B /* HomeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryView.swift; sourceTree = "<group>"; };
 		91F5F21F2C5BDC190042C97B /* HomeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategory.swift; sourceTree = "<group>"; };
+		91F5F2222C5E320B0042C97B /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		91F5F2242C5E35630042C97B /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		91F5F2262C5E362E0042C97B /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		91F5F2282C5E3A800042C97B /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		91F5F22B2C5E3C2A0042C97B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		91F5F22F2C5E44820042C97B /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		91F5F2312C5E44B00042C97B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		91F5F2332C5E502B0042C97B /* CalendarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarListView.swift; sourceTree = "<group>"; };
+		91F5F2352C5E5F150042C97B /* ScheduleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListView.swift; sourceTree = "<group>"; };
+		91F5F2372C5E64160042C97B /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = ../../../../Schedule.swift; sourceTree = "<group>"; };
 		AE38D6B2F61020869B48B322 /* Pods-StadiumFood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StadiumFood.debug.xcconfig"; path = "Target Support Files/Pods-StadiumFood/Pods-StadiumFood.debug.xcconfig"; sourceTree = "<group>"; };
 		D6D1F652E327300C86DDF27A /* Pods-StadiumFood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StadiumFood.release.xcconfig"; path = "Target Support Files/Pods-StadiumFood/Pods-StadiumFood.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -262,17 +282,18 @@
 			children = (
 				914655932C37C6C50005B2D5 /* SwipeBackExtension.swift */,
 				91B2AA0A2C41288D00829C78 /* Bundle.swift */,
+				91F5F2312C5E44B00042C97B /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		9139A9F52C11B27600883DAF /* Favorite */ = {
+		9139A9F52C11B27600883DAF /* FavoritesView */ = {
 			isa = PBXGroup;
 			children = (
 				9193A5FA2BFE46B9000B5B9A /* FavoritesView.swift */,
 				9139A9F62C11B28E00883DAF /* FavoriteListView.swift */,
 			);
-			path = Favorite;
+			path = FavoritesView;
 			sourceTree = "<group>";
 		};
 		914655852C2D35150005B2D5 /* MenuItem */ = {
@@ -297,7 +318,6 @@
 			children = (
 				9193A5F82BFE4676000B5B9A /* TabBarView.swift */,
 				91E851242BFE34C9004DE2AD /* HomeView.swift */,
-				9139A9F52C11B27600883DAF /* Favorite */,
 				915E30D32C4120DB005DCAB1 /* Settings */,
 			);
 			path = TabBar;
@@ -499,6 +519,8 @@
 				91E8512E2BFE366C004DE2AD /* Restaurant.swift */,
 				91E851302BFE367E004DE2AD /* MenuItem.swift */,
 				91B2AA0C2C43904E00829C78 /* Notice.swift */,
+				91F5F2372C5E64160042C97B /* Schedule.swift */,
+				91F5F2242C5E35630042C97B /* Calendar.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -508,7 +530,9 @@
 			children = (
 				91E851382BFE3BCD004DE2AD /* Category */,
 				91E851392BFE3E14004DE2AD /* StadiumList */,
+				9139A9F52C11B27600883DAF /* FavoritesView */,
 				9193A6042C0067EB000B5B9A /* StadiumFood */,
+				91F5F2212C5E31E80042C97B /* Schedule */,
 				914DC11F2C00700C00F3D3F6 /* TabBar */,
 				913E36B82C5616B200B715F2 /* GADBanner.swift */,
 				91F4DDE02C56B5770002B534 /* GADFull.swift */,
@@ -525,6 +549,8 @@
 				914655892C2D4B9E0005B2D5 /* MenuItemViewModel.swift */,
 				91178DB32C1039A500C18EFF /* FavoritesViewModel.swift */,
 				91B2AA0E2C43908000829C78 /* NoticesViewModel.swift */,
+				91F5F2262C5E362E0042C97B /* ScheduleViewModel.swift */,
+				91F5F22F2C5E44820042C97B /* CalendarViewModel.swift */,
 				91AC6A6E2C529FE900BF8613 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
@@ -568,6 +594,26 @@
 				91F4DDE72C59463B0002B534 /* PolicyWebView.swift */,
 			);
 			path = Policies;
+			sourceTree = "<group>";
+		};
+		91F5F2212C5E31E80042C97B /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				91F5F2222C5E320B0042C97B /* ScheduleView.swift */,
+				91F5F2352C5E5F150042C97B /* ScheduleListView.swift */,
+				91F5F2282C5E3A800042C97B /* DatePickerView.swift */,
+				91F5F22A2C5E3C1B0042C97B /* Calendar */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		91F5F22A2C5E3C1B0042C97B /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				91F5F22B2C5E3C2A0042C97B /* CalendarView.swift */,
+				91F5F2332C5E502B0042C97B /* CalendarListView.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -733,6 +779,7 @@
 			files = (
 				915E30CE2C3E7762005DCAB1 /* FloorsCategoryView.swift in Sources */,
 				91AC6A712C52BB5E00BF8613 /* ToastView.swift in Sources */,
+				91F5F2252C5E35630042C97B /* Calendar.swift in Sources */,
 				91E851252BFE34C9004DE2AD /* HomeView.swift in Sources */,
 				91F4DDE12C56B5770002B534 /* GADFull.swift in Sources */,
 				915E30D02C3E7EDF005DCAB1 /* StadiumView.swift in Sources */,
@@ -741,8 +788,11 @@
 				91E8512D2BFE364E004DE2AD /* Stadium.swift in Sources */,
 				914655942C37C6C50005B2D5 /* SwipeBackExtension.swift in Sources */,
 				914655842C25799B0005B2D5 /* RestaurantListView.swift in Sources */,
+				91F5F2272C5E362E0042C97B /* ScheduleViewModel.swift in Sources */,
 				91E851152BFE3474004DE2AD /* ContentView.swift in Sources */,
 				91772D5E2C048B4D003EFCC7 /* StadiumViewModel.swift in Sources */,
+				91F5F2382C5E64160042C97B /* Schedule.swift in Sources */,
+				91F5F22C2C5E3C2A0042C97B /* CalendarView.swift in Sources */,
 				914655872C2D35310005B2D5 /* MenuItemView.swift in Sources */,
 				9146558C2C2D4EF50005B2D5 /* StadiumEnum.swift in Sources */,
 				9139A9F92C22CCFA00883DAF /* FloorCategory.swift in Sources */,
@@ -755,6 +805,7 @@
 				91E8512F2BFE366C004DE2AD /* Restaurant.swift in Sources */,
 				91B2AA142C4393F000829C78 /* NoticeDetailView.swift in Sources */,
 				91178DB42C1039A500C18EFF /* FavoritesViewModel.swift in Sources */,
+				91F5F2362C5E5F150042C97B /* ScheduleListView.swift in Sources */,
 				91F4DDE82C59463B0002B534 /* PolicyWebView.swift in Sources */,
 				914DC1282C0079EF00F3D3F6 /* LandersFieldView.swift in Sources */,
 				91772D692C08B470003EFCC7 /* RestaurantViewModel.swift in Sources */,
@@ -766,19 +817,24 @@
 				91B2AA0B2C41288D00829C78 /* Bundle.swift in Sources */,
 				91F4DDE32C59455B0002B534 /* PrivacyPolicyView.swift in Sources */,
 				914DC12A2C007A0900F3D3F6 /* EaglesParkView.swift in Sources */,
+				91F5F2232C5E320B0042C97B /* ScheduleView.swift in Sources */,
 				914DC1322C007A3F00F3D3F6 /* SajicView.swift in Sources */,
 				914DC1362C01A7F700F3D3F6 /* FloorCategoryView.swift in Sources */,
 				91B2AA0F2C43908000829C78 /* NoticesViewModel.swift in Sources */,
 				914DC1262C0079DE00F3D3F6 /* WizParkView.swift in Sources */,
 				91F4DDE52C5945700002B534 /* TermsOfServiceView.swift in Sources */,
 				9193A5FB2BFE46B9000B5B9A /* FavoritesView.swift in Sources */,
+				91F5F2342C5E502B0042C97B /* CalendarListView.swift in Sources */,
 				9193A5FF2BFE4BF2000B5B9A /* Gender.swift in Sources */,
 				914DC13E2C01AB7500F3D3F6 /* BaseballListView.swift in Sources */,
+				91F5F2302C5E44820042C97B /* CalendarViewModel.swift in Sources */,
 				91E851132BFE3474004DE2AD /* StadiumFoodApp.swift in Sources */,
 				9139A9F72C11B28E00883DAF /* FavoriteListView.swift in Sources */,
 				91B2AA112C43937300829C78 /* NoticeListView.swift in Sources */,
+				91F5F2322C5E44B00042C97B /* Date.swift in Sources */,
 				9146558A2C2D4B9E0005B2D5 /* MenuItemViewModel.swift in Sources */,
 				91F5F2202C5BDC190042C97B /* HomeCategory.swift in Sources */,
+				91F5F2292C5E3A800042C97B /* DatePickerView.swift in Sources */,
 				91AC6A6F2C529FE900BF8613 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
