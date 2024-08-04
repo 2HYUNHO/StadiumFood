@@ -10,7 +10,6 @@ import SwiftUI
 struct FavoritesView: View {
     @ObservedObject var viewModel: StadiumViewModel
     @EnvironmentObject var favoritesViewModel: FavoritesViewModel
-    @StateObject private var interstitialAdManager = GADFull()
     @State private var navigateToDetail: Bool = false
     @State private var selectedStadium: StadiumModel? = nil
     @Namespace private var animation

@@ -11,10 +11,9 @@ import Kingfisher
 struct FavoriteListView: View {
     @ObservedObject var viewModel: StadiumViewModel
     @EnvironmentObject var favoritesViewModel: FavoritesViewModel
-    @StateObject private var interstitialAdManager = GADFull()
     @State private var navigateToDetail: Bool = false
     @State private var selectedStadium: StadiumModel? = nil
-
+    
     let stadiumNames: [String]
     
     var body: some View {
@@ -26,13 +25,8 @@ struct FavoriteListView: View {
                             Button {
                                 // 선택한 구장
                                 selectedStadium = stadium
-                                if interstitialAdManager.interstitialAdLoaded {
-                                    interstitialAdManager.displayInterstitialAd {
-                                        // 광고가 닫힌 후 네비게이션 수행
-                                        navigateToDetail = true
-                                    }
-                                } else {
-                                    // 광고가 로드되지 않은 경우 바로 네비게이션 수행
+                                GADFull.shared.displayInterstitialAd {
+                                    // 광고가 닫힌 후 네비게이션 수행
                                     navigateToDetail = true
                                 }
                             } label: {
@@ -57,7 +51,7 @@ struct FavoriteListView: View {
                             Spacer()
                             
                             Image(systemName: favoritesViewModel.favoriteStadiums.contains(stadium.name) ? "star.fill" : "star")
-                                .foregroundStyle(favoritesViewModel.favoriteStadiums.contains(stadium.name) ? .black : .gray)
+                                .foregroundStyle(favoritesViewModel.favoriteStadiums.contains(stadium.name) ? Color(.label) : .gray)
                                 .font(.system(size: 20))
                                 .onTapGesture {
                                     if favoritesViewModel.favoriteStadiums.contains(stadium.name) {
@@ -85,11 +79,11 @@ struct FavoriteListView: View {
             }
             .listStyle(.plain)
             .onAppear {
-                interstitialAdManager.loadInterstitialAd()
+                GADFull.shared.loadInterstitialAd()
             }
             .navigationDestination(isPresented: $navigateToDetail) {
                 // 현재 선택된 구장이 nil이 아닐 경우에만 네비게이션 수행
-                if let stadium = selectedStadium { 
+                if let stadium = selectedStadium {
                     viewModel.destinationViewForStadium(stadium, favoritesViewModel: favoritesViewModel)
                 } else {
                     EmptyView()

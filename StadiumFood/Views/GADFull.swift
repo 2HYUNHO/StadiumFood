@@ -10,16 +10,17 @@ import GoogleMobileAds
 
 class GADFull: NSObject, GADFullScreenContentDelegate, ObservableObject {
     
+    static let shared = GADFull() // 싱글턴 인스턴스
+    private override init() {
+        super.init()
+        loadInterstitialAd() // 초기화 시 광고 로드
+    }
+    
     @Published var interstitialAdLoaded: Bool = false
     var interstitialAd: GADInterstitialAd?
-    var onAdDismissed: (() -> Void)?
+    private var onAdDismissed: (() -> Void)?
     private var lastAdDisplayTime: Date? // 마지막 광고 표시 시간
     private let adDisplayInterval: TimeInterval = 60 // 1분
-    
-    override init() {
-        super.init()
-        loadInterstitialAd()
-    }
     
     // 전면 광고를 로드하는 함수
     func loadInterstitialAd() {
@@ -40,12 +41,6 @@ class GADFull: NSObject, GADFullScreenContentDelegate, ObservableObject {
     
     // 전면 광고를 표시하는 함수
     func displayInterstitialAd(onDismiss: @escaping () -> Void) {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let root = windowScene.windows.first?.rootViewController else {
-            print("오류: 루트 뷰 컨트롤러를 찾을 수 없음")
-            return
-        }
-        
         let currentTime = Date()
         if let lastAdTime = lastAdDisplayTime, currentTime.timeIntervalSince(lastAdTime) < adDisplayInterval {
             print("광고가 너무 자주 표시되지 않도록 방지합니다.")
@@ -53,8 +48,13 @@ class GADFull: NSObject, GADFullScreenContentDelegate, ObservableObject {
             return
         }
         
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let root = windowScene.windows.first?.rootViewController else {
+            print("오류: 루트 뷰 컨트롤러를 찾을 수 없음")
+            return
+        }
+        
         if let ad = interstitialAd {
-            // 광고가 준비된 경우 광고를 표시
             ad.present(fromRootViewController: root)
             self.interstitialAdLoaded = false
             self.onAdDismissed = onDismiss
@@ -62,6 +62,7 @@ class GADFull: NSObject, GADFullScreenContentDelegate, ObservableObject {
         } else {
             print("오류: 전면 광고가 준비되지 않음")
             self.loadInterstitialAd()
+            onDismiss() // 광고가 준비되지 않으면 클로저를 즉시 호출
         }
     }
     

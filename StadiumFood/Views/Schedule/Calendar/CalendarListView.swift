@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CalendarListView: View {
-    @ObservedObject var viewModel: ScheduleViewModel
+    @ObservedObject var viewModel: CalendarViewModel
     let date: Date
     
     // 날짜 포맷터
@@ -45,19 +45,25 @@ struct CalendarListView: View {
 
             List(viewModel.schedules) { schedule in
                 HStack {
-                    Text(schedule.home) // 홈팀
-                    
-                    Spacer()
+                    HStack {
+                        Text(schedule.home) // 홈팀
+                        
+                        Spacer()
+                    }
                     
                     Text("vs")
+                        .font(.system(size: 14))
                     
-                    Spacer()
-                    
-                    Text(schedule.away) // 어웨이팀
+                    HStack {
+                        Spacer()
+                        
+                        Text(schedule.away) // 어웨이팀
+                    }
                 }
                 
                 .padding(.bottom, 5)
             }
+            .scrollDisabled(true)
             .listStyle(.plain)
         }
         .padding()

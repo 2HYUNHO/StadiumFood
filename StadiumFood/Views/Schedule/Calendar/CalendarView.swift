@@ -10,22 +10,33 @@ import SwiftUI
 struct CalendarView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var scheduleViewModel: ScheduleViewModel
-    
-    @StateObject private var viewModel = CalendarViewModel()
+    @ObservedObject var calendarViewModel: CalendarViewModel
     
     var body: some View {
         VStack {
             headerView
             calendarGridView
             
-            if let selectedDate = viewModel.selectedDate {
-                CalendarListView(viewModel: scheduleViewModel, date: selectedDate)
+            if let selectedDate = calendarViewModel.selectedDate {
+                CalendarListView(viewModel: calendarViewModel, date: selectedDate)
+                    .onAppear {
+                        // 선택된 날짜에 대한 스케줄을 가져옵니다.
+                        calendarViewModel.fetchSchedules(for: selectedDate)
+                    }
             }
             
             Spacer()
         }
         .padding()
         
+        .onAppear {
+            // CalendarView가 나타날 때 항상 현재 날짜로 설정
+            calendarViewModel.selectedDate = calendarViewModel.today
+            calendarViewModel.fetchSchedules(for: calendarViewModel.selectedDate ?? calendarViewModel.today)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                calendarViewModel.resetToToday()
+            }
+        }
         .navigationBarBackButtonHidden()
     }
     
@@ -43,7 +54,7 @@ struct CalendarView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "xmark")
-                        .foregroundStyle(.black)
+                        .foregroundStyle(Color(.label))
                 }
             }
             .padding(.horizontal, 10)
@@ -64,33 +75,33 @@ struct CalendarView: View {
     private var yearMonthView: some View {
         HStack(alignment: .center, spacing: 20) {
             Button {
-                viewModel.changeMonth(by: -1)
+                calendarViewModel.changeMonth(by: -1)
             } label: {
                 Image(systemName: "chevron.left")
                     .font(.title)
-                    .foregroundStyle(viewModel.canMoveToPreviousMonth() ? .black : .gray)
+                    .foregroundStyle(calendarViewModel.canMoveToPreviousMonth() ? Color(.label) : .gray)
             }
-            .disabled(!viewModel.canMoveToPreviousMonth())
+            .disabled(!calendarViewModel.canMoveToPreviousMonth())
             
-            Text(viewModel.month, formatter: CalendarViewModel.calendarHeaderDateFormatter)
+            Text(calendarViewModel.month, formatter: CalendarViewModel.calendarHeaderDateFormatter)
                 .font(.title.bold())
             
             Button {
-                viewModel.changeMonth(by: 1)
+                calendarViewModel.changeMonth(by: 1)
             } label: {
                 Image(systemName: "chevron.right")
                     .font(.title)
-                    .foregroundStyle(viewModel.canMoveToNextMonth() ? .black : .gray)
+                    .foregroundStyle(calendarViewModel.canMoveToNextMonth() ? Color(.label) : .gray)
             }
-            .disabled(!viewModel.canMoveToNextMonth())
+            .disabled(!calendarViewModel.canMoveToNextMonth())
         }
     }
     
     // MARK: - 날짜 그리드 뷰
     private var calendarGridView: some View {
-        let daysInMonth: Int = viewModel.numberOfDays(in: viewModel.month)
-        let firstWeekday: Int = viewModel.firstWeekdayOfMonth(in: viewModel.month) - 1
-        let lastDayOfMonthBefore = viewModel.numberOfDays(in: viewModel.previousMonth())
+        let daysInMonth: Int = calendarViewModel.numberOfDays(in: calendarViewModel.month)
+        let firstWeekday: Int = calendarViewModel.firstWeekdayOfMonth(in: calendarViewModel.month) - 1
+        let lastDayOfMonthBefore = calendarViewModel.numberOfDays(in: calendarViewModel.previousMonth())
         let numberOfRows = Int(ceil(Double(daysInMonth + firstWeekday) / 7.0))
         let visibleDaysOfNextMonth = numberOfRows * 7 - (daysInMonth + firstWeekday)
         
@@ -98,16 +109,16 @@ struct CalendarView: View {
             ForEach(-firstWeekday ..< daysInMonth + visibleDaysOfNextMonth, id: \.self) { index in
                 Group {
                     if index > -1 && index < daysInMonth {
-                        let date = viewModel.getDate(for: index)
+                        let date = calendarViewModel.getDate(for: index)
                         let day = Calendar.current.component(.day, from: date)
-                        let clicked = viewModel.selectedDate == date
-                        let isToday = date.formattedCalendarDayDate == viewModel.today.formattedCalendarDayDate
+                        let clicked = calendarViewModel.selectedDate == date
+                        let isToday = date.formattedCalendarDayDate == calendarViewModel.today.formattedCalendarDayDate
                         
                         CellView(day: day, clicked: clicked, isToday: isToday)
                     } else if let prevMonthDate = Calendar.current.date(
                         byAdding: .day,
                         value: index + lastDayOfMonthBefore,
-                        to: viewModel.previousMonth()
+                        to: calendarViewModel.previousMonth()
                     ) {
                         let day = Calendar.current.component(.day, from: prevMonthDate)
                         
@@ -116,9 +127,9 @@ struct CalendarView: View {
                 }
                 .onTapGesture {
                     if 0 <= index && index < daysInMonth {
-                        let date = viewModel.getDate(for: index)
-                        viewModel.selectedDate = date
-                        scheduleViewModel.fetchSchedules(for: date)
+                        let date = calendarViewModel.getDate(for: index)
+                        calendarViewModel.selectedDate = date
+                        calendarViewModel.fetchSchedules(for: date)
                     }
                 }
             }
@@ -126,26 +137,31 @@ struct CalendarView: View {
     }
     
     private struct CellView: View {
+        @Environment(\.colorScheme) var colorScheme: ColorScheme
+        
         private var day: Int
         private var clicked: Bool
         private var isToday: Bool
         private var isCurrentMonthDay: Bool
         private var textColor: Color {
             if clicked {
-                return Color.white
+                return colorScheme == .dark ? Color.black : Color.white
             } else if isCurrentMonthDay {
-                return isToday ? Color.white : Color.black
+                return isToday ? (colorScheme == .dark ? Color.black : Color.white) : (colorScheme == .dark ? Color.white : Color.black)
             } else {
-                return Color.gray
+                return colorScheme == .dark ? Color.gray : Color.gray
             }
         }
+        
         private var backgroundColor: Color {
             if clicked {
-                return isToday ? Color.black : Color.gray
+                return isToday ? (colorScheme == .dark ? Color.white : Color.black) : (colorScheme == .dark ? Color.gray : Color.gray)
             } else if isToday {
-                return Color.black
+                // 오늘 날짜일 때 배경 색상 조정
+                return colorScheme == .dark ? Color.white : Color.black
             } else {
-                return Color.white
+                // 오늘 날짜가 아닐 때 배경 색상 조정
+                return colorScheme == .dark ? Color.black : Color.white
             }
         }
         

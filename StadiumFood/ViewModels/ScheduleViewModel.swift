@@ -13,13 +13,13 @@ class ScheduleViewModel: ObservableObject {
     @Published var schedules: [ScheduleModel] = []
     
     func fetchSchedules(for date: Date) {
-        let calendar = Calendar.current
-        let startOfDay = calendar.startOfDay(for: date)
-        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMdd"  // 날짜를 'MMDD' 형식으로 변환
+        let formattedDate = dateFormatter.string(from: date)
         
         Firestore.firestore().collection("schedules")
-            .whereField("date", isGreaterThanOrEqualTo: startOfDay)
-            .whereField("date", isLessThan: endOfDay)
+            .document(formattedDate)
+            .collection("stadiums")
             .getDocuments { snapshot, error in
                 if let error = error {
                     print("Error fetching schedules: \(error.localizedDescription)")
@@ -29,12 +29,12 @@ class ScheduleViewModel: ObservableObject {
                         let id = document.documentID
                         let away = data["away"] as? String ?? ""
                         let home = data["home"] as? String ?? ""
-                        let stadium = data["stadium"] as? String ?? ""
+                        let stadiumName = data["stadiumName"] as? String ?? ""
                         let stadiumImage = data["stadiumImage"] as? String ?? ""
                         let timestamp = data["date"] as? Timestamp ?? Timestamp(date: Date())
                         let date = timestamp.dateValue()
                         
-                        return ScheduleModel(id: id, away: away, home: home, stadium: stadium, stadiumImage: stadiumImage, date: date)
+                        return ScheduleModel(id: id, away: away, home: home, stadiumName: stadiumName, stadiumImage: stadiumImage, date: date)
                     }
                 }
             }
@@ -45,5 +45,24 @@ class ScheduleViewModel: ObservableObject {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM.dd(EEE) HH:mm"
         return formatter.string(from: date)
+    }
+    
+    // 일정이 있는 구장과 일정이 없는 구장으로 필터링
+    func filteredStadiums(from stadiums: [StadiumModel]) -> (withSchedule: [StadiumModel], withoutSchedule: [StadiumModel]) {
+        let today = Date()
+        
+        let stadiumsWithSchedule = stadiums.filter { stadium in
+            schedules.contains {
+                $0.stadiumName == stadium.name && Calendar.current.isDate($0.date, inSameDayAs: today)
+            }
+        }
+        
+        let stadiumsWithoutSchedule = stadiums.filter { stadium in
+            !schedules.contains {
+                $0.stadiumName == stadium.name && Calendar.current.isDate($0.date, inSameDayAs: today)
+            }
+        }
+        
+        return (withSchedule: stadiumsWithSchedule, withoutSchedule: stadiumsWithoutSchedule)
     }
 }

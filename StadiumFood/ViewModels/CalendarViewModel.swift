@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestore
 
 class CalendarViewModel: ObservableObject {
     @Published var month: Date = Date()
-    @Published var selectedDate: Date? = Date()
+    @Published var selectedDate: Date?
     @Published var currentDate: Date = Date()
     @Published var dates: [CalendarModel] = []
+    @Published var schedules: [ScheduleModel] = []
     
     private var calendar = Calendar.current
     
@@ -71,6 +74,14 @@ class CalendarViewModel: ObservableObject {
         let now = Date()
         let components = calendar.dateComponents([.year, .month, .day], from: now)
         return calendar.date(from: components)!
+    }
+    
+    // 날짜를 오늘로 리셋하는 메서드
+    func resetToToday() {
+        let today = self.today
+        self.currentDate = today
+        self.selectedDate = today
+        updateDates()
     }
     
     // 날짜 포맷터
@@ -147,5 +158,34 @@ class CalendarViewModel: ObservableObject {
     // 변경하려는 월 반환
     private func adjustedMonth(by value: Int) -> Date {
         return calendar.date(byAdding: .month, value: value, to: month) ?? month
+    }
+    
+    // 일정 데이터 가져오기
+    func fetchSchedules(for date: Date) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMdd"  // 날짜를 'MMDD' 형식으로 변환
+        let formattedDate = dateFormatter.string(from: date)
+        
+        Firestore.firestore().collection("schedules")
+            .document(formattedDate)
+            .collection("stadiums")
+            .getDocuments { snapshot, error in
+                if let error = error {
+                    print("Error fetching schedules: \(error.localizedDescription)")
+                } else if let snapshot = snapshot {
+                    self.schedules = snapshot.documents.compactMap { document -> ScheduleModel? in
+                        let data = document.data()
+                        let id = document.documentID
+                        let away = data["away"] as? String ?? ""
+                        let home = data["home"] as? String ?? ""
+                        let stadiumName = data["stadiumName"] as? String ?? ""
+                        let stadiumImage = data["stadiumImage"] as? String ?? ""
+                        let timestamp = data["date"] as? Timestamp ?? Timestamp(date: Date())
+                        let date = timestamp.dateValue()
+                        
+                        return ScheduleModel(id: id, away: away, home: home, stadiumName: stadiumName, stadiumImage: stadiumImage, date: date)
+                    }
+                }
+            }
     }
 }

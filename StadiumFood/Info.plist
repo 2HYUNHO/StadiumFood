@@ -220,12 +220,10 @@
 	</array>
 	<key>UILaunchScreen</key>
 	<dict>
-		<key>UIColorName</key>
-		<string>LaunchScreen-background</string>
 		<key>UIImageName</key>
-		<string>LaunchScreen-Logo</string>
-		<key>UILaunchScreen</key>
-		<dict/>
+		<string>textLogo</string>
+		<key>UIColorName</key>
+		<string>BG</string>
 	</dict>
 </dict>
 </plist>

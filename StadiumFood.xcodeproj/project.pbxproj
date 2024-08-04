@@ -109,6 +109,7 @@
 		91F5F2342C5E502B0042C97B /* CalendarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2332C5E502B0042C97B /* CalendarListView.swift */; };
 		91F5F2362C5E5F150042C97B /* ScheduleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2352C5E5F150042C97B /* ScheduleListView.swift */; };
 		91F5F2382C5E64160042C97B /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2372C5E64160042C97B /* Schedule.swift */; };
+		91F5F23A2C5E9F8D0042C97B /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2392C5E9F8D0042C97B /* LaunchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -195,6 +196,7 @@
 		91F5F2332C5E502B0042C97B /* CalendarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarListView.swift; sourceTree = "<group>"; };
 		91F5F2352C5E5F150042C97B /* ScheduleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListView.swift; sourceTree = "<group>"; };
 		91F5F2372C5E64160042C97B /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = ../../../../Schedule.swift; sourceTree = "<group>"; };
+		91F5F2392C5E9F8D0042C97B /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		AE38D6B2F61020869B48B322 /* Pods-StadiumFood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StadiumFood.debug.xcconfig"; path = "Target Support Files/Pods-StadiumFood/Pods-StadiumFood.debug.xcconfig"; sourceTree = "<group>"; };
 		D6D1F652E327300C86DDF27A /* Pods-StadiumFood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StadiumFood.release.xcconfig"; path = "Target Support Files/Pods-StadiumFood/Pods-StadiumFood.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -497,6 +499,7 @@
 				91E851212BFE348B004DE2AD /* Views */,
 				91E851122BFE3474004DE2AD /* StadiumFoodApp.swift */,
 				91E851142BFE3474004DE2AD /* ContentView.swift */,
+				91F5F2392C5E9F8D0042C97B /* LaunchView.swift */,
 				91E851162BFE3474004DE2AD /* Assets.xcassets */,
 				91E851182BFE3474004DE2AD /* Preview Content */,
 			);
@@ -778,6 +781,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				915E30CE2C3E7762005DCAB1 /* FloorsCategoryView.swift in Sources */,
+				91F5F23A2C5E9F8D0042C97B /* LaunchView.swift in Sources */,
 				91AC6A712C52BB5E00BF8613 /* ToastView.swift in Sources */,
 				91F5F2252C5E35630042C97B /* Calendar.swift in Sources */,
 				91E851252BFE34C9004DE2AD /* HomeView.swift in Sources */,

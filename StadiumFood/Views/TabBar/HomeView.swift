@@ -10,6 +10,7 @@ import GoogleMobileAds
 
 struct HomeView: View {
     @StateObject var stadiumViewModel = StadiumViewModel()
+    @StateObject var scheduleViewModel = ScheduleViewModel()
     @StateObject var favoritesViewModel = FavoritesViewModel()
     @Namespace private var animation
     @State private var selectedCategory: HomeCategory = .all
@@ -27,7 +28,7 @@ struct HomeView: View {
                             .tag(homeCategory)
                     }
                 }
-                .tabViewStyle(PageTabViewStyle())
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 
                 // 광고
                 GADBanner()
@@ -64,7 +65,7 @@ struct HomeView: View {
     private func contentView(for homeCategory: HomeCategory) -> some View {
         switch homeCategory {
         case .all:
-            BaseballListView(viewModel: stadiumViewModel)
+            BaseballListView(viewModel: stadiumViewModel, scheduleViewModel: scheduleViewModel)
         case .favoriteStadium:
             FavoritesView(viewModel: stadiumViewModel)
         }

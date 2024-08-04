@@ -24,7 +24,7 @@ struct DatePickerView: View {
                         viewModel.selectDate(calendarDate.date)
                     } label: {
                         Text(viewModel.formatterDate(calendarDate.date))
-                            .foregroundStyle(viewModel.isSelectedDate(calendarDate.date) ? .black : .gray)
+                            .foregroundStyle(viewModel.isSelectedDate(calendarDate.date) ? Color(.label) : .gray)
                             .fontWeight(viewModel.isSelectedDate(calendarDate.date) ? .bold : .regular)
                             .frame(maxWidth: .infinity)
                     }

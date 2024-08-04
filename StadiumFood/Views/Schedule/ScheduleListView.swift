@@ -6,51 +6,63 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ScheduleListView: View {
     @ObservedObject var viewModel: ScheduleViewModel
     
     var body: some View {
-        List(viewModel.schedules) { schedule in
-            VStack(alignment: .leading) {
-                HStack {
-                    Image(systemName: "calendar")
-                        .resizable()
-                        .frame(width: 80, height: 80)
-                        .cornerRadius(10)
-                    
-                    VStack(alignment: .leading, spacing: 8) {
-                        // 구장이름
-                        HStack {
-                            Text(schedule.stadium)
-                                .padding(.bottom, 3)
-                                .font(.system(size: 18))
-                                .bold()
-                        }
+        if viewModel.schedules.isEmpty {
+            VStack {
+                Text("경기 없음")
+                    .foregroundStyle(.gray)
+            }
+        } else {
+            List(viewModel.schedules) { schedule in
+                VStack(alignment: .leading) {
+                    HStack {
+                        // 구장사진
+                        KFImage(URL(string: schedule.stadiumImage))
+                            .resizable()
+                            .placeholder {
+                                ProgressView()
+                            }
+                            .frame(width: 80, height: 80)
+                            .cornerRadius(10)
                         
-                        // 경기 팀
-                        HStack(alignment: .bottom) {
-                            Text(schedule.home)
-                                .font(.system(size: 14))
+                        VStack(alignment: .leading, spacing: 8) {
+                            // 구장이름
+                            HStack {
+                                Text(schedule.stadiumName)
+                                    .padding(.bottom, 3)
+                                    .font(.system(size: 18))
+                                    .bold()
+                            }
                             
-                            Text("vs")
-                                .font(.system(size: 14))
+                            // 경기 팀
+                            HStack(alignment: .bottom) {
+                                Text(schedule.home)
+                                    .font(.system(size: 14))
+                                
+                                Text("vs")
+                                    .font(.system(size: 14))
+                                
+                                Text(schedule.away)
+                                    .font(.system(size: 14))
+                                
+                            }
                             
-                            Text(schedule.away)
-                                .font(.system(size: 14))
-                            
+                            // 날짜 및 시간
+                            Text(viewModel.formattedDate(for: schedule.date))
+                                .font(.caption)
+                                .foregroundStyle(.gray)
                         }
-                        
-                        // 날짜 및 시간
-                        Text(viewModel.formattedDate(for: schedule.date))
-                            .font(.caption)
-                            .foregroundStyle(.gray)
+                        .padding(.leading, 5)
                     }
-                    .padding(.leading, 5)
                 }
             }
+            .listStyle(PlainListStyle())
         }
-        .listStyle(PlainListStyle())
     }
 }
 

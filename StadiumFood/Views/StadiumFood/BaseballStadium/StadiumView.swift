@@ -76,7 +76,7 @@ struct StadiumView: View {
                         }
                     }
                 }
-                .tabViewStyle(PageTabViewStyle())
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .onChange(of: selectedFloor) { newFloor in
                     // 선택된 층 변경 시 데이터 다시 가져오기
                     restaurantViewModel.fetchRestaurants(for: stadiumId, floorId: floorIds[newFloor.rawValue] ?? "", floor: newFloor.rawValue, locationFilter: selectedFilter == "전체" ? nil : selectedFilter)
@@ -104,7 +104,7 @@ struct StadiumView: View {
                         }
                     } label: {
                         Image(systemName: favoritesViewModel.favoriteStadiums.contains(stadiumName) ? "star.fill" : "star")
-                            .foregroundStyle(favoritesViewModel.favoriteStadiums.contains(stadiumName) ? .yellow : .gray)
+                            .foregroundStyle(favoritesViewModel.favoriteStadiums.contains(stadiumName) ? Color(.label) : .gray)
                     }
                 }
             }
