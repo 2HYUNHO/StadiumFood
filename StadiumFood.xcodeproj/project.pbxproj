@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		91178DA92C08C95400C18EFF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 91178DA82C08C95400C18EFF /* Kingfisher */; };
 		91178DB42C1039A500C18EFF /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91178DB32C1039A500C18EFF /* FavoritesViewModel.swift */; };
+		912FFE422C612DB300E5898E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FFE412C612DB300E5898E /* ColorExtension.swift */; };
 		9139A9F72C11B28E00883DAF /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9139A9F62C11B28E00883DAF /* FavoriteListView.swift */; };
 		9139A9F92C22CCFA00883DAF /* FloorCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9139A9F82C22CCFA00883DAF /* FloorCategory.swift */; };
 		913E36B92C5616B200B715F2 /* GADBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E36B82C5616B200B715F2 /* GADBanner.swift */; };
@@ -115,6 +116,7 @@
 /* Begin PBXFileReference section */
 		31A04535868205E530DF9E54 /* Pods_StadiumFood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StadiumFood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91178DB32C1039A500C18EFF /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		912FFE412C612DB300E5898E /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		9139A9F62C11B28E00883DAF /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		9139A9F82C22CCFA00883DAF /* FloorCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorCategory.swift; sourceTree = "<group>"; };
 		913E36B82C5616B200B715F2 /* GADBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADBanner.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 		91178DB02C1034B900C18EFF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				912FFE412C612DB300E5898E /* ColorExtension.swift */,
 				914655932C37C6C50005B2D5 /* SwipeBackExtension.swift */,
 				91B2AA0A2C41288D00829C78 /* Bundle.swift */,
 				91F5F2312C5E44B00042C97B /* Date.swift */,
@@ -810,6 +813,7 @@
 				91178DB42C1039A500C18EFF /* FavoritesViewModel.swift in Sources */,
 				91F5F2362C5E5F150042C97B /* ScheduleListView.swift in Sources */,
 				91F4DDE82C59463B0002B534 /* PolicyWebView.swift in Sources */,
+				912FFE422C612DB300E5898E /* ColorExtension.swift in Sources */,
 				914DC1282C0079EF00F3D3F6 /* LandersFieldView.swift in Sources */,
 				91772D692C08B470003EFCC7 /* RestaurantViewModel.swift in Sources */,
 				91B2AA0D2C43904E00829C78 /* Notice.swift in Sources */,
@@ -992,8 +996,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "구장먹거리";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1064,9 +1068,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hh.StadiumFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1094,8 +1100,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "구장먹거리";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1166,9 +1172,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hh.StadiumFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

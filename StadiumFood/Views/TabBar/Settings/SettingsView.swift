@@ -45,6 +45,7 @@ struct SettingsView: View {
                             Label("알림기능", systemImage: "bell")
                                 .padding(.bottom, 12)
                         }
+                        .toggleStyle(SwitchToggleStyle(tint: Color.green))
                         
                         // 앱 공유하기
                         ShareLink(item: URL(string: "https://www.example.com")!) {

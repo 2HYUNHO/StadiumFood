@@ -2,8 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.hh.StadiumFood</string>
+	</array>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-5176755014867221~1280926807</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>LatestVersion</key>
+	<string>1.0.0</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>
@@ -203,16 +213,6 @@
 			<string>3qcr597p9d.skadnetwork</string>
 		</dict>
 	</array>
-	<key>BGTaskSchedulerPermittedIdentifiers</key>
-	<array>
-		<string>com.hh.StadiumFood</string>
-	</array>
-	<key>FirebaseAppDelegateProxyEnabled</key>
-	<false/>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-	<key>LatestVersion</key>
-	<string>1.0.0</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
@@ -220,10 +220,10 @@
 	</array>
 	<key>UILaunchScreen</key>
 	<dict>
-		<key>UIImageName</key>
-		<string>textLogo</string>
 		<key>UIColorName</key>
 		<string>BG</string>
+		<key>UIImageName</key>
+		<string>LSfont</string>
 	</dict>
 </dict>
 </plist>

@@ -88,7 +88,7 @@ struct BaseballListView: View {
                                         .bold()
                                         .padding(.vertical, 2)
                                         .padding(.horizontal, 5)
-                                        .background(Color.red)
+                                        .background(Color.green)
                                         .foregroundStyle(.white)
                                         .clipShape(RoundedRectangle(cornerRadius: 5))
                                         .padding(.leading, 5)
