@@ -11,7 +11,7 @@ import SwiftUI
 import Kingfisher
 
 struct BaseballListView: View {
-    @ObservedObject var viewModel: StadiumViewModel
+    @ObservedObject var viewModel : StadiumViewModel
     @ObservedObject var scheduleViewModel: ScheduleViewModel
     @EnvironmentObject var favoritesViewModel: FavoritesViewModel
     @State private var navigateToDetail: Bool = false
@@ -35,7 +35,9 @@ struct BaseballListView: View {
             .onAppear {
                 GADFull.shared.loadInterstitialAd()
                 // 오늘 날짜의 일정을 미리 로드
-                scheduleViewModel.fetchSchedules(for: Date())
+                Task {
+                    await scheduleViewModel.fetchSchedules(for: Date())
+                }
             }
             .navigationDestination(isPresented: $navigateToDetail) {
                 if let stadium = selectedStadium {
@@ -43,6 +45,9 @@ struct BaseballListView: View {
                 } else {
                     EmptyView()
                 }
+            }
+            .refreshable {
+                await viewModel.reload()
             }
         }
     }
@@ -74,10 +79,10 @@ struct BaseballListView: View {
                                     .bold()
                                 
                                 // 매치 레이블
-                                if let schedule = scheduleViewModel.schedules.first(where: {
+                                if scheduleViewModel.schedules.first(where: {
                                     $0.stadiumName == stadium.name &&
                                     Calendar.current.isDate($0.date, inSameDayAs: Date())
-                                }) {
+                                }) != nil {
                                     Text("진행")
                                         .font(.system(size: 12))
                                         .bold()
@@ -106,7 +111,7 @@ struct BaseballListView: View {
                                         .padding(.leading, 5)
                                 }
                             } else {
-                                Text("경기없음")
+                                Text("경기일정이 없습니다")
                                     .font(.caption)
                                     .foregroundStyle(.gray)
                                     .padding(.leading, 5)

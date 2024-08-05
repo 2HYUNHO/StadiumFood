@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CalendarView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var scheduleViewModel: ScheduleViewModel
-    @ObservedObject var calendarViewModel: CalendarViewModel
+    @StateObject var calendarViewModel = CalendarViewModel()
+    @StateObject var scheduleViewModel = ScheduleViewModel()
     
     var body: some View {
         VStack {

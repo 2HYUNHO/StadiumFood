@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CalendarListView: View {
-    @ObservedObject var viewModel: CalendarViewModel
+    @StateObject var viewModel = CalendarViewModel()
     let date: Date
     
     // 날짜 포맷터
@@ -32,39 +32,63 @@ struct CalendarListView: View {
             }
             
             HStack {
-                Text("Home")
+                Text("HOME")
                     .bold()
                     .padding(.leading)
                 
                 Spacer()
                 
-                Text("Away")
+                Text("AWAY")
                     .bold()
                     .padding(.trailing)
             }
-
-            List(viewModel.schedules) { schedule in
-                HStack {
-                    HStack {
-                        Text(schedule.home) // 홈팀
-                        
-                        Spacer()
-                    }
-                    
-                    Text("vs")
-                        .font(.system(size: 14))
-                    
+            
+            if viewModel.schedules.isEmpty {
+                VStack {
                     HStack {
                         Spacer()
                         
-                        Text(schedule.away) // 어웨이팀
+                        Text("경기일정이 없습니다.")
+                            .foregroundStyle(.gray)
+                        
+                        Spacer()
                     }
                 }
-                
-                .padding(.bottom, 5)
+                .frame(maxHeight: .infinity)
+            } else {
+                ForEach(viewModel.schedules) { schedule in
+                    VStack {
+                        HStack {
+                            // 홈팀
+                            HStack {
+                                Text(schedule.home)
+                                    .font(.system(size: 14).bold())
+                                    .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
+                                
+                                Spacer()
+                            }
+                            
+                            Text("vs")
+                                .font(.system(size: 16, weight: .medium))
+                                .foregroundStyle(.blue)
+                            
+                            // 어웨이팀
+                            HStack {
+                                Spacer()
+                                
+                                Text(schedule.away)
+                                    .font(.system(size: 14).bold())
+                                    .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
+                            }
+                        }
+                        .padding(.horizontal)
+                        .padding(.vertical, 10)
+                        .background(Color.gray.opacity(0.1))
+                        .cornerRadius(10)
+                    }
+                    .frame(maxHeight: .infinity)
+                }
             }
-            .scrollDisabled(true)
-            .listStyle(.plain)
         }
         .padding()
         .background(Color.gray.opacity(0.1))

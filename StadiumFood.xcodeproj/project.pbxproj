@@ -108,8 +108,8 @@
 		91F5F2322C5E44B00042C97B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2312C5E44B00042C97B /* Date.swift */; };
 		91F5F2342C5E502B0042C97B /* CalendarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2332C5E502B0042C97B /* CalendarListView.swift */; };
 		91F5F2362C5E5F150042C97B /* ScheduleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2352C5E5F150042C97B /* ScheduleListView.swift */; };
-		91F5F2382C5E64160042C97B /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2372C5E64160042C97B /* Schedule.swift */; };
 		91F5F23A2C5E9F8D0042C97B /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5F2392C5E9F8D0042C97B /* LaunchView.swift */; };
+		F70D81392C6074CC0017A3D9 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70D81382C6074CC0017A3D9 /* Schedule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -195,10 +195,10 @@
 		91F5F2312C5E44B00042C97B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		91F5F2332C5E502B0042C97B /* CalendarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarListView.swift; sourceTree = "<group>"; };
 		91F5F2352C5E5F150042C97B /* ScheduleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListView.swift; sourceTree = "<group>"; };
-		91F5F2372C5E64160042C97B /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = ../../../../Schedule.swift; sourceTree = "<group>"; };
 		91F5F2392C5E9F8D0042C97B /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		AE38D6B2F61020869B48B322 /* Pods-StadiumFood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StadiumFood.debug.xcconfig"; path = "Target Support Files/Pods-StadiumFood/Pods-StadiumFood.debug.xcconfig"; sourceTree = "<group>"; };
 		D6D1F652E327300C86DDF27A /* Pods-StadiumFood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StadiumFood.release.xcconfig"; path = "Target Support Files/Pods-StadiumFood/Pods-StadiumFood.release.xcconfig"; sourceTree = "<group>"; };
+		F70D81382C6074CC0017A3D9 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -522,7 +522,7 @@
 				91E8512E2BFE366C004DE2AD /* Restaurant.swift */,
 				91E851302BFE367E004DE2AD /* MenuItem.swift */,
 				91B2AA0C2C43904E00829C78 /* Notice.swift */,
-				91F5F2372C5E64160042C97B /* Schedule.swift */,
+				F70D81382C6074CC0017A3D9 /* Schedule.swift */,
 				91F5F2242C5E35630042C97B /* Calendar.swift */,
 			);
 			path = Models;
@@ -795,7 +795,6 @@
 				91F5F2272C5E362E0042C97B /* ScheduleViewModel.swift in Sources */,
 				91E851152BFE3474004DE2AD /* ContentView.swift in Sources */,
 				91772D5E2C048B4D003EFCC7 /* StadiumViewModel.swift in Sources */,
-				91F5F2382C5E64160042C97B /* Schedule.swift in Sources */,
 				91F5F22C2C5E3C2A0042C97B /* CalendarView.swift in Sources */,
 				914655872C2D35310005B2D5 /* MenuItemView.swift in Sources */,
 				9146558C2C2D4EF50005B2D5 /* StadiumEnum.swift in Sources */,
@@ -831,6 +830,7 @@
 				91F5F2342C5E502B0042C97B /* CalendarListView.swift in Sources */,
 				9193A5FF2BFE4BF2000B5B9A /* Gender.swift in Sources */,
 				914DC13E2C01AB7500F3D3F6 /* BaseballListView.swift in Sources */,
+				F70D81392C6074CC0017A3D9 /* Schedule.swift in Sources */,
 				91F5F2302C5E44820042C97B /* CalendarViewModel.swift in Sources */,
 				91E851132BFE3474004DE2AD /* StadiumFoodApp.swift in Sources */,
 				9139A9F72C11B28E00883DAF /* FavoriteListView.swift in Sources */,

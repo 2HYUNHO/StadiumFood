@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ScheduleView: View {
-    @ObservedObject var calendarViewModel: CalendarViewModel
-    @ObservedObject var scheduleViewModel: ScheduleViewModel
+    @StateObject var scheduleViewModel = ScheduleViewModel()
+    @StateObject var calendarViewModel = CalendarViewModel()
     @State private var showCalendar: Bool = false
     @State private var selectedDate: Date = Date() // 선택된 날짜 상태 추가
     
@@ -19,7 +19,9 @@ struct ScheduleView: View {
                 DatePickerView(viewModel: calendarViewModel)
                     .onChange(of: calendarViewModel.currentDate) { newDate in
                         selectedDate = newDate
-                        scheduleViewModel.fetchSchedules(for: newDate)
+                        Task {
+                            await scheduleViewModel.fetchSchedules(for: newDate)
+                        }
                     }
                 
                 Text("📢 우천취소나 더블헤더로 일정이 변경될 수 있습니다.")
@@ -29,14 +31,16 @@ struct ScheduleView: View {
                 
                 TabView(selection: $selectedDate) {
                     ForEach(calendarViewModel.dates) { calendarDate in
-                        ScheduleListView(viewModel: scheduleViewModel)
+                        ScheduleListView(viewModel: scheduleViewModel, selectedDate: $selectedDate)
                             .tag(calendarDate.date)
                     }
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .onChange(of: selectedDate) { newDate in
                     // 날짜가 변경되면 새 날짜를 기준으로 데이터 업데이트
-                    scheduleViewModel.fetchSchedules(for: newDate)
+                    Task {
+                        await scheduleViewModel.fetchSchedules(for: newDate)
+                    }
                     calendarViewModel.updateDates(for: newDate)
                 }
                 
@@ -45,11 +49,13 @@ struct ScheduleView: View {
             .fullScreenCover(isPresented: $showCalendar, onDismiss: {
                 // fullScreenCover가 닫힐 때 현재 날짜로 selectedDate를 업데이트
                 selectedDate = calendarViewModel.currentDate
-                scheduleViewModel.fetchSchedules(for: selectedDate)
+                Task {
+                    await scheduleViewModel.fetchSchedules(for: selectedDate)
+                }
             }) {
-                CalendarView(scheduleViewModel: scheduleViewModel, calendarViewModel: calendarViewModel) // 올바른 매개변수 전달
+                CalendarView(calendarViewModel: calendarViewModel, scheduleViewModel: scheduleViewModel)
             }
-            .navigationTitle("야구일정")
+            .navigationTitle("경기일정")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -64,8 +70,10 @@ struct ScheduleView: View {
             }
             .onAppear {
                 // 초기화 시 현재 날짜를 선택된 날짜로 설정
-                selectedDate = calendarViewModel.currentDate
-                scheduleViewModel.fetchSchedules(for: selectedDate)
+//                selectedDate = calendarViewModel.currentDate
+                Task {
+                    await scheduleViewModel.fetchSchedules(for: selectedDate)
+                }
             }
         }
     }

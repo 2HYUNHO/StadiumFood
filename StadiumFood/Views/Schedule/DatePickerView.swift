@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DatePickerView: View {
-    @ObservedObject var viewModel: CalendarViewModel
+    @StateObject var viewModel = CalendarViewModel()
     
     var body: some View {
         HStack {

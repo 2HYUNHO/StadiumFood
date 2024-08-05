@@ -14,15 +14,16 @@ class StadiumViewModel: ObservableObject {
     @Published var stadiums: [StadiumModel] = []
     
     init() {
-        fetchStadiums()
+        Task {
+            await fetchStadiums()
+        }
     }
     
     // 구장데이터 가져오기
-    func fetchStadiums() {
-        Firestore.firestore().collection("stadiums").order(by: "order").getDocuments { snapshot, error in
-            if let error = error {
-                print("Error fetching stadiums: \(error.localizedDescription)")
-            } else if let snapshot = snapshot {
+    func fetchStadiums() async {
+        do {
+            let snapshot = try await Firestore.firestore().collection("stadiums").order(by: "order").getDocuments()
+            DispatchQueue.main.async {
                 self.stadiums = snapshot.documents.compactMap { document -> StadiumModel? in
                     let id = document.documentID
                     let data = document.data()
@@ -34,7 +35,14 @@ class StadiumViewModel: ObservableObject {
                     return StadiumModel(id: id, name: name, imageURL: imageURL, teams: teams, destinationView: destinationView, order: 0, restaurants: [], floors: floors)
                 }
             }
+        } catch {
+            print("Error fetching stadiums: \(error.localizedDescription)")
         }
+    }
+    
+    // 데이터 새로고침 메서드
+    func reload() async {
+        await fetchStadiums()
     }
     
     // 구장 뷰 이동 로직

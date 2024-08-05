@@ -24,7 +24,7 @@ struct TabBarView: View {
                     .tag(0)
                 
                 // 일정화면
-                ScheduleView(calendarViewModel: calendarViewModel, scheduleViewModel: scheduleViewModel)
+                ScheduleView(scheduleViewModel: scheduleViewModel, calendarViewModel: calendarViewModel)
                     .tabItem {
                         Image(systemName: "calendar")
                     }
