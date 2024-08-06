@@ -12,6 +12,7 @@ struct ScheduleView: View {
     @StateObject var calendarViewModel = CalendarViewModel()
     @State private var showCalendar: Bool = false
     @State private var selectedDate: Date = Date() // 선택된 날짜 상태 추가
+    @State private var isLoading: Bool = false
     
     var body: some View {
         NavigationView {
@@ -70,7 +71,7 @@ struct ScheduleView: View {
             }
             .onAppear {
                 // 초기화 시 현재 날짜를 선택된 날짜로 설정
-//                selectedDate = calendarViewModel.currentDate
+                selectedDate = calendarViewModel.currentDate
                 Task {
                     await scheduleViewModel.fetchSchedules(for: selectedDate)
                 }

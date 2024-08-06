@@ -44,6 +44,9 @@ struct CalendarView: View {
     private var headerView: some View {
         VStack {
             HStack {
+                Image(systemName: "xmark")
+                    .foregroundStyle(Color.clear)
+                
                 Spacer()
                 
                 yearMonthView

@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct ScheduleListView: View {
-    @StateObject var viewModel = ScheduleViewModel()
+    @ObservedObject var viewModel: ScheduleViewModel
     @Binding var selectedDate: Date
     
     var body: some View {
