@@ -222,8 +222,6 @@
 	<dict>
 		<key>UIColorName</key>
 		<string>BG</string>
-		<key>UIImageName</key>
-		<string>LSfont</string>
 	</dict>
 </dict>
 </plist>
