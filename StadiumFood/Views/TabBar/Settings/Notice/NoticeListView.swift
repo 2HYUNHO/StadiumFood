@@ -12,6 +12,15 @@ struct NoticeListView: View {
     @ObservedObject var viewModel = NoticesViewModel()
     
     var body: some View {
+        if viewModel.notices.isEmpty {
+            VStack {
+                Spacer()
+                
+                Text("공지사항이 없습니다.")
+                    .foregroundStyle(.gray)
+            }
+        }
+        
         List(viewModel.notices) { notice in
             NavigationLink(destination: NoticeDetailView(notice: notice)) {
                 VStack(alignment:.leading, spacing: 10) {

@@ -15,6 +15,7 @@ struct HomeView: View {
     @Namespace private var animation
     @State private var selectedCategory: HomeCategory = .all
     @State private var showNoticeView: Bool = false
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         NavigationView {
@@ -31,16 +32,16 @@ struct HomeView: View {
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 
                 // 광고
-//                GADBanner()
-//                    .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
+                //                GADBanner()
+                //                    .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
             }
+            .navigationBarTitleDisplayMode(.inline) // 타이틀을 중앙에 배치
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Text("구장먹거리")
-                        .font(.system(size: 20))
-                        .fontWeight(.bold)
-                        .foregroundStyle(Color(.label))
-
+                ToolbarItem(placement: .principal) {
+                    Image(colorScheme == .dark ? "AppFont" : "Apptitle") // 색상 모드에 따라 이미지 변경
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -58,7 +59,7 @@ struct HomeView: View {
         .navigationDestination(isPresented: $showNoticeView) {
             NoticeListView()
         }
-
+        
     }
     
     @ViewBuilder

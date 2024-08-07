@@ -32,13 +32,13 @@ struct BaseballListView: View {
                 }
             }
             .listStyle(.plain)
-//            .onAppear {
+            .onAppear {
 //                GADFull.shared.loadInterstitialAd()
-//                // 오늘 날짜의 일정을 미리 로드
-//                Task {
-//                    await scheduleViewModel.fetchSchedules(for: Date())
-//                }
-//            }
+                // 오늘 날짜의 일정을 미리 로드
+                Task {
+                    await scheduleViewModel.fetchSchedules(for: Date())
+                }
+            }
             .navigationDestination(isPresented: $navigateToDetail) {
                 if let stadium = selectedStadium {
                     viewModel.destinationViewForStadium(stadium, favoritesViewModel: favoritesViewModel)
@@ -56,6 +56,7 @@ struct BaseballListView: View {
         HStack {
             Button {
                 selectedStadium = stadium
+                navigateToDetail = true // 광고 설정 후 제거
 //                GADFull.shared.displayInterstitialAd {
 //                    navigateToDetail = true
 //                }
