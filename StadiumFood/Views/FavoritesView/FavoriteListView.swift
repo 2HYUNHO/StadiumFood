@@ -25,10 +25,10 @@ struct FavoriteListView: View {
                             Button {
                                 // 선택한 구장
                                 selectedStadium = stadium
-                                GADFull.shared.displayInterstitialAd {
-                                    // 광고가 닫힌 후 네비게이션 수행
-                                    navigateToDetail = true
-                                }
+//                                GADFull.shared.displayInterstitialAd {
+//                                    // 광고가 닫힌 후 네비게이션 수행
+//                                    navigateToDetail = true
+//                                }
                             } label: {
                                 HStack {
                                     KFImage(URL(string: stadium.imageURL))
@@ -78,9 +78,9 @@ struct FavoriteListView: View {
                 }
             }
             .listStyle(.plain)
-            .onAppear {
-                GADFull.shared.loadInterstitialAd()
-            }
+//            .onAppear {
+//                GADFull.shared.loadInterstitialAd()
+//            }
             .navigationDestination(isPresented: $navigateToDetail) {
                 // 현재 선택된 구장이 nil이 아닐 경우에만 네비게이션 수행
                 if let stadium = selectedStadium {
