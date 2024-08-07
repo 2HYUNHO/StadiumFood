@@ -17,7 +17,7 @@ struct StadiumFoodApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TabBarView()
+            LaunchView()
         }
     }
 }
