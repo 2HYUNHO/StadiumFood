@@ -981,7 +981,7 @@
 				CODE_SIGN_ENTITLEMENTS = StadiumFood/StadiumFood.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_ASSET_PATHS = "\"StadiumFood/Preview Content\"";
 				DEVELOPMENT_TEAM = 3RPK5DBMDK;
 				ENABLE_PREVIEWS = YES;
@@ -1010,7 +1010,7 @@
 					/usr/lib/swift,
 				);
 				MACH_O_TYPE = mh_execute;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1085,7 +1085,7 @@
 				CODE_SIGN_ENTITLEMENTS = StadiumFood/StadiumFood.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_ASSET_PATHS = "\"StadiumFood/Preview Content\"";
 				DEVELOPMENT_TEAM = 3RPK5DBMDK;
 				ENABLE_PREVIEWS = YES;
@@ -1114,7 +1114,7 @@
 					/usr/lib/swift,
 				);
 				MACH_O_TYPE = mh_execute;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
