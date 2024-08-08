@@ -48,7 +48,7 @@ struct SettingsView: View {
                         .toggleStyle(SwitchToggleStyle(tint: Color.green))
                         
                         // 앱 공유하기
-                        ShareLink(item: URL(string: "https://www.example.com")!) {
+                        ShareLink(item: URL(string: "https://apps.apple.com/app/%EA%B5%AC%EC%9E%A5%EB%A8%B9%EA%B1%B0%EB%A6%AC/id6553999145")!) {
                             Label("앱 공유하기", systemImage: "square.and.arrow.up")
                                 .padding(.bottom, 12)
                         }

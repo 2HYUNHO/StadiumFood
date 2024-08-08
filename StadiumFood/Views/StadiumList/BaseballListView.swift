@@ -11,7 +11,7 @@ import SwiftUI
 import Kingfisher
 
 struct BaseballListView: View {
-    @ObservedObject var viewModel : StadiumViewModel
+    @StateObject var viewModel = StadiumViewModel()
     @ObservedObject var scheduleViewModel: ScheduleViewModel
     @EnvironmentObject var favoritesViewModel: FavoritesViewModel
     @State private var navigateToDetail: Bool = false

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StadiumView: View {
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var restaurantViewModel = RestaurantViewModel()
+    @ObservedObject private var restaurantViewModel = RestaurantViewModel()
     @EnvironmentObject var favoritesViewModel: FavoritesViewModel
     
     @State var selectedFloor: FloorCategoryModel.FloorCategory
@@ -78,8 +78,9 @@ struct StadiumView: View {
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .onChange(of: selectedFloor) { newFloor in
+                    selectedFilter = "전체"
                     // 선택된 층 변경 시 데이터 다시 가져오기
-                    restaurantViewModel.fetchRestaurants(for: stadiumId, floorId: floorIds[newFloor.rawValue] ?? "", floor: newFloor.rawValue, locationFilter: selectedFilter == "전체" ? nil : selectedFilter)
+                    restaurantViewModel.fetchRestaurants(for: stadiumId, floorId: floorIds[newFloor.rawValue] ?? "", floor: newFloor.rawValue, locationFilter: nil)
                     restaurantViewModel.fetchLocationFilters(for: stadiumId, floorId: floorIds[newFloor.rawValue] ?? "", floor: newFloor.rawValue)
                 }
             }

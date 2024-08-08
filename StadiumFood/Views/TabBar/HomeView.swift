@@ -14,7 +14,6 @@ struct HomeView: View {
     @StateObject var favoritesViewModel = FavoritesViewModel()
     @Namespace private var animation
     @State private var selectedCategory: HomeCategory = .all
-    @State private var showNoticeView: Bool = false
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -45,9 +44,7 @@ struct HomeView: View {
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        showNoticeView = true
-                    } label: {
+                    NavigationLink(destination: NoticeListView()) {
                         Image(systemName: "bell")
                             .font(.system(size: 16))
                             .foregroundStyle(Color(.label))
@@ -56,10 +53,6 @@ struct HomeView: View {
             }
         }
         .tabViewStyle(PageTabViewStyle())
-        .navigationDestination(isPresented: $showNoticeView) {
-            NoticeListView()
-        }
-        
     }
     
     @ViewBuilder
