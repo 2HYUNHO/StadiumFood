@@ -11,7 +11,7 @@ import SwiftUI
 import Kingfisher
 
 struct BaseballListView: View {
-    @ObservedObject var viewModel : StadiumViewModel
+    @StateObject var viewModel = StadiumViewModel()
     @ObservedObject var scheduleViewModel: ScheduleViewModel
     @EnvironmentObject var favoritesViewModel: FavoritesViewModel
     @State private var navigateToDetail: Bool = false
@@ -33,7 +33,7 @@ struct BaseballListView: View {
             }
             .listStyle(.plain)
             .onAppear {
-                GADFull.shared.loadInterstitialAd()
+//                GADFull.shared.loadInterstitialAd()
                 // 오늘 날짜의 일정을 미리 로드
                 Task {
                     await scheduleViewModel.fetchSchedules(for: Date())
@@ -56,9 +56,10 @@ struct BaseballListView: View {
         HStack {
             Button {
                 selectedStadium = stadium
-                GADFull.shared.displayInterstitialAd {
-                    navigateToDetail = true
-                }
+                navigateToDetail = true // 광고 설정 후 제거
+//                GADFull.shared.displayInterstitialAd {
+//                    navigateToDetail = true
+//                }
             } label: {
                 VStack(alignment: .leading) {
                     HStack {

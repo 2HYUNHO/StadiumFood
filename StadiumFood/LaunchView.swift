@@ -8,33 +8,45 @@
 import SwiftUI
 
 struct LaunchView: View {
-    @State var isLaunching: Bool = true
+    @State var isShowingLaunch: Bool = true
+    @State var isShowingSplash: Bool = true
     
     var body: some View {
-        if isLaunching {
-            SplashView()
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        isLaunching = false
+        if isShowingLaunch {
+            ZStack {
+                Color("BG")
+                    .ignoresSafeArea()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            isShowingLaunch = false
+                        }
                     }
-                }
+            }
         } else {
-            TabBarView()
+            if isShowingSplash {
+                SplashView()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            isShowingSplash = false
+                        }
+                    }
+            } else {
+                TabBarView()
+            }
         }
     }
 }
 
 struct SplashView: View {
-    
     var body: some View {
         ZStack {
             Color("BG")
                 .ignoresSafeArea()
+            
             Image("AppFont")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 250)
         }
     }
-}
-
-#Preview {
-    LaunchView()
 }

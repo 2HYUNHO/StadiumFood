@@ -12,6 +12,7 @@ struct ScheduleView: View {
     @StateObject var calendarViewModel = CalendarViewModel()
     @State private var showCalendar: Bool = false
     @State private var selectedDate: Date = Date() // 선택된 날짜 상태 추가
+    @State private var isLoading: Bool = false
     
     var body: some View {
         NavigationView {
@@ -47,7 +48,7 @@ struct ScheduleView: View {
                 Spacer()
             }
             .fullScreenCover(isPresented: $showCalendar, onDismiss: {
-                // fullScreenCover가 닫힐 때 현재 날짜로 selectedDate를 업데이트
+                // fullScreenCover가 닫힐 때 selectedDate를 현재날짜로 초기화
                 selectedDate = calendarViewModel.currentDate
                 Task {
                     await scheduleViewModel.fetchSchedules(for: selectedDate)
@@ -69,8 +70,8 @@ struct ScheduleView: View {
                 }
             }
             .onAppear {
-                // 초기화 시 현재 날짜를 선택된 날짜로 설정
-//                selectedDate = calendarViewModel.currentDate
+                // 처음 실행 시 현재 날짜를 선택된 날짜로 설정
+                selectedDate = calendarViewModel.currentDate
                 Task {
                     await scheduleViewModel.fetchSchedules(for: selectedDate)
                 }
