@@ -1,44 +1,46 @@
-    //
-    //  TabBarView.swift
-    //  StadiumFood
-    //
-    //  Created by 이현호 on 5/23/24.
-    //
+//
+//  TabBarView.swift
+//  StadiumFood
+//
+//  Created by 이현호 on 5/23/24.
+//
 
-    import SwiftUI
+import SwiftUI
 
-    struct TabBarView: View {
-        @StateObject var scheduleViewModel = ScheduleViewModel()
-        @StateObject var favoritesViewModel = FavoritesViewModel()
-        @StateObject var calendarViewModel = CalendarViewModel()
-        @State private var selectedTab = 0 // 현재 선택된 탭의 인덱스
-        
-        var body: some View {
-            NavigationStack {
-                TabView(selection: $selectedTab) {
-                    // 홈화면
-                    HomeView()
-                        .tabItem {
-                            Image(systemName: "house.fill")
-                        }
-                        .tag(0)
-                    
-                    // 일정화면
-                    ScheduleView(scheduleViewModel: scheduleViewModel, calendarViewModel: calendarViewModel)
-                        .tabItem {
-                            Image(systemName: "calendar")
-                        }
-                        .tag(1)
-                    
-                    // 설정화면
-                    SettingsView()
-                        .tabItem {
-                            Image(systemName: "gearshape.fill")
-                        }
-                        .tag(2)
-                }
-                .tint(Color(.label))
-                .environmentObject(favoritesViewModel)
+struct TabBarView: View {
+    @StateObject var scheduleViewModel = ScheduleViewModel()
+    @StateObject var favoritesViewModel = FavoritesViewModel()
+    @StateObject var calendarViewModel = CalendarViewModel()
+    @State private var selectedTab = 0 // 현재 선택된 탭의 인덱스
+    @State private var showUpdateAlert = false
+    
+    var body: some View {
+        NavigationStack {
+            TabView(selection: $selectedTab) {
+                // 홈화면
+                HomeView()
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                    }
+                    .tag(0)
+                
+                // 일정화면
+                ScheduleView(scheduleViewModel: scheduleViewModel, calendarViewModel: calendarViewModel)
+                    .tabItem {
+                        Image(systemName: "calendar")
+                    }
+                    .tag(1)
+                
+                // 설정화면
+                SettingsView()
+                    .tabItem {
+                        Image(systemName: "gearshape.fill")
+                    }
+                    .tag(2)
+                
             }
+            .tint(Color(.label))
+            .environmentObject(favoritesViewModel)
         }
     }
+}

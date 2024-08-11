@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct FloorsCategoryView: View {
-    @Environment(\.colorScheme) var colorScheme
     @Binding var selectedCategory: String
     var animation: Namespace.ID
     var stadium: StadiumModel // StadiumModel에서 필요한 속성들을 가져와야 함
@@ -23,11 +22,11 @@ struct FloorsCategoryView: View {
                         VStack {
                             Text(floor)
                                 .font(.headline)
-                                .foregroundColor(selectedCategory == floor ? (colorScheme == .dark ? .white : .black) : (colorScheme == .dark ? Color(.darkGray) : Color(.lightGray)))
+                                .foregroundStyle(selectedCategory == floor ? .black : .gray)
                                 .frame(maxWidth: .infinity)
                             if selectedCategory == floor {
                                 Capsule()
-                                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                                    .foregroundStyle(.black)
                                     .frame(height: 2)
                                     .matchedGeometryEffect(id: "category", in: animation)
                             }

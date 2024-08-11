@@ -11,15 +11,8 @@ struct SettingsView: View {
     @StateObject private var viewModel = SettingsViewModel.shared
     @State private var showToast = false
     @State private var toastMessage = ""
+    @State private var appStoreVersion: String? = nil
     let myEmail = "gujangfood" + "@"  + "gmail.com"
-
-    private var versionStatus: String {
-        if let currentVersion = Bundle.main.appVersion {
-            return currentVersion == viewModel.latestVersion ? "(최신)" : "(업데이트 필요"
-        } else {
-            return "(버전 확인 불가)"
-        }
-    }
     
     var body: some View {
         NavigationView {
@@ -32,26 +25,12 @@ struct SettingsView: View {
                                 .padding(.bottom, 12)
                         }
                         
-                        HStack {
-                            Label("버전정보", systemImage: "info.circle")
-                            Spacer()
-                            Text("v \(Bundle.main.appVersion ?? "Unknown") \(versionStatus)")
-                                .foregroundStyle(.gray)
-                        }
-                        .padding(.bottom, 12)
-                        
                         // 알림 설정
                         Toggle(isOn: $viewModel.isPushNotificationEnabled) {
                             Label("알림기능", systemImage: "bell")
                                 .padding(.bottom, 12)
                         }
-                        .toggleStyle(SwitchToggleStyle(tint: Color.green))
-                        
-                        // 앱 공유하기
-                        ShareLink(item: URL(string: "https://apps.apple.com/app/%EA%B5%AC%EC%9E%A5%EB%A8%B9%EA%B1%B0%EB%A6%AC/id6553999145")!) {
-                            Label("앱 공유하기", systemImage: "square.and.arrow.up")
-                                .padding(.bottom, 12)
-                        }
+                        .toggleStyle(SwitchToggleStyle(tint: Color(hex: 0xC54D51)))
                         
                         // 약관 및 정책
                         NavigationLink(destination: TermsOfServiceView()) {
@@ -63,11 +42,33 @@ struct SettingsView: View {
                             Label("개인정보처리방침", systemImage: "lock.shield")
                                 .padding(.bottom, 12)
                         }
+                        
+                        HStack {
+                            HStack {
+                                Image(systemName: "info.circle")
+                                    .font(.system(size: 20))
+                                    .padding(.trailing, 8)
+                                
+                                VStack(alignment: .leading) {
+                                    Text("버전정보")
+                                    
+                                    Text("최신버전 \(viewModel.appStoreVersion)")
+                                        .font(.caption)
+                                        .foregroundStyle(.gray)
+                                }
+                                .padding(.leading, 3)
+                            }
+                            Spacer()
+                            
+                            Text("\(viewModel.currentVersion)")
+                                .foregroundStyle(Color(hex: 0xC54D51))
+                        }
+                        .padding(.leading, 2)
+                        .padding(.bottom, 12)
                     }
                     .listRowSeparator(.hidden, edges: .bottom)
                 }
                 .listStyle(.plain)
-                .navigationBarTitle("설정", displayMode: .inline)
                 
                 Spacer()
                 
@@ -92,6 +93,17 @@ struct SettingsView: View {
                         .padding()
                 }
             }
+            //            .toolbarBackground(Color(hex: 0xC54D51), for: .navigationBar)
+            //            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("설정")
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .foregroundColor(.black)
+                        .bold()
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

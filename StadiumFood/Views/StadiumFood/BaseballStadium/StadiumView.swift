@@ -92,7 +92,7 @@ struct StadiumView: View {
                     } label: {
                         Image(systemName: "chevron.backward")
                             .font(.system(size: 16))
-                            .foregroundStyle(Color(.label))
+                            .foregroundStyle(.black)
                     }
                 }
                 
@@ -105,7 +105,7 @@ struct StadiumView: View {
                         }
                     } label: {
                         Image(systemName: favoritesViewModel.favoriteStadiums.contains(stadiumName) ? "star.fill" : "star")
-                            .foregroundStyle(favoritesViewModel.favoriteStadiums.contains(stadiumName) ? Color(.label) : .gray)
+                            .foregroundStyle(favoritesViewModel.favoriteStadiums.contains(stadiumName) ? .black : .gray)
                     }
                 }
             }

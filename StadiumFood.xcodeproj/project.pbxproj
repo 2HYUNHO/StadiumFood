@@ -292,6 +292,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		912FFE472C6656D200E5898E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		9139A9F52C11B27600883DAF /* FavoritesView */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +503,7 @@
 			children = (
 				91AC6A5D2C4EA91200BF8613 /* StadiumFood.entitlements */,
 				91B2AA152C43C8E000829C78 /* Info.plist */,
+				912FFE472C6656D200E5898E /* Service */,
 				91772D5F2C0497B7003EFCC7 /* Utility */,
 				91E851202BFE3483004DE2AD /* Models */,
 				91E851222BFE3494004DE2AD /* ViewModels */,
@@ -1000,6 +1008,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchView.swift;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1106,6 +1115,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchView.swift;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = (

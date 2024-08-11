@@ -56,19 +56,25 @@ struct ScheduleView: View {
             }) {
                 CalendarView(calendarViewModel: calendarViewModel, scheduleViewModel: scheduleViewModel)
             }
-            .navigationTitle("경기일정")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("경기일정")
+                        .foregroundColor(.black)
+                        .bold()
+                }
+                
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         showCalendar = true
                     } label: {
                         Image(systemName: "calendar")
                             .font(.system(size: 16))
-                            .foregroundStyle(Color(.label))
+                            .foregroundStyle(.black)
                     }
                 }
             }
+            .toolbarBackground(.hidden)
             .onAppear {
                 // 처음 실행 시 현재 날짜를 선택된 날짜로 설정
                 selectedDate = calendarViewModel.currentDate

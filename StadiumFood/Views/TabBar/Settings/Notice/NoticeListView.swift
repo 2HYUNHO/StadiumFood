@@ -46,7 +46,7 @@ struct NoticeListView: View {
                 } label: {
                     Image(systemName: "chevron.backward")
                         .font(.system(size: 16))
-                        .foregroundStyle(Color(.label))
+                        .foregroundStyle(.black)
                 }
             }
         }

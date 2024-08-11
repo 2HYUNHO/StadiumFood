@@ -32,15 +32,24 @@ struct CalendarListView: View {
             }
             
             HStack {
-                Text("HOME")
-                    .bold()
-                    .padding(.leading)
-                
-                Spacer()
-                
-                Text("AWAY")
-                    .bold()
-                    .padding(.trailing)
+                HStack {
+                    Spacer()
+                    
+                    Text("HOME")
+                        .bold()
+                        .padding(.leading)
+                    
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    
+                    Text("AWAY")
+                        .bold()
+                        .padding(.trailing)
+                    
+                    Spacer()
+                }
             }
             
             if viewModel.schedules.isEmpty {
@@ -61,6 +70,8 @@ struct CalendarListView: View {
                         HStack {
                             // 홈팀
                             HStack {
+                                Spacer()
+                                
                                 Text(schedule.home)
                                     .font(.system(size: 14).bold())
                                     .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
@@ -79,6 +90,8 @@ struct CalendarListView: View {
                                 Text(schedule.away)
                                     .font(.system(size: 14).bold())
                                     .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
+                                
+                                Spacer()
                             }
                         }
                         .padding(.horizontal)

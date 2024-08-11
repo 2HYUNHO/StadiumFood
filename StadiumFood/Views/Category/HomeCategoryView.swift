@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct HomeCategoryView: View {
-    @Environment(\.colorScheme) var colorScheme
     @Binding var selectedCategory: HomeCategory
     var animation: Namespace.ID
-    
+            
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
@@ -24,11 +23,12 @@ struct HomeCategoryView: View {
                         VStack {
                             Text(homeCategory.rawValue)
                                 .font(.headline)
-                                .foregroundColor(selectedCategory == homeCategory ? (colorScheme == .dark ? .white : .black) : (colorScheme == .dark ? Color(.darkGray) : Color(.lightGray)))
+                                .foregroundStyle(selectedCategory == homeCategory ? .white : Color(uiColor: .systemGray3))
+                                .fontWeight(selectedCategory == homeCategory ? .heavy : .semibold)
                                 .frame(maxWidth: .infinity)
                             if selectedCategory == homeCategory {
                                 Capsule()
-                                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                                    .foregroundStyle(.white)
                                     .frame(height: 2)
                                     .matchedGeometryEffect(id: "category", in: animation)
                             }
@@ -39,7 +39,9 @@ struct HomeCategoryView: View {
                 }
             }
         }
+        .scrollDisabled(true)
         .padding(.horizontal)
         .padding(.top, 10)
+        .padding(.bottom, 5)
     }
 }

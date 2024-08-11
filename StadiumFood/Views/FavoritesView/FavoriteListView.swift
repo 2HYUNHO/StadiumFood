@@ -52,7 +52,7 @@ struct FavoriteListView: View {
                             Spacer()
                             
                             Image(systemName: favoritesViewModel.favoriteStadiums.contains(stadium.name) ? "star.fill" : "star")
-                                .foregroundStyle(favoritesViewModel.favoriteStadiums.contains(stadium.name) ? Color(.label) : .gray)
+                                .foregroundStyle(favoritesViewModel.favoriteStadiums.contains(stadium.name) ? .black : .gray)
                                 .font(.system(size: 20))
                                 .onTapGesture {
                                     if favoritesViewModel.favoriteStadiums.contains(stadium.name) {

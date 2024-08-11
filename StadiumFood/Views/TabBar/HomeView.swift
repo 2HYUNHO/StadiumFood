@@ -14,13 +14,13 @@ struct HomeView: View {
     @StateObject var favoritesViewModel = FavoritesViewModel()
     @Namespace private var animation
     @State private var selectedCategory: HomeCategory = .all
-    @Environment(\.colorScheme) var colorScheme
-    
+
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(spacing: 0) {
                 HomeCategoryView(selectedCategory: $selectedCategory, animation: animation)
-                
+                    .background(Color(hex: 0xC54D51))
+          
                 // 카테고리에 따라 다른 뷰를 표시
                 TabView(selection: $selectedCategory) {
                     ForEach(HomeCategory.allCases, id: \.self) { homeCategory in
@@ -34,23 +34,28 @@ struct HomeView: View {
                 //                GADBanner()
                 //                    .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
             }
-            .navigationBarTitleDisplayMode(.inline) // 타이틀을 중앙에 배치
+            .navigationBarTitleDisplayMode(.inline)
+            
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Image(colorScheme == .dark ? "AppFont" : "Apptitle") // 색상 모드에 따라 이미지 변경
+                    Image("AppFont")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 100)
+                        .frame(width: 120)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink(destination: NoticeListView()) {
-                        Image(systemName: "bell")
+                        Image(systemName: "bell.fill")
                             .font(.system(size: 16))
-                            .foregroundStyle(Color(.label))
+                            .foregroundStyle(Color(.white))
                     }
                 }
             }
+            .toolbarBackground(Color(hex: 0xC54D51), for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(.hidden)
+
         }
         .tabViewStyle(PageTabViewStyle())
     }

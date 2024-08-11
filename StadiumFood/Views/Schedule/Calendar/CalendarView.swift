@@ -57,7 +57,7 @@ struct CalendarView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "xmark")
-                        .foregroundStyle(Color(.label))
+                        .foregroundStyle(.black)
                 }
             }
             .padding(.horizontal, 10)
@@ -82,7 +82,7 @@ struct CalendarView: View {
             } label: {
                 Image(systemName: "chevron.left")
                     .font(.title)
-                    .foregroundStyle(calendarViewModel.canMoveToPreviousMonth() ? Color(.label) : .gray)
+                    .foregroundStyle(calendarViewModel.canMoveToPreviousMonth() ? .black : .gray)
             }
             .disabled(!calendarViewModel.canMoveToPreviousMonth())
             
@@ -94,7 +94,7 @@ struct CalendarView: View {
             } label: {
                 Image(systemName: "chevron.right")
                     .font(.title)
-                    .foregroundStyle(calendarViewModel.canMoveToNextMonth() ? Color(.label) : .gray)
+                    .foregroundStyle(calendarViewModel.canMoveToNextMonth() ? .black : .gray)
             }
             .disabled(!calendarViewModel.canMoveToNextMonth())
         }
@@ -140,31 +140,28 @@ struct CalendarView: View {
     }
     
     private struct CellView: View {
-        @Environment(\.colorScheme) var colorScheme: ColorScheme
-        
         private var day: Int
         private var clicked: Bool
         private var isToday: Bool
         private var isCurrentMonthDay: Bool
         private var textColor: Color {
             if clicked {
-                return colorScheme == .dark ? Color.black : Color.white
+                return .white
             } else if isCurrentMonthDay {
-                return isToday ? (colorScheme == .dark ? Color.black : Color.white) : (colorScheme == .dark ? Color.white : Color.black)
+                return isToday ? .white : .black
             } else {
-                return colorScheme == .dark ? Color.gray : Color.gray
+                return .gray
             }
         }
+                
         
         private var backgroundColor: Color {
             if clicked {
-                return isToday ? (colorScheme == .dark ? Color.white : Color.black) : (colorScheme == .dark ? Color.gray : Color.gray)
+                return isToday ? Color(hex: 0xC54D51) : Color(uiColor: .systemGray3)
             } else if isToday {
-                // 오늘 날짜일 때 배경 색상 조정
-                return colorScheme == .dark ? Color.white : Color.black
+                return Color(hex: 0xC54D51)
             } else {
-                // 오늘 날짜가 아닐 때 배경 색상 조정
-                return colorScheme == .dark ? Color.black : Color.white
+                return .white
             }
         }
         

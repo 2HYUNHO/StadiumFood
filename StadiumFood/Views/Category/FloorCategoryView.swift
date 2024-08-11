@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct FloorCategoryView: View {
-    @Environment(\.colorScheme) var colorScheme
     @Binding var selectedCategory: FloorCategoryModel.FloorCategory
     var animation: Namespace.ID
     var stadium: FloorCategoryModel.Stadium
@@ -22,11 +21,11 @@ struct FloorCategoryView: View {
                     VStack {
                         Text(floorCategory.rawValue)
                             .font(.headline)
-                            .foregroundColor(selectedCategory == floorCategory ? (colorScheme == .dark ? .white : .black) : (colorScheme == .dark ? Color(.darkGray) : Color(.lightGray)))
+                            .foregroundColor(selectedCategory == floorCategory ? .black : Color(.lightGray))
                             .frame(maxWidth: .infinity)
                         if selectedCategory == floorCategory {
                             Capsule()
-                                .foregroundColor(colorScheme == .dark ? .white : .black)
+                                .foregroundColor(.black)
                                 .frame(height: 2)
                                 .matchedGeometryEffect(id: "category", in: animation)
                         }

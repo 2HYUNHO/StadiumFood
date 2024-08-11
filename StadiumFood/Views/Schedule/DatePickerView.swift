@@ -16,6 +16,8 @@ struct DatePickerView: View {
                 viewModel.goToPreviousDay()
             } label: {
                 Image(systemName: "chevron.left")
+                    .foregroundStyle(.black)
+                    .bold()
             }
             
             HStack {
@@ -24,7 +26,7 @@ struct DatePickerView: View {
                         viewModel.selectDate(calendarDate.date)
                     } label: {
                         Text(viewModel.formatterDate(calendarDate.date))
-                            .foregroundStyle(viewModel.isSelectedDate(calendarDate.date) ? Color(.label) : .gray)
+                            .foregroundStyle(viewModel.isSelectedDate(calendarDate.date) ? .black : Color(uiColor: .systemGray2))
                             .fontWeight(viewModel.isSelectedDate(calendarDate.date) ? .bold : .regular)
                             .frame(maxWidth: .infinity)
                     }
@@ -37,6 +39,8 @@ struct DatePickerView: View {
                 viewModel.goToNextDay()
             } label: {
                 Image(systemName: "chevron.right")
+                    .foregroundStyle(.black)
+                    .bold()
             }
         }
         .padding()
