@@ -10,6 +10,7 @@
 		91178DA92C08C95400C18EFF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 91178DA82C08C95400C18EFF /* Kingfisher */; };
 		91178DB42C1039A500C18EFF /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91178DB32C1039A500C18EFF /* FavoritesViewModel.swift */; };
 		912FFE422C612DB300E5898E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FFE412C612DB300E5898E /* ColorExtension.swift */; };
+		912FFE5A2C6A47E200E5898E /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FFE592C6A47E200E5898E /* AppVersion.swift */; };
 		9139A9F72C11B28E00883DAF /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9139A9F62C11B28E00883DAF /* FavoriteListView.swift */; };
 		9139A9F92C22CCFA00883DAF /* FloorCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9139A9F82C22CCFA00883DAF /* FloorCategory.swift */; };
 		913E36B92C5616B200B715F2 /* GADBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E36B82C5616B200B715F2 /* GADBanner.swift */; };
@@ -117,6 +118,7 @@
 		31A04535868205E530DF9E54 /* Pods_StadiumFood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StadiumFood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91178DB32C1039A500C18EFF /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		912FFE412C612DB300E5898E /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		912FFE592C6A47E200E5898E /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		9139A9F62C11B28E00883DAF /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		9139A9F82C22CCFA00883DAF /* FloorCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorCategory.swift; sourceTree = "<group>"; };
 		913E36B82C5616B200B715F2 /* GADBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADBanner.swift; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 				91B2AA0C2C43904E00829C78 /* Notice.swift */,
 				F70D81382C6074CC0017A3D9 /* Schedule.swift */,
 				91F5F2242C5E35630042C97B /* Calendar.swift */,
+				912FFE592C6A47E200E5898E /* AppVersion.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				914DC1302C007A3600F3D3F6 /* NCParkView.swift in Sources */,
 				91F5F21E2C5BDB070042C97B /* HomeCategoryView.swift in Sources */,
 				91E8512F2BFE366C004DE2AD /* Restaurant.swift in Sources */,
+				912FFE5A2C6A47E200E5898E /* AppVersion.swift in Sources */,
 				91B2AA142C4393F000829C78 /* NoticeDetailView.swift in Sources */,
 				91178DB42C1039A500C18EFF /* FavoritesViewModel.swift in Sources */,
 				91F5F2362C5E5F150042C97B /* ScheduleListView.swift in Sources */,
@@ -990,7 +994,7 @@
 				CODE_SIGN_ENTITLEMENTS = StadiumFood/StadiumFood.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.1;
+				CURRENT_PROJECT_VERSION = 1.0.2;
 				DEVELOPMENT_ASSET_PATHS = "\"StadiumFood/Preview Content\"";
 				DEVELOPMENT_TEAM = 3RPK5DBMDK;
 				ENABLE_PREVIEWS = YES;
@@ -1003,6 +1007,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StadiumFood/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "구장먹거리";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchView.swift;
@@ -1021,7 +1026,7 @@
 					/usr/lib/swift,
 				);
 				MACH_O_TYPE = mh_execute;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1097,7 +1102,7 @@
 				CODE_SIGN_ENTITLEMENTS = StadiumFood/StadiumFood.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.1;
+				CURRENT_PROJECT_VERSION = 1.0.2;
 				DEVELOPMENT_ASSET_PATHS = "\"StadiumFood/Preview Content\"";
 				DEVELOPMENT_TEAM = 3RPK5DBMDK;
 				ENABLE_PREVIEWS = YES;
@@ -1110,6 +1115,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StadiumFood/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "구장먹거리";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchView.swift;
@@ -1128,7 +1134,7 @@
 					/usr/lib/swift,
 				);
 				MACH_O_TYPE = mh_execute;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

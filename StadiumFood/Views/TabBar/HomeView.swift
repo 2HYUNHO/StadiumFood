@@ -14,13 +14,13 @@ struct HomeView: View {
     @StateObject var favoritesViewModel = FavoritesViewModel()
     @Namespace private var animation
     @State private var selectedCategory: HomeCategory = .all
-
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
                 HomeCategoryView(selectedCategory: $selectedCategory, animation: animation)
                     .background(Color(hex: 0xC54D51))
-          
+                
                 // 카테고리에 따라 다른 뷰를 표시
                 TabView(selection: $selectedCategory) {
                     ForEach(HomeCategory.allCases, id: \.self) { homeCategory in
@@ -31,8 +31,8 @@ struct HomeView: View {
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 
                 // 광고
-                //                GADBanner()
-                //                    .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
+                GADBanner()
+                    .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
             }
             .navigationBarTitleDisplayMode(.inline)
             
@@ -55,7 +55,7 @@ struct HomeView: View {
             .toolbarBackground(Color(hex: 0xC54D51), for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(.hidden)
-
+            
         }
         .tabViewStyle(PageTabViewStyle())
     }

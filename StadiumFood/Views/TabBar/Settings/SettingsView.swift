@@ -52,7 +52,7 @@ struct SettingsView: View {
                                 VStack(alignment: .leading) {
                                     Text("버전정보")
                                     
-                                    Text("최신버전 \(viewModel.appStoreVersion)")
+                                    Text("최신버전 \(viewModel.appVersion?.latestVersion ?? "정보 없음")")
                                         .font(.caption)
                                         .foregroundStyle(.gray)
                                 }
@@ -93,8 +93,6 @@ struct SettingsView: View {
                         .padding()
                 }
             }
-            //            .toolbarBackground(Color(hex: 0xC54D51), for: .navigationBar)
-            //            .toolbarBackground(.visible, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("설정")

@@ -24,7 +24,7 @@ class GADFull: NSObject, GADFullScreenContentDelegate, ObservableObject {
     
     // 전면 광고를 로드하는 함수
     func loadInterstitialAd() {
-        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: GADRequest()) { [weak self] ad, error in
+        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-5176755014867221/1186294128", request: GADRequest()) { [weak self] ad, error in
             guard let self = self else { return }
             if let error = error {
                 // 광고 로드 실패 시 에러 메시지를 출력합니다.

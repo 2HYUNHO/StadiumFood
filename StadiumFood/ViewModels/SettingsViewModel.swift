@@ -12,7 +12,8 @@ import UserNotifications
 
 class SettingsViewModel: ObservableObject {
     static let shared = SettingsViewModel()
-    @Published var appStoreVersion: String = "정보 없음"
+    
+    @Published var appVersion: AppVersion?
     @Published var isPushNotificationEnabled: Bool {
         didSet {
             UserDefaults.standard.set(isPushNotificationEnabled, forKey: "isPushNotificationEnabled")
@@ -30,7 +31,7 @@ class SettingsViewModel: ObservableObject {
     private init() {
         self.isPushNotificationEnabled = UserDefaults.standard.bool(forKey: "isPushNotificationEnabled")
         checkNotificationAuthorizationStatus()
-        fetchAppStoreVersion()
+        fetchVersion()
     }
     
     private func checkNotificationAuthorizationStatus() {
@@ -57,29 +58,22 @@ class SettingsViewModel: ObservableObject {
     }
     
     // 앱스토어 버전 정보 가져오기
-    func fetchAppStoreVersion() {
-        let appID = "6553999145"
-        guard let url = URL(string: "https://itunes.apple.com/kr/lookup?id=\(appID)") else { return }
-        
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
-            guard let data = data else {
+    func fetchVersion() {
+        Firestore.firestore().collection("version").document("latest").getDocument { document, error in
+            if let error = error {
+                print("Error fetching version: \(error.localizedDescription)")
+            } else if let document = document, document.exists {
+                let data = document.data()
+                let latestVersion = data?["latestVersion"] as? String ?? "정보 없음"
+                
                 DispatchQueue.main.async {
-                    self?.appStoreVersion = "정보 없음"
-                }
-                return
-            }
-            
-            if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-               let results = json["results"] as? [[String: Any]],
-               let version = results.first?["version"] as? String {
-                DispatchQueue.main.async {
-                    self?.appStoreVersion = version
+                    self.appVersion = AppVersion(id: document.documentID, latestVersion: latestVersion)
                 }
             } else {
                 DispatchQueue.main.async {
-                    self?.appStoreVersion = "정보 없음"
+                    self.appVersion = nil
                 }
             }
-        }.resume()
+        }
     }
 }

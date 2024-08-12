@@ -15,7 +15,7 @@ struct GADBanner: UIViewControllerRepresentable {
         let bannerSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width)
         let bannerView = GADBannerView(adSize: bannerSize)
         
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // test Key
+        bannerView.adUnitID = "ca-app-pub-5176755014867221/8334619423" // BannerID
         bannerView.rootViewController = viewController
         viewController.view.addSubview(bannerView)
         
