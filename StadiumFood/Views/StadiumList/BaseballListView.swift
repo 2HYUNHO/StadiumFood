@@ -56,9 +56,10 @@ struct BaseballListView: View {
         HStack {
             Button {
                 selectedStadium = stadium
-                GADFull.shared.displayInterstitialAd {
-                    navigateToDetail = true
-                }
+                navigateToDetail = true // 광고 설정 후 제거
+//                GADFull.shared.displayInterstitialAd {
+//                    navigateToDetail = true
+//                }
             } label: {
                 VStack(alignment: .leading) {
                     HStack {

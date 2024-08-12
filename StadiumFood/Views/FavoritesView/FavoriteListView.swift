@@ -25,11 +25,11 @@ struct FavoriteListView: View {
                             Button {
                                 // 선택한 구장
                                 selectedStadium = stadium
-                                
-                                GADFull.shared.displayInterstitialAd {
-                                    // 광고가 닫힌 후 네비게이션 수행
-                                    navigateToDetail = true
-                                }
+                                navigateToDetail = true // 광고 설정 후 제거
+//                                GADFull.shared.displayInterstitialAd {
+//                                    // 광고가 닫힌 후 네비게이션 수행
+//                                    navigateToDetail = true
+//                                }
                             } label: {
                                 HStack {
                                     KFImage(URL(string: stadium.imageURL))
