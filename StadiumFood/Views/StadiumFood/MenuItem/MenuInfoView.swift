@@ -11,6 +11,7 @@ import Kingfisher
 struct MenuInfoView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject var menuItemViewModel = MenuItemViewModel()
+    @State private var selectedFilter: String? = "전체"
     
     let stadiumId: String
     let selectedFloor: FloorCategoryModel.FloorCategory
@@ -22,10 +23,35 @@ struct MenuInfoView: View {
             Divider()
                 .padding(.horizontal)
             
+            // 메뉴 필터
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(menuItemViewModel.menuFilters, id: \.self) { filter in
+                        Button {
+                            selectedFilter = filter
+                            menuItemViewModel.fetchMenuItems(stadiumId: stadiumId, floorId: floorIds[selectedFloor.rawValue] ?? "", restaurantId: restaurant.id ?? "", menuFilter: selectedFilter == "전체" ? nil : selectedFilter)
+                        } label: {
+                            Capsule()
+                                .fill(selectedFilter == filter ? Color.green : Color(uiColor: .systemGray3))
+                                .frame(width: 70, height: 30)
+                                .overlay(
+                                    Text(filter)
+                                        .font(.system(size: 15))
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.white)
+                                )
+                        }
+                    }
+                    .padding(.horizontal, 5)
+                }
+                .padding(.leading)
+            }
+            .scrollDisabled(true)
+            
             // 메뉴 리스트 표시
             if restaurant.foodCategory == "편의점" {
                 Spacer()
-                 
+                
                 Text("편의점은 메뉴를 제공하지 않습니다.")
                     .foregroundStyle(.gray)
                     .font(.system(size: 18))
@@ -81,7 +107,17 @@ struct MenuInfoView: View {
         }
         .onAppear {
             if let restaurantId = restaurant.id {
-                menuItemViewModel.fetchMenuItems(stadiumId: stadiumId, floorId: floorIds[selectedFloor.rawValue] ?? "", restaurantId: restaurantId)
+                menuItemViewModel.fetchMenuFilters(
+                    for: stadiumId,
+                    floorId: floorIds[selectedFloor.rawValue] ?? "",
+                    restaurantId: restaurantId
+                )
+                menuItemViewModel.fetchMenuItems(
+                    stadiumId: stadiumId,
+                    floorId: floorIds[selectedFloor.rawValue] ?? "",
+                    restaurantId: restaurantId,
+                    menuFilter: selectedFilter
+                )
             } else {
                 print("Restaurant id is nil")
             }

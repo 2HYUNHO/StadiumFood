@@ -54,6 +54,10 @@ struct CalendarListView: View {
             
             if viewModel.schedules.isEmpty {
                 VStack {
+                    Divider()
+                    
+                    Spacer()
+                    
                     HStack {
                         Spacer()
                         
@@ -62,6 +66,8 @@ struct CalendarListView: View {
                         
                         Spacer()
                     }
+                    
+                    Spacer()
                 }
                 .frame(maxHeight: .infinity)
             } else {

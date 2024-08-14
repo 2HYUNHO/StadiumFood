@@ -30,11 +30,8 @@ struct StadiumView: View {
                     HStack {
                         ForEach(restaurantViewModel.locationFilters, id: \.self) { filter in
                             Button {
-                                // 버튼 액션 추가
                                 selectedFilter = filter
                                 restaurantViewModel.fetchRestaurants(for: stadiumId, floorId: floorIds[selectedFloor.rawValue] ?? "", floor: selectedFloor.rawValue, locationFilter: filter == "전체" ? nil : filter)
-                                
-                                print("\(filter) 버튼이 눌렸습니다.")
                             } label: {
                                 Capsule()
                                     .fill(selectedFilter == filter ? Color.green : Color(uiColor: .systemGray3))
@@ -52,6 +49,7 @@ struct StadiumView: View {
                     }
                     .padding(.leading)
                 }
+                .scrollDisabled(true)
                 
                 // 가게 리스트
                 TabView(selection: $selectedFloor) {
