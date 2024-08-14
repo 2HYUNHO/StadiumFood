@@ -12,7 +12,7 @@ struct TermsOfServiceView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        PolicyWebView(url: URL(string: "https://green-pangolin-de4.notion.site/b8deb58274694754924e2dcea0a66385?pvs=4")!)
+        WebView(url: URL(string: "https://green-pangolin-de4.notion.site/b8deb58274694754924e2dcea0a66385?pvs=4")!)
             .navigationBarBackButtonHidden()
             .navigationTitle("서비스 이용약관")
             .navigationBarTitleDisplayMode(.inline)

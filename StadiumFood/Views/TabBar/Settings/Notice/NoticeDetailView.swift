@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WebKit
 
 struct NoticeDetailView: View {
     @Environment(\.dismiss) private var dismiss
@@ -24,9 +25,8 @@ struct NoticeDetailView: View {
                 
                 Divider()
                 
-                Text(notice.content)
-                    .font(.body)
-                    .padding(.vertical)
+                WebView(url: URL(string: notice.content)!)
+                    .frame(height: 600)
             }
             .padding()
         }

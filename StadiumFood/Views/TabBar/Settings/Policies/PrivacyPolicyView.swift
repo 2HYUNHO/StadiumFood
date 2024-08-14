@@ -12,7 +12,7 @@ struct PrivacyPolicyView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        PolicyWebView(url: URL(string: "https://green-pangolin-de4.notion.site/e1b8e8125b9d4d12913d8236783bd89e")!)
+        WebView(url: URL(string: "https://green-pangolin-de4.notion.site/e1b8e8125b9d4d12913d8236783bd89e")!)
             .navigationBarBackButtonHidden()
             .navigationTitle("개인정보처리방침")
             .navigationBarTitleDisplayMode(.inline)
