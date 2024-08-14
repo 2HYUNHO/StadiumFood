@@ -79,9 +79,9 @@ struct FavoriteListView: View {
                 }
             }
             .listStyle(.plain)
-            .onAppear {
-                GADFull.shared.loadInterstitialAd()
-            }
+//            .onAppear {
+//                GADFull.shared.loadInterstitialAd()
+//            }
             .navigationDestination(isPresented: $navigateToDetail) {
                 // 현재 선택된 구장이 nil이 아닐 경우에만 네비게이션 수행
                 if let stadium = selectedStadium {
