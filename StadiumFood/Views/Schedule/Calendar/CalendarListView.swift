@@ -11,19 +11,12 @@ struct CalendarListView: View {
     @StateObject var viewModel = CalendarViewModel()
     let date: Date
     
-    // 날짜 포맷터
-    private var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "M월 d일 경기"  // "8월 3일" 형태로 포맷
-        return formatter
-    }
-    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Spacer()
                 
-                Text(dateFormatter.string(from: date))
+                Text("\(viewModel.formatterDate(date)) 경기")
                     .font(.headline)
                     .padding(.leading)
                     .padding(.bottom, 10)
@@ -32,24 +25,16 @@ struct CalendarListView: View {
             }
             
             HStack {
-                HStack {
-                    Spacer()
-                    
-                    Text("HOME")
-                        .bold()
-                        .padding(.leading)
-                    
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    
-                    Text("AWAY")
-                        .bold()
-                        .padding(.trailing)
-                    
-                    Spacer()
-                }
+                Text("HOME")
+                    .bold()
+                    .padding(.trailing)
+                    .frame(maxWidth: .infinity)
+                Spacer()
+                
+                Text("AWAY")
+                    .bold()
+                    .padding(.leading)
+                    .frame(maxWidth: .infinity)
             }
             
             if viewModel.schedules.isEmpty {
@@ -71,41 +56,48 @@ struct CalendarListView: View {
                 }
                 .frame(maxHeight: .infinity)
             } else {
-                ForEach(viewModel.schedules) { schedule in
-                    VStack {
-                        HStack {
-                            // 홈팀
+                ScrollView {
+                    ForEach(viewModel.schedules) { schedule in
+                        VStack {
                             HStack {
-                                Spacer()
+                                // 홈팀
+                                HStack {
+                                    Spacer()
+                                    
+                                    Text(schedule.home)
+                                        .font(.system(size: 14).bold())
+                                        .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
+                                    
+                                    Spacer()
+                                }
                                 
-                                Text(schedule.home)
-                                    .font(.system(size: 14).bold())
-                                    .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
+                                VStack {
+                                    Text("vs")
+                                        .font(.system(size: 16, weight: .medium))
+                                        .foregroundStyle(.blue)
+                                    
+                                    Text(schedule.date, formatter: CalendarViewModel.timeFormatter)
+                                        .font(.caption)
+                                        .foregroundStyle(.gray)
+                                }
                                 
-                                Spacer()
+                                // 어웨이팀
+                                HStack {
+                                    Spacer()
+                                    
+                                    Text(schedule.away)
+                                        .font(.system(size: 14).bold())
+                                        .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
+                                    
+                                    Spacer()
+                                }
                             }
-                            
-                            Text("vs")
-                                .font(.system(size: 16, weight: .medium))
-                                .foregroundStyle(.blue)
-                            
-                            // 어웨이팀
-                            HStack {
-                                Spacer()
-                                
-                                Text(schedule.away)
-                                    .font(.system(size: 14).bold())
-                                    .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
-                                
-                                Spacer()
-                            }
+                            .padding(.vertical, 2)
+                            .background(Color.gray.opacity(0.1))
+                            .cornerRadius(10)
                         }
-                        .padding(.horizontal)
-                        .padding(.vertical, 10)
-                        .background(Color.gray.opacity(0.1))
-                        .cornerRadius(10)
+                        .frame(maxHeight: .infinity)
                     }
-                    .frame(maxHeight: .infinity)
                 }
             }
         }

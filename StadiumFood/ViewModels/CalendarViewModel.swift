@@ -91,6 +91,13 @@ class CalendarViewModel: ObservableObject {
         return formatter
     }()
     
+    // 시간 포맷터
+    static let timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter
+    }()
+    
     // 요일 심볼
     static let weekdaySymbols: [String] = Calendar.current.shortWeekdaySymbols
     
@@ -144,14 +151,14 @@ class CalendarViewModel: ObservableObject {
     // 이전 월로 이동 가능한지 확인
     func canMoveToPreviousMonth() -> Bool {
         let currentDate = Date()
-        let targetDate = calendar.date(byAdding: .month, value: -3, to: currentDate) ?? currentDate
+        let targetDate = calendar.date(byAdding: .month, value: -24, to: currentDate) ?? currentDate
         return adjustedMonth(by: -1) >= targetDate
     }
     
     // 다음 월로 이동 가능한지 확인
     func canMoveToNextMonth() -> Bool {
         let currentDate = Date()
-        let targetDate = calendar.date(byAdding: .month, value: 3, to: currentDate) ?? currentDate
+        let targetDate = calendar.date(byAdding: .month, value: 24, to: currentDate) ?? currentDate
         return adjustedMonth(by: 1) <= targetDate
     }
     

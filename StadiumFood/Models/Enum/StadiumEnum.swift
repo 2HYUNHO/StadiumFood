@@ -36,7 +36,7 @@ enum StadiumEnum: String, CaseIterable {
         case .landersField:
             return "인천 SSG랜더스필드"
         case .eaglesPark:
-            return "대전 한화생명이글스파크"
+            return "대전 한화이글스파크"
         case .lionsPark:
             return "대구 삼성라이온즈파크"
         case .championsField:
