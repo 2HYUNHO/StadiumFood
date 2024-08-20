@@ -23,26 +23,26 @@ class MenuItemViewModel: ObservableObject {
             query = query.whereField("category", isEqualTo: menuFilter)
         }
         
-        query.getDocuments { snapshot, error in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                self.menuItems = snapshot?.documents.compactMap { document -> MenuItemModel? in
-                    let data = document.data()
-                    let id = document.documentID
-                    let name = data["name"] as? String ?? ""
-                    let price = data["price"] as? Int ?? 0
-                    let subMenu = data["subMenu"] as? [String] ?? []
-                    let order = data["order"] as? Int ?? Int.max
-                    let category = data["category"] as? String ?? ""
+            query.getDocuments { snapshot, error in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    self.menuItems = snapshot?.documents.compactMap { document -> MenuItemModel? in
+                        let data = document.data()
+                        let id = document.documentID
+                        let name = data["name"] as? String ?? ""
+                        let price = data["price"] as? Int ?? 0
+                        let subMenu = data["subMenu"] as? [String] ?? []
+                        let order = data["order"] as? Int ?? Int.max
+                        let category = data["category"] as? String ?? ""
+                        
+                        return MenuItemModel(id: id, name: name, price: price, subMenu: subMenu, order: order, category: category)
+                    } ?? []
                     
-                    return MenuItemModel(id: id, name: name, price: price, subMenu: subMenu, order: order, category: category)
-                } ?? []
-                
-                // order 값을 기준으로 정렬
-                self.menuItems.sort { $0.order < $1.order }
+                    // order 값을 기준으로 정렬
+                    self.menuItems.sort { $0.order < $1.order }
+                }
             }
-        }
     }
     
     // 메뉴 필터 목록을 가져오는 메서드
@@ -63,9 +63,13 @@ class MenuItemViewModel: ObservableObject {
                         }
                     }
                     
-                    // 필터 목록을 고정
-                    let fixedOrder: [String] = ["전체", "메인메뉴", "서브메뉴", "음료"]
-                    self.menuFilters = fixedOrder.filter { filters.contains($0) }
+                    // 우선순위로 카테고리 표시
+                    let menuCategory = ["전체", "메인메뉴", "서브메뉴", "커피", "음료", "디저트", "기타"]
+                    
+                    // 필터 목록을 우선순위에 따라 정렬
+                    self.menuFilters = Array(filters).sorted {
+                        (menuCategory.firstIndex(of: $0) ?? Int.max) < (menuCategory.firstIndex(of: $1) ?? Int.max)
+                    }
                 }
             }
     }

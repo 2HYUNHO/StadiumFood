@@ -36,6 +36,7 @@ struct NoticeListView: View {
         .navigationBarBackButtonHidden()
         .listStyle(.plain)
         .navigationTitle("공지사항")
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             viewModel.fetchNotices()
         }

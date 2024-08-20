@@ -46,7 +46,7 @@ struct MenuInfoView: View {
                 }
                 .padding(.leading)
             }
-            .scrollDisabled(true)
+            .padding(.vertical, 5)
             
             // 메뉴 리스트 표시
             if restaurant.foodCategory == "편의점" {
@@ -87,7 +87,7 @@ struct MenuInfoView: View {
                             MenuItemView(menuItem: menuItem)
                         }
                     }
-                    .padding()
+                    .padding(.horizontal)
                 }
             }
             Spacer()

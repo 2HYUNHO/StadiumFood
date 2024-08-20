@@ -55,7 +55,6 @@ struct HomeView: View {
             .toolbarBackground(Color(hex: 0xC54D51), for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(.hidden)
-            
         }
         .tabViewStyle(PageTabViewStyle())
     }

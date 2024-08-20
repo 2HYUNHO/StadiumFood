@@ -32,6 +32,7 @@ struct NoticeDetailView: View {
         }
         .navigationTitle("공지사항")
         .navigationBarBackButtonHidden()
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {

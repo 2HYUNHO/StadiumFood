@@ -45,7 +45,7 @@ struct RestaurantListView: View {
                 Text(restaurant.foodCategory)
                     .font(.caption)
             }
-            .padding(.vertical, 15)
+//            .padding(.vertical, 15)
             
             Spacer()
         }

@@ -49,7 +49,7 @@ struct StadiumView: View {
                     }
                     .padding(.leading)
                 }
-                .scrollDisabled(true)
+                .padding(.vertical, 5)
                 
                 // 가게 리스트
                 TabView(selection: $selectedFloor) {

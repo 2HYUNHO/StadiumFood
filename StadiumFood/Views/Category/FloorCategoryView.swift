@@ -13,28 +13,29 @@ struct FloorCategoryView: View {
     var stadium: FloorCategoryModel.Stadium
     
     var body: some View {
-        HStack {
-            ForEach(stadium.floors, id: \.self) { floorCategory in
-                Button {
-                    selectedCategory = floorCategory
-                } label: {
-                    VStack {
-                        Text(floorCategory.rawValue)
-                            .font(.headline)
-                            .foregroundColor(selectedCategory == floorCategory ? .black : Color(.lightGray))
-                            .frame(maxWidth: .infinity)
-                        if selectedCategory == floorCategory {
-                            Capsule()
-                                .foregroundColor(.black)
-                                .frame(height: 2)
-                                .matchedGeometryEffect(id: "category", in: animation)
+        VStack(spacing: 0) {
+            HStack {
+                ForEach(stadium.floors, id: \.self) { floorCategory in
+                    Button {
+                        selectedCategory = floorCategory
+                    } label: {
+                        VStack {
+                            Text(floorCategory.rawValue)
+                                .font(.headline)
+                                .foregroundColor(selectedCategory == floorCategory ? .black : Color(.lightGray))
+                                .frame(maxWidth: .infinity)
+                            if selectedCategory == floorCategory {
+                                Capsule()
+                                    .foregroundColor(.black)
+                                    .frame(height: 2)
+                                    .matchedGeometryEffect(id: "category", in: animation)
+                            }
                         }
                     }
                 }
             }
+            
+            Divider()
         }
-        Divider()
-            .padding(.top, -11)
-        
     }
 }
