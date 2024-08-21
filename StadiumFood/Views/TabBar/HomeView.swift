@@ -32,7 +32,7 @@ struct HomeView: View {
                 
                 // 광고
                 GADBanner()
-                    .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
+                    .frame(width: UIScreen.main.bounds.width, height: GADLandscapeAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
             }
             .navigationBarTitleDisplayMode(.inline)
             
